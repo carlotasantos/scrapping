@@ -26,6 +26,6 @@ jobs:
       - run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add data/imdb.json logs/imdb.log
+          git add data/ai_news.json logs/ai_news.log
           git commit -m "auto update" || echo "no changes"
           git push
