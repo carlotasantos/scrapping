@@ -413,7 +413,14 @@ def scrape(max_pages=MAX_PAGES):
     logging.info("Start scraping SAPO AI news")
 
     scraped_at = datetime.now(timezone.utc).isoformat()
-    articles = []
+    existing_articles = load_json()
+    existing_by_url = {
+        article["url"]: article
+        for article in existing_articles
+        if article.get("url")
+    }
+    existing_urls = [article.get("url") for article in existing_articles]
+    listed_articles = []
     seen_urls = set()
 
     for page in range(1, max_pages + 1):
@@ -441,11 +448,53 @@ def scrape(max_pages=MAX_PAGES):
         if not new_articles:
             break
 
-        articles.extend(enrich_article_content(article) for article in new_articles)
+        listed_articles.extend(new_articles)
+
+    listed_urls = [article["url"] for article in listed_articles]
+    if listed_urls == existing_urls:
+        logging.info("Sem alteracoes nas noticias; JSON mantido com %s noticias", len(existing_articles))
+        return existing_articles
+
+    articles = []
+    new_count = 0
+    reused_count = 0
+
+    for article in listed_articles:
+        existing_article = existing_by_url.get(article["url"])
+        if existing_article:
+            merged_article = existing_article.copy()
+            merged_article.update({
+                "id": article["id"],
+                "title": article["title"],
+                "source": article["source"],
+                "category": article["category"],
+                "tag": article["tag"],
+                "url": article["url"],
+                "image_url": article["image_url"],
+                "page": article["page"],
+            })
+            articles.append(merged_article)
+            reused_count += 1
+        else:
+            articles.append(enrich_article_content(article))
+            new_count += 1
 
     save_json(articles)
-    logging.info("%s noticias guardadas", len(articles))
+    logging.info(
+        "%s noticias guardadas; %s novas, %s reutilizadas",
+        len(articles),
+        new_count,
+        reused_count,
+    )
     return articles
+
+
+def load_json():
+    if not os.path.exists(OUTPUT_FILE):
+        return []
+
+    with open(OUTPUT_FILE, "r", encoding="utf-8") as file:
+        return json.load(file)
 
 
 def save_json(data):
