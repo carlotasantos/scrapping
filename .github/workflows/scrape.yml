@@ -1,4 +1,4 @@
-name: IMDb Scraper
+name: Sapo Scraper
 
 on:
   schedule:
