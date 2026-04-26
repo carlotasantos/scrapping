@@ -3,3 +3,8 @@
 2026-04-26 18:15:49,195 - WARNING - IMDb returned AWS WAF page to requests
 2026-04-26 18:15:49,196 - INFO - Falling back to Selenium
 2026-04-26 18:16:15,043 - INFO - 249 filmes guardados
+2026-04-26 19:39:25,448 - INFO - Start scraping
+2026-04-26 19:39:25,791 - INFO - Requests response: status=202 bytes=1991
+2026-04-26 19:39:25,791 - WARNING - IMDb returned AWS WAF page to requests
+2026-04-26 19:39:25,791 - INFO - Falling back to Selenium
+2026-04-26 19:39:40,998 - INFO - 250 filmes guardados
