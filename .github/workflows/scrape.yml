@@ -1,0 +1,28 @@
+name: IMDb Scraper
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install -r requirements.txt
+
+      - run: python scraper.py
+
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data/imdb.json logs/imdb.log
+          git commit -m "auto update" || echo "no changes"
+          git push
