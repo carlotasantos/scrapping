@@ -2,3 +2,17 @@
 2026-04-26 17:26:39,218 - INFO - 0 filmes guardados
 2026-04-26 17:29:40,290 - INFO - Start scraping
 2026-04-26 17:29:40,433 - INFO - 0 filmes guardados
+2026-04-26 19:04:46,612 - INFO - Start scraping
+2026-04-26 19:04:46,993 - INFO - Requests response: status=202 bytes=1991
+2026-04-26 19:04:46,993 - WARNING - IMDb returned AWS WAF page to requests
+2026-04-26 19:04:46,994 - INFO - Falling back to Selenium
+2026-04-26 19:05:07,192 - INFO - Start scraping
+2026-04-26 19:05:07,440 - INFO - Requests response: status=202 bytes=1991
+2026-04-26 19:05:07,441 - WARNING - IMDb returned AWS WAF page to requests
+2026-04-26 19:05:07,441 - INFO - Falling back to Selenium
+2026-04-26 19:05:15,923 - INFO - 75 filmes guardados
+2026-04-26 19:06:57,148 - INFO - Start scraping
+2026-04-26 19:06:57,450 - INFO - Requests response: status=202 bytes=1991
+2026-04-26 19:06:57,451 - WARNING - IMDb returned AWS WAF page to requests
+2026-04-26 19:06:57,451 - INFO - Falling back to Selenium
+2026-04-26 19:07:06,268 - INFO - 250 filmes guardados
