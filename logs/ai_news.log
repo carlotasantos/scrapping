@@ -120,3 +120,19 @@
 2026-04-26 22:36:48,980 - INFO - Fetched article: status=200 bytes=100519 url=https://sapo.pt/artigo/inteligencia-artificial-nao-ajudou-quase-nada-no-combate-a-covid-19-apontam-estudos-ha-casos-em-que-pode-ter-prejudicado-os-pacientes-72c2-68a49bf22765c02fac7175b4
 2026-04-26 22:36:54,014 - INFO - Fetched article: status=200 bytes=87103 url=https://sapo.pt/artigo/turismo-abraca-inteligencia-artificial-e-realidade-virtual-35c3-689c9cce4e03edf364fe31cd
 2026-04-26 22:36:59,131 - INFO - 106 noticias guardadas; 106 novas, 0 reutilizadas
+2026-04-26 23:30:40,397 - INFO - Start scraping SAPO AI news
+2026-04-26 23:30:41,384 - INFO - Fetched page 1: status=200 bytes=114313
+2026-04-26 23:30:41,418 - INFO - Page 1: 18 articles, 18 new
+2026-04-26 23:30:42,163 - INFO - Fetched page 2: status=200 bytes=106992
+2026-04-26 23:30:42,194 - INFO - Page 2: 18 articles, 18 new
+2026-04-26 23:30:43,099 - INFO - Fetched page 3: status=200 bytes=108780
+2026-04-26 23:30:43,130 - INFO - Page 3: 18 articles, 18 new
+2026-04-26 23:30:43,944 - INFO - Fetched page 4: status=200 bytes=109384
+2026-04-26 23:30:43,973 - INFO - Page 4: 18 articles, 18 new
+2026-04-26 23:30:45,353 - INFO - Fetched page 5: status=200 bytes=106480
+2026-04-26 23:30:45,385 - INFO - Page 5: 18 articles, 18 new
+2026-04-26 23:30:46,206 - INFO - Fetched page 6: status=200 bytes=103492
+2026-04-26 23:30:46,234 - INFO - Page 6: 16 articles, 16 new
+2026-04-26 23:30:46,733 - INFO - Fetched page 7: status=404 bytes=25367
+2026-04-26 23:30:46,734 - INFO - Page 7 returned 404; stopping
+2026-04-26 23:30:46,734 - INFO - Sem alteracoes nas noticias; JSON mantido com 106 noticias
