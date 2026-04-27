@@ -1,0 +1,218 @@
+2026-04-26 22:34:24,362 - INFO - Start scraping SAPO AI news
+2026-04-26 22:34:24,900 - INFO - Fetched page 1: status=200 bytes=114313
+2026-04-26 22:34:24,927 - INFO - Page 1: 18 articles, 18 new
+2026-04-26 22:34:25,742 - INFO - Fetched page 2: status=200 bytes=106992
+2026-04-26 22:34:25,766 - INFO - Page 2: 18 articles, 18 new
+2026-04-26 22:34:26,691 - INFO - Fetched page 3: status=200 bytes=108780
+2026-04-26 22:34:26,718 - INFO - Page 3: 18 articles, 18 new
+2026-04-26 22:34:27,531 - INFO - Fetched page 4: status=200 bytes=109384
+2026-04-26 22:34:27,555 - INFO - Page 4: 18 articles, 18 new
+2026-04-26 22:34:28,322 - INFO - Fetched page 5: status=200 bytes=106480
+2026-04-26 22:34:28,348 - INFO - Page 5: 18 articles, 18 new
+2026-04-26 22:34:29,114 - INFO - Fetched page 6: status=200 bytes=103492
+2026-04-26 22:34:29,136 - INFO - Page 6: 16 articles, 16 new
+2026-04-26 22:34:29,865 - INFO - Fetched page 7: status=404 bytes=25367
+2026-04-26 22:34:29,866 - INFO - Page 7 returned 404; stopping
+2026-04-26 22:34:30,401 - INFO - Fetched article: status=200 bytes=182343 url=https://executivedigest.sapo.pt/entre-o-apocalipse-e-o-exagero-afinal-a-inteligencia-artificial-pode-mesmo-sair-do-controlo/
+2026-04-26 22:34:30,988 - INFO - Fetched article: status=200 bytes=82336 url=https://sapo.pt/artigo/ia-para-todos-diferenciacao-para-poucos-69e89428d62a8f85c03723df
+2026-04-26 22:34:37,893 - INFO - Fetched article: status=200 bytes=136367 url=https://sapo.pt/artigo/jovens-aderem-as-compras-com-inteligencia-artificial-mas-persistem-duvidas-sobre-confianca-revela-estudo-69e5e80fc90370de892b4892
+2026-04-26 22:34:38,460 - INFO - Fetched article: status=200 bytes=136750 url=https://sapo.pt/artigo/trabalhadores-usam-camaras-na-cabeca-para-treinar-ia-a-tecnologia-pode-estar-a-aprender-a-substitui-los-69e1f395c90370de89917cf6
+2026-04-26 22:34:39,060 - INFO - Fetched article: status=200 bytes=83426 url=https://sapo.pt/artigo/quando-a-ia-potencia-o-valor-do-servico-69de66989ef663cf74f6a061
+2026-04-26 22:34:39,643 - INFO - Fetched article: status=200 bytes=101286 url=https://sapo.pt/artigo/ha-uma-procura-significativa-por-solucoes-de-integracao-de-inteligencia-artificial-69d758d985f2c80b9ff6178e
+2026-04-26 22:34:40,139 - INFO - Fetched article: status=200 bytes=99140 url=https://sapo.pt/artigo/o-noivado-entre-portugal-e-a-inteligencia-artificial-generativa-69d6349109dc06701b300103
+2026-04-26 22:34:40,740 - INFO - Fetched article: status=200 bytes=84011 url=https://sapo.pt/artigo/a-tecnologia-nao-substitui-pessoas-amplifica-as-69cd280f4aa553d6213cf4f2
+2026-04-26 22:34:41,310 - INFO - Fetched article: status=200 bytes=92733 url=https://sapo.pt/artigo/atlantica-lanca-formacao-executiva-em-ciberseguranca-e-inteligencia-artificial-para-lideres-empresariais-69cbdee449c1763c64f7aaff
+2026-04-26 22:34:41,904 - INFO - Fetched article: status=200 bytes=100286 url=https://sapo.pt/artigo/privacidade-reforcada-criatividade-sem-limites-e-tarefas-simplificadas-o-que-esperar-deste-novo-smartphone-com-inteligencia-artificial-69bd2c4f0740097e2d778321
+2026-04-26 22:34:42,396 - INFO - Fetched article: status=200 bytes=84846 url=https://sapo.pt/artigo/a-contratacao-publica-entrou-na-era-da-inteligencia-artificial-69c125b1fed9c03ea1c54215
+2026-04-26 22:34:42,568 - INFO - Fetched article: status=200 bytes=338230 url=https://tek.sapo.pt/opiniao/artigos/a-concessao-de-credito-na-era-digital-tecnologia-automacao-e-responsabilidade-humana/
+2026-04-26 22:34:43,188 - INFO - Fetched article: status=200 bytes=96193 url=https://sapo.pt/artigo/aliada-ou-inimiga-5-designers-nacionais-falam-sobre-a-inteligencia-artificial-na-moda-69bbeaea9f48fec14fe40d0a
+2026-04-26 22:34:44,450 - INFO - Fetched article: status=200 bytes=170417 url=https://pplware.sapo.pt/inteligencia-artificial/e-se-o-seu-patrao-pudesse-medir-a-sua-simpatia-burger-king-testa-headset-com-ia-que-podera/
+2026-04-26 22:34:45,105 - INFO - Fetched article: status=200 bytes=92275 url=https://sapo.pt/artigo/a-inteligencia-artificial-nao-nos-rouba-humanidade-obriga-nos-a-usa-la-melhor-69b303089009c4d561dfe8f1
+2026-04-26 22:34:45,600 - INFO - Fetched article: status=200 bytes=95179 url=https://sapo.pt/artigo/a-ditadura-moderna-nao-proibe-escolhe-por-nos-69b2fec4214698aa91d3ce81
+2026-04-26 22:34:46,178 - INFO - Fetched article: status=200 bytes=105097 url=https://sapo.pt/artigo/fledge-a-evolucao-do-nocode-institute-para-formar-talento-digital-na-era-da-inteligencia-artificial-69b1b96d3d53858f44d4f177
+2026-04-26 22:34:46,672 - INFO - Fetched article: status=200 bytes=86069 url=https://sapo.pt/artigo/inteligencia-artificial-em-saude-inovacao-com-responsabilidade-etica-69b16af73bf69e952125016e
+2026-04-26 22:34:47,151 - INFO - Fetched article: status=200 bytes=95175 url=https://sapo.pt/artigo/entre-o-estado-a-familia-e-o-algoritmo-69b15ce5860c6d52a06a5787
+2026-04-26 22:34:47,769 - INFO - Fetched article: status=200 bytes=124227 url=https://jornaleconomico.sapo.pt/noticias/a-ia-introduz-velocidade-e-o-humano-da-credibilidade/
+2026-04-26 22:34:48,370 - INFO - Fetched article: status=200 bytes=131555 url=https://sapo.pt/artigo/youtube-expande-funcionalidade-para-detetar-conteudo-ia-69b07d6827f308e9b19ca19d
+2026-04-26 22:34:48,894 - INFO - Fetched article: status=200 bytes=83248 url=https://sapo.pt/artigo/nunca-utilize-isto-para-se-consultar-quem-esta-do-outro-lado-69ab1db5809843ebb7965565
+2026-04-26 22:34:49,372 - INFO - Fetched article: status=200 bytes=85834 url=https://sapo.pt/artigo/a-arte-feita-por-ia-veio-para-ficar-o-que-queremos-que-ela-seja-69a1abef193466e805c2aac0
+2026-04-26 22:34:49,872 - INFO - Fetched article: status=200 bytes=102362 url=https://sapo.pt/artigo/a-posicao-geografica-de-portugal-e-uma-vantagem-competitiva-nas-autoestradas-de-dados-69a1a4b6193466e805c01e9d
+2026-04-26 22:34:50,473 - INFO - Fetched article: status=200 bytes=90061 url=https://sapo.pt/artigo/retirar-o-cancro-conservar-o-rim-e-dar-vida-ao-doente-o-futuro-da-uro-oncologia-traz-inovacao-tecnologica-e-leque-de-especialistas-a-lisboa-69a076cd664d67855262d585
+2026-04-26 22:34:51,023 - INFO - Fetched article: status=200 bytes=175832 url=https://executivedigest.sapo.pt/wall-street-fecha-em-alta-confiante-antes-da-divulgacao-dos-resultados-da-nvidia/
+2026-04-26 22:34:51,527 - INFO - Fetched article: status=200 bytes=83639 url=https://sapo.pt/artigo/de-quem-e-a-responsabilidade-na-lacuna-de-competencias-em-ia-699f014839be56b17d50784e
+2026-04-26 22:34:52,037 - INFO - Fetched article: status=200 bytes=105014 url=https://sapo.pt/artigo/tarefas-domesticas-versao-2-0-delegar-a-ia-a-lavagem-da-roupa-ou-continuar-a-suar-699ed1f2441d32e8220641a0
+2026-04-26 22:34:52,540 - INFO - Fetched article: status=200 bytes=102900 url=https://sapo.pt/artigo/numa-app-de-encontros-e-essencial-provar-que-e-uma-pessoa-real-mesmo-que-nao-queira-reveler-a-sua-identidade-nos-tornamo-lo-possivel-699c966913624b792fd6ff2b
+2026-04-26 22:34:53,127 - INFO - Fetched article: status=200 bytes=94436 url=https://sapo.pt/artigo/a-ia-liberta-a-criatividade-699c801b13624b792fcf2d24
+2026-04-26 22:34:53,632 - INFO - Fetched article: status=200 bytes=135335 url=https://sapo.pt/artigo/estara-o-ser-humano-a-perder-a-capacidade-de-pensar-a-ameaca-real-da-inteligencia-artificial-na-tomada-de-decisoes-699c6de262a5144c5ff31fb3
+2026-04-26 22:34:54,263 - INFO - Fetched article: status=200 bytes=128111 url=https://jornaleconomico.sapo.pt/noticias/2026-o-ano-em-que-a-inteligencia-acelera-mais-depressa-do-que-nos/
+2026-04-26 22:34:55,366 - INFO - Fetched article: status=200 bytes=157972 url=https://pplware.sapo.pt/inteligencia-artificial/oppo-junta-se-a-google-cloud-para-criar-a-proxima-geracao-de-sistema-operativo-de-ia/
+2026-04-26 22:34:55,961 - INFO - Fetched article: status=200 bytes=96728 url=https://sapo.pt/artigo/hoje-e-relativamente-facil-apresentar-conteudos-manipulados-como-se-fossem-verdadeiros-69934513bd81db2ac8b5caa8
+2026-04-26 22:34:56,456 - INFO - Fetched article: status=200 bytes=83675 url=https://sapo.pt/artigo/estara-a-automacao-a-substituir-as-skills-humanas-698f23f86480661f46ef6ab2
+2026-04-26 22:34:56,943 - INFO - Fetched article: status=200 bytes=84567 url=https://sapo.pt/artigo/a-verdadeira-transformacao-digital-e-inclusiva-698a35da857341060cd1740f
+2026-04-26 22:34:57,582 - INFO - Fetched article: status=200 bytes=333837 url=https://hrportugal.sapo.pt/desafios-e-prioridades-para-2026-jose-luis-carvalho-director-de-gestao-de-pessoas-da-cuf-mal-preparados-no-trabalho-remoto-versus-o-retorno-ao-escritorio/
+2026-04-26 22:34:58,487 - INFO - Fetched article: status=200 bytes=343213 url=https://eco.sapo.pt/opiniao/do-carimbo-aos-dados-a-revolucao-silenciosa-no-juridico/
+2026-04-26 22:34:59,075 - INFO - Fetched article: status=200 bytes=135831 url=https://sapo.pt/artigo/inteligencia-artificial-cria-espelhos-virtuais-para-que-pessoas-cegas-possam-avaliar-a-sua-propria-aparencia-6982277a2b122b06ee97a506
+2026-04-26 22:34:59,590 - INFO - Fetched article: status=200 bytes=101246 url=https://sapo.pt/artigo/swatch-lanca-inteligencia-artistica-que-permite-a-qualquer-pessoa-criar-relogios-unicos-e-personalizados-69808dc3f7f65d9e734911f8
+2026-04-26 22:35:00,202 - INFO - Fetched article: status=200 bytes=138947 url=https://sapo.pt/artigo/as-cinco-tendencias-que-vao-marcar-o-setor-dos-pagamentos-em-2026-segundo-a-visa-697763763954dc7e93613660
+2026-04-26 22:35:01,344 - INFO - Fetched article: status=200 bytes=98125 url=https://sapo.pt/artigo/ia-autonoma-ja-entrou-nas-empresas-mas-a-arquitetura-ainda-nao-a-acompanhou-6977187f1b2f4b1aa6feca56
+2026-04-26 22:35:01,848 - INFO - Fetched article: status=200 bytes=98503 url=https://sapo.pt/artigo/como-a-inteligencia-artificial-esta-a-mudar-o-marketing-e-o-seo-sem-que-muitos-se-apercebam-69715748622068f3ea687036
+2026-04-26 22:35:02,343 - INFO - Fetched article: status=200 bytes=93609 url=https://sapo.pt/artigo/voos-baratos-com-ia-nao-se-deixe-enganar-pelas-promessas-das-redes-sociais-696e80d39f7c3f6ffb96a7d3
+2026-04-26 22:35:02,844 - INFO - Fetched article: status=200 bytes=135932 url=https://sapo.pt/artigo/eficiencia-de-custos-e-autenticidade-humana-dominam-o-marketing-em-2026-696a574728022cce3a4b1397
+2026-04-26 22:35:03,349 - INFO - Fetched article: status=200 bytes=83606 url=https://sapo.pt/artigo/inteligencia-verificavel-o-futuro-da-ia-exige-uma-base-de-verdade-6967d0dea4136acbb7a217ea
+2026-04-26 22:35:03,849 - INFO - Fetched article: status=200 bytes=84131 url=https://sapo.pt/artigo/2026-a-grande-mudanca-nao-e-tecnologica-e-mental-6966535cdc21df580169a9b8
+2026-04-26 22:35:04,342 - INFO - Fetched article: status=200 bytes=98116 url=https://sapo.pt/artigo/projeto-portugues-de-rastreio-oftalmologico-premiado-antecipa-novos-ganhos-na-prevencao-da-cegueira-6964bde696e34e9d6612ad42
+2026-04-26 22:35:04,837 - INFO - Fetched article: status=200 bytes=97621 url=https://sapo.pt/artigo/como-a-ia-pode-ajudar-os-lideres-a-gerir-conflitos-no-local-de-trabalho-695fbfe02b17549cbc7fe7ca
+2026-04-26 22:35:05,354 - INFO - Fetched article: status=200 bytes=97901 url=https://sapo.pt/artigo/perguntei-a-inteligencia-artificial-como-ve-2026-a-resposta-foi-mais-incomoda-do-que-esperava-695e83b01e204725c21e9906
+2026-04-26 22:35:06,082 - INFO - Fetched article: status=200 bytes=269613 url=https://eco.sapo.pt/opiniao/2026-nao-sera-confortavel-e-e-melhor-aceitarmos-isso/
+2026-04-26 22:35:06,639 - INFO - Fetched article: status=200 bytes=99095 url=https://sapo.pt/artigo/perguntamos-a-inteligencia-artificial-quais-serao-os-melhores-destinos-de-2026-ha-surpresas-nas-26-escolhas-6952d0ff4ab6fc0a2e60cbe8
+2026-04-26 22:35:07,136 - INFO - Fetched article: status=200 bytes=93031 url=https://sapo.pt/artigo/2025-o-ano-em-que-descobrimos-que-a-ia-nos-pode-tornar-mais-humanos-694aec292c7b75270a9fce20
+2026-04-26 22:35:07,757 - INFO - Fetched article: status=200 bytes=124363 url=https://jornaleconomico.sapo.pt/noticias/inovacao-de-diferencial-a-condicao-de-lideranca/
+2026-04-26 22:35:08,340 - INFO - Fetched article: status=200 bytes=105403 url=https://sapo.pt/artigo/luis-guimaraes-como-a-ia-esta-a-reinventar-o-natal-os-saldos-e-a-experiencia-do-consumidor-694a7ba48ad7c85ccc8eb5b9
+2026-04-26 22:35:08,844 - INFO - Fetched article: status=200 bytes=87207 url=https://sapo.pt/artigo/inteligencia-artificial-um-novo-olhar-sobre-a-fertilidade-694998f64ab6fc0a2ebf276d
+2026-04-26 22:35:09,323 - INFO - Fetched article: status=200 bytes=99548 url=https://sapo.pt/artigo/projeto-de-realidade-virtual-para-reduzir-a-ansiedade-em-doentes-com-hipertensao-pulmonar-vence-premio-de-saude-69452ff48bfde616b7b85ed7
+2026-04-26 22:35:10,045 - INFO - Fetched article: status=200 bytes=139369 url=https://magg.sapo.pt/viagens/artigos/fomos-a-nova-iorque-perceber-como-e-que-a-google-pos-a-ia-a-marcar-nos-viagens-baratas
+2026-04-26 22:35:10,775 - INFO - Fetched article: status=200 bytes=175494 url=https://pplware.sapo.pt/gadgets/hardware/nvidia-convenceu-trump-a-vender-as-suas-h200-na-china-agora-a-china-nao-quer-compra-las/
+2026-04-26 22:35:11,438 - INFO - Fetched article: status=200 bytes=100805 url=https://sapo.pt/artigo/ia-no-turismo-a-disrupcao-ja-chegou-e-esta-a-mudar-o-trabalho-dos-agentes-de-viagens-693077b898275f18cc130759
+2026-04-26 22:35:12,053 - INFO - Fetched article: status=200 bytes=99827 url=https://sapo.pt/artigo/turismo-2035-inteligencia-artificial-robotica-e-metaverso-entre-as-tendencias-apresentadas-no-50-congresso-da-apavt-692fc2692ef61f9a97282b9f
+2026-04-26 22:35:13,179 - INFO - Fetched article: status=200 bytes=152511 url=https://pplware.sapo.pt/internet/inteligencia-artificial-conheca-os-tipos-de-deep-learning/
+2026-04-26 22:35:13,714 - INFO - Fetched article: status=200 bytes=84091 url=https://sapo.pt/artigo/para-la-da-genai-o-verdadeiro-impacto-esta-nos-agentes-6925f7e7ed6a86b2aee8bb2f
+2026-04-26 22:35:14,211 - INFO - Fetched article: status=200 bytes=85713 url=https://sapo.pt/artigo/portugal-2030-a-tecnologia-como-pilar-da-competitividade-e-da-soberania-digital-6925f444ed6a86b2aee76377
+2026-04-26 22:35:14,694 - INFO - Fetched article: status=200 bytes=94868 url=https://sapo.pt/artigo/bot-farms-propaganda-e-a-erosao-silenciosa-do-espaco-publico-digital-6924bfc7dcc21b3da0251a7b
+2026-04-26 22:35:15,244 - INFO - Fetched article: status=200 bytes=151589 url=https://pplware.sapo.pt/inteligencia-artificial/inteligencia-artificial-saiba-o-que-e-deep-learning/
+2026-04-26 22:35:15,787 - INFO - Fetched article: status=200 bytes=93298 url=https://sapo.pt/artigo/porque-e-que-os-ciberataques-mais-destrutivos-continuam-a-ser-os-mais-simples-6920daba693cd613f27ab886
+2026-04-26 22:35:16,505 - INFO - Fetched article: status=200 bytes=135637 url=https://sapo.pt/artigo/geracao-z-esta-a-redefinir-o-natal-esta-e-a-forma-como-as-marcas-podem-sobreviver-691f087b76df002f90417e9f
+2026-04-26 22:35:17,006 - INFO - Fetched article: status=200 bytes=86436 url=https://sapo.pt/artigo/a-precisao-da-vitoria-de-samotracia-na-era-da-inteligencia-artificial-691e173d3c65f1a7b80c3fda
+2026-04-26 22:35:17,551 - INFO - Fetched article: status=200 bytes=146389 url=https://sapo.pt/artigo/na-era-do-algoritmo-o-discurso-moderado-so-passa-se-feito-por-alguem-espetacularmente-carismatico-691785f152458d50e6ee09d8
+2026-04-26 22:35:18,085 - INFO - Fetched article: status=200 bytes=85171 url=https://sapo.pt/artigo/duas-cabecas-pensam-melhor-do-que-uma-6917154bf7bc778b43fa48e4
+2026-04-26 22:35:18,698 - INFO - Fetched article: status=200 bytes=122632 url=https://jornaleconomico.sapo.pt/noticias/a-historia-e-o-poder-da-narrativa/
+2026-04-26 22:35:19,162 - INFO - Fetched article: status=200 bytes=98803 url=https://sapo.pt/artigo/a-tools-for-humanity-propoe-uma-abordagem-diferente-provar-que-alguem-e-um-ser-humano-unico-sem-recolher-dados-pessoais-69023bea4029307cc4b220e0
+2026-04-26 22:35:19,655 - INFO - Fetched article: status=200 bytes=90758 url=https://sapo.pt/artigo/portugal-precisa-das-mulheres-na-transformacao-digital-690237d2b9ae63d9e043b226
+2026-04-26 22:35:20,143 - INFO - Fetched article: status=200 bytes=82427 url=https://sapo.pt/artigo/ia-no-recrutamento-sera-que-estamos-mesmo-preparados-6902593bb9ae63d9e04d099a
+2026-04-26 22:35:20,741 - INFO - Fetched article: status=200 bytes=264107 url=https://eco.sapo.pt/opiniao/a-era-do-imprevisivel-quando-o-preditivo-se-engana-com-confianca/
+2026-04-26 22:35:21,396 - INFO - Fetched article: status=200 bytes=158361 url=https://pplware.sapo.pt/internet/itsm-porque-manter-os-departamentos-de-ti-organizados-tem-de-ser-uma-prioridade/
+2026-04-26 22:35:21,940 - INFO - Fetched article: status=200 bytes=93310 url=https://sapo.pt/artigo/transformacao-digital-como-a-agilidade-e-a-tecnologia-estao-a-redefinir-os-negocios-68f1ea02fa406fe9df9466b2
+2026-04-26 22:35:22,441 - INFO - Fetched article: status=200 bytes=99319 url=https://sapo.pt/artigo/firmo-lanca-o-primeiro-caderno-com-ia-da-europa-o-futuro-da-escrita-comeca-aqui-e-continua-a-ser-feito-em-papel-68e3c188770a864fe6e70235
+2026-04-26 22:35:22,931 - INFO - Fetched article: status=200 bytes=96510 url=https://sapo.pt/artigo/portugal-de-selo-de-hospitalidade-a-sinonimo-de-hub-inovador-global-68e556deda6ac7fb2bc342bd
+2026-04-26 22:35:23,426 - INFO - Fetched article: status=200 bytes=83929 url=https://sapo.pt/artigo/inteligencia-artificial-na-medicina-veterinaria-transformar-o-futuro-sem-perder-a-essencia-do-cuidado-68e555b13dc78368a2b95503
+2026-04-26 22:35:23,918 - INFO - Fetched article: status=200 bytes=96894 url=https://sapo.pt/artigo/o-futuro-do-recrutamento-sera-definido-pela-forma-como-tratamos-os-mais-jovens-68d3c1beba33a196b1018954
+2026-04-26 22:35:24,385 - INFO - Fetched article: status=200 bytes=104236 url=https://sapo.pt/artigo/francisco-joao-e-salvador-criaram-a-upgraide-em-janeiro-e-ja-faturam-300-mil-euros-queremos-ser-uma-verdadeira-fabrica-de-founders-atrair-os-melhores-e-resolver-problemas-reais-68cc4d53b6cbcc619baa52d7
+2026-04-26 22:35:24,900 - INFO - Fetched article: status=200 bytes=90224 url=https://sapo.pt/artigo/a-nova-ministra-t-ia-68cc52b7b6cbcc619baaffdc
+2026-04-26 22:35:25,485 - INFO - Fetched article: status=200 bytes=93312 url=https://sapo.pt/artigo/a-ia-ja-faz-parte-da-mala-dos-portugueses-na-hora-de-viajar-e-a-culpa-e-da-geracao-z-68cabdaeb7d4d5dab159f73d
+2026-04-26 22:35:25,945 - INFO - Fetched article: status=200 bytes=94820 url=https://sapo.pt/artigo/inteligencia-artificial-generativa-o-deja-vu-da-inovacao-tecnologica-68c883177f2cd2a48e021cb8
+2026-04-26 22:35:26,432 - INFO - Fetched article: status=200 bytes=117413 url=https://sapo.pt/artigo/os-data-visionaries-olham-de-forma-diferente-os-desafios-da-sociedade-e-vao-ajudar-a-resolve-los-68ba29bc5831e4831cbb514f
+2026-04-26 22:35:26,929 - INFO - Fetched article: status=200 bytes=90998 url=https://sapo.pt/artigo/healthcare-marketing-na-era-da-inteligencia-artificial-desafio-ou-reinvencao-68adb2d84db0a1bfc23bac27
+2026-04-26 22:35:27,381 - INFO - Fetched article: status=200 bytes=89601 url=https://sapo.pt/artigo/tecnologia-e-talento-como-a-formacao-esta-a-moldar-o-futuro-do-trabalho-10dc-68adc7391b42150e60997836
+2026-04-26 22:35:54,276 - INFO - Fetched article: status=200 bytes=127034 url=https://sapo.pt/artigo/a-inteligencia-artificial-escolheu-o-melhor-destino-de-verao-na-europa-e5be-68adc5b54db0a1bfc244afad
+2026-04-26 22:35:59,518 - INFO - Fetched article: status=200 bytes=93514 url=https://sapo.pt/artigo/como-e-que-a-inteligencia-artificial-esta-a-revolucionar-a-colonoscopia-6989b8242c351f5f89ca879e
+2026-04-26 22:36:00,009 - INFO - Fetched article: status=200 bytes=95685 url=https://sapo.pt/artigo/cloud-e-inteligencia-artificial-na-luta-contra-o-parkinson-6989b839088bb4903a123ddd
+2026-04-26 22:36:00,496 - INFO - Fetched article: status=200 bytes=93712 url=https://sapo.pt/artigo/ensaios-clinicos-e-inteligencia-artificial-acelerar-a-inovacao-para-um-portugal-mais-inclusivo-6989b9f0efe47e57b74aa24e
+2026-04-26 22:36:00,956 - INFO - Fetched article: status=200 bytes=119554 url=https://sapo.pt/artigo/a-inteligencia-artificial-escolheu-os-melhores-destinos-de-verao-na-europa-para-2025-1805-689cbf5f5f5d4e0fd11319f3
+2026-04-26 22:36:05,982 - INFO - Fetched article: status=200 bytes=98997 url=https://sapo.pt/artigo/ferramenta-baseada-em-inteligencia-artifical-mede-agressividade-do-cancro-e-abre-caminho-para-novas-terapias-69c54a3d5626666525838e0a
+2026-04-26 22:36:06,473 - INFO - Fetched article: status=200 bytes=92159 url=https://sapo.pt/artigo/como-a-inovacao-no-diagnostico-pode-transformar-o-acesso-aos-cuidados-de-saude-6989ba68dedd7e970e0c7be0
+2026-04-26 22:36:06,971 - INFO - Fetched article: status=200 bytes=152537 url=https://sapo.pt/artigo/a-inteligencia-artificial-escolheu-este-e-o-destino-mais-bonito-do-mundo-b544-689cbe744e03edf3640df24f
+2026-04-26 22:36:11,963 - INFO - Fetched article: status=200 bytes=118744 url=https://sapo.pt/artigo/os-15-destinos-que-a-inteligencia-artificial-recomenda-visitar-em-2025-fd91-689cbdb95f5d4e0fd112108d
+2026-04-26 22:36:19,254 - INFO - Fetched article: status=200 bytes=84740 url=https://sapo.pt/artigo/sena-z-a-primeira-influencer-de-viagens-criada-com-inteligencia-artificial-9253-689cbaba5f5d4e0fd1103c46
+2026-04-26 22:36:28,278 - INFO - Fetched article: status=200 bytes=85942 url=https://sapo.pt/artigo/quer-declarar-se-a-sua-cara-metade-e-nao-sabe-como-o-chatgpt-ajuda-69c4087e75f3000f75f86c7f
+2026-04-26 22:36:28,762 - INFO - Fetched article: status=200 bytes=105011 url=https://sapo.pt/artigo/inteligencia-artificial-escolheu-dos-destinos-que-serao-tendencia-em-2024-e-o-resultado-e-surpreendente-0c37-689cb9174e03edf3640af68d
+2026-04-26 22:36:33,764 - INFO - Fetched article: status=200 bytes=98048 url=https://sapo.pt/artigo/a-ia-pode-destruir-a-nossa-democracia-se-nos-deixarmos-iludir-por-ela-2937-68a49cf120291f011ad8f438
+2026-04-26 22:36:38,764 - INFO - Fetched article: status=200 bytes=91235 url=https://sapo.pt/artigo/estudo-propoe-uso-de-inteligencia-artificial-no-diagnostico-do-transtorno-do-espectro-autista-31fd-68b1ebe934aef4aa99705956
+2026-04-26 22:36:43,966 - INFO - Fetched article: status=200 bytes=113170 url=https://sapo.pt/artigo/a-criacao-virou-se-contra-o-criador-industria-do-software-sera-a-mais-afetada-pela-inteligencia-artificial-aacb-68a49cde2765c02fac71ea74
+2026-04-26 22:36:48,980 - INFO - Fetched article: status=200 bytes=100519 url=https://sapo.pt/artigo/inteligencia-artificial-nao-ajudou-quase-nada-no-combate-a-covid-19-apontam-estudos-ha-casos-em-que-pode-ter-prejudicado-os-pacientes-72c2-68a49bf22765c02fac7175b4
+2026-04-26 22:36:54,014 - INFO - Fetched article: status=200 bytes=87103 url=https://sapo.pt/artigo/turismo-abraca-inteligencia-artificial-e-realidade-virtual-35c3-689c9cce4e03edf364fe31cd
+2026-04-26 22:36:59,131 - INFO - 106 noticias guardadas; 106 novas, 0 reutilizadas
+2026-04-26 23:30:40,397 - INFO - Start scraping SAPO AI news
+2026-04-26 23:30:41,384 - INFO - Fetched page 1: status=200 bytes=114313
+2026-04-26 23:30:41,418 - INFO - Page 1: 18 articles, 18 new
+2026-04-26 23:30:42,163 - INFO - Fetched page 2: status=200 bytes=106992
+2026-04-26 23:30:42,194 - INFO - Page 2: 18 articles, 18 new
+2026-04-26 23:30:43,099 - INFO - Fetched page 3: status=200 bytes=108780
+2026-04-26 23:30:43,130 - INFO - Page 3: 18 articles, 18 new
+2026-04-26 23:30:43,944 - INFO - Fetched page 4: status=200 bytes=109384
+2026-04-26 23:30:43,973 - INFO - Page 4: 18 articles, 18 new
+2026-04-26 23:30:45,353 - INFO - Fetched page 5: status=200 bytes=106480
+2026-04-26 23:30:45,385 - INFO - Page 5: 18 articles, 18 new
+2026-04-26 23:30:46,206 - INFO - Fetched page 6: status=200 bytes=103492
+2026-04-26 23:30:46,234 - INFO - Page 6: 16 articles, 16 new
+2026-04-26 23:30:46,733 - INFO - Fetched page 7: status=404 bytes=25367
+2026-04-26 23:30:46,734 - INFO - Page 7 returned 404; stopping
+2026-04-26 23:30:46,734 - INFO - Sem alteracoes nas noticias; JSON mantido com 106 noticias
+2026-04-27 01:53:47,494 - INFO - Start scraping SAPO AI news
+2026-04-27 01:53:48,727 - INFO - Fetched page 1: status=200 bytes=114313
+2026-04-27 01:53:48,748 - INFO - Page 1: 18 articles, 18 new
+2026-04-27 01:53:49,896 - INFO - Fetched page 2: status=200 bytes=106992
+2026-04-27 01:53:49,915 - INFO - Page 2: 18 articles, 18 new
+2026-04-27 01:53:51,014 - INFO - Fetched page 3: status=200 bytes=108780
+2026-04-27 01:53:51,034 - INFO - Page 3: 18 articles, 18 new
+2026-04-27 01:53:52,104 - INFO - Fetched page 4: status=200 bytes=109384
+2026-04-27 01:53:52,122 - INFO - Page 4: 18 articles, 18 new
+2026-04-27 01:53:53,002 - INFO - Fetched page 5: status=200 bytes=106480
+2026-04-27 01:53:53,022 - INFO - Page 5: 18 articles, 18 new
+2026-04-27 01:53:53,929 - INFO - Fetched page 6: status=200 bytes=103492
+2026-04-27 01:53:53,946 - INFO - Page 6: 16 articles, 16 new
+2026-04-27 01:53:54,572 - INFO - Fetched page 7: status=404 bytes=25367
+2026-04-27 01:53:54,573 - INFO - Page 7 returned 404; stopping
+2026-04-27 01:53:54,573 - INFO - Sem alteracoes nas noticias; JSON mantido com 106 noticias
+2026-04-27 05:15:53,516 - INFO - Start scraping SAPO AI news
+2026-04-27 05:15:54,711 - INFO - Fetched page 1: status=200 bytes=114313
+2026-04-27 05:15:54,741 - INFO - Page 1: 18 articles, 18 new
+2026-04-27 05:15:55,919 - INFO - Fetched page 2: status=200 bytes=106992
+2026-04-27 05:15:55,947 - INFO - Page 2: 18 articles, 18 new
+2026-04-27 05:15:56,973 - INFO - Fetched page 3: status=200 bytes=108780
+2026-04-27 05:15:57,002 - INFO - Page 3: 18 articles, 18 new
+2026-04-27 05:15:57,990 - INFO - Fetched page 4: status=200 bytes=109384
+2026-04-27 05:15:58,017 - INFO - Page 4: 18 articles, 18 new
+2026-04-27 05:15:58,930 - INFO - Fetched page 5: status=200 bytes=106480
+2026-04-27 05:15:58,957 - INFO - Page 5: 18 articles, 18 new
+2026-04-27 05:15:59,715 - INFO - Fetched page 6: status=200 bytes=103492
+2026-04-27 05:15:59,740 - INFO - Page 6: 16 articles, 16 new
+2026-04-27 05:16:00,667 - INFO - Fetched page 7: status=404 bytes=25367
+2026-04-27 05:16:00,668 - INFO - Page 7 returned 404; stopping
+2026-04-27 05:16:00,668 - INFO - Sem alteracoes nas noticias; JSON mantido com 106 noticias
+2026-04-27 08:05:58,483 - INFO - Start scraping SAPO AI news
+2026-04-27 08:05:59,555 - INFO - Fetched page 1: status=200 bytes=114313
+2026-04-27 08:05:59,588 - INFO - Page 1: 18 articles, 18 new
+2026-04-27 08:06:00,556 - INFO - Fetched page 2: status=200 bytes=106992
+2026-04-27 08:06:00,587 - INFO - Page 2: 18 articles, 18 new
+2026-04-27 08:06:01,604 - INFO - Fetched page 3: status=200 bytes=108780
+2026-04-27 08:06:01,636 - INFO - Page 3: 18 articles, 18 new
+2026-04-27 08:06:02,684 - INFO - Fetched page 4: status=200 bytes=109384
+2026-04-27 08:06:02,713 - INFO - Page 4: 18 articles, 18 new
+2026-04-27 08:06:03,693 - INFO - Fetched page 5: status=200 bytes=106480
+2026-04-27 08:06:03,724 - INFO - Page 5: 18 articles, 18 new
+2026-04-27 08:06:04,411 - INFO - Fetched page 6: status=200 bytes=103492
+2026-04-27 08:06:04,438 - INFO - Page 6: 16 articles, 16 new
+2026-04-27 08:06:05,388 - INFO - Fetched page 7: status=404 bytes=25367
+2026-04-27 08:06:05,389 - INFO - Page 7 returned 404; stopping
+2026-04-27 08:06:05,389 - INFO - Sem alteracoes nas noticias; JSON mantido com 106 noticias
+2026-04-27 10:53:21,488 - INFO - Start scraping SAPO AI news
+2026-04-27 10:53:22,442 - INFO - Fetched page 1: status=200 bytes=114313
+2026-04-27 10:53:22,476 - INFO - Page 1: 18 articles, 18 new
+2026-04-27 10:53:23,315 - INFO - Fetched page 2: status=200 bytes=106992
+2026-04-27 10:53:23,345 - INFO - Page 2: 18 articles, 18 new
+2026-04-27 10:53:24,150 - INFO - Fetched page 3: status=200 bytes=108780
+2026-04-27 10:53:24,183 - INFO - Page 3: 18 articles, 18 new
+2026-04-27 10:53:25,082 - INFO - Fetched page 4: status=200 bytes=109384
+2026-04-27 10:53:25,112 - INFO - Page 4: 18 articles, 18 new
+2026-04-27 10:53:25,812 - INFO - Fetched page 5: status=200 bytes=106480
+2026-04-27 10:53:25,844 - INFO - Page 5: 18 articles, 18 new
+2026-04-27 10:53:26,586 - INFO - Fetched page 6: status=200 bytes=103492
+2026-04-27 10:53:26,614 - INFO - Page 6: 16 articles, 16 new
+2026-04-27 10:53:27,209 - INFO - Fetched page 7: status=404 bytes=25367
+2026-04-27 10:53:27,210 - INFO - Page 7 returned 404; stopping
+2026-04-27 10:53:27,210 - INFO - Sem alteracoes nas noticias; JSON mantido com 106 noticias
+2026-04-27 12:16:23,139 - INFO - Start scraping SAPO AI news
+2026-04-27 12:16:24,227 - INFO - Fetched page 1: status=200 bytes=114313
+2026-04-27 12:16:24,260 - INFO - Page 1: 18 articles, 18 new
+2026-04-27 12:16:25,262 - INFO - Fetched page 2: status=200 bytes=106992
+2026-04-27 12:16:25,294 - INFO - Page 2: 18 articles, 18 new
+2026-04-27 12:16:26,263 - INFO - Fetched page 3: status=200 bytes=108780
+2026-04-27 12:16:26,294 - INFO - Page 3: 18 articles, 18 new
+2026-04-27 12:16:27,321 - INFO - Fetched page 4: status=200 bytes=109384
+2026-04-27 12:16:27,351 - INFO - Page 4: 18 articles, 18 new
+2026-04-27 12:16:28,314 - INFO - Fetched page 5: status=200 bytes=106480
+2026-04-27 12:16:28,345 - INFO - Page 5: 18 articles, 18 new
+2026-04-27 12:16:29,272 - INFO - Fetched page 6: status=200 bytes=103492
+2026-04-27 12:16:29,300 - INFO - Page 6: 16 articles, 16 new
+2026-04-27 12:16:30,078 - INFO - Fetched page 7: status=404 bytes=25367
+2026-04-27 12:16:30,079 - INFO - Page 7 returned 404; stopping
+2026-04-27 12:16:30,079 - INFO - Sem alteracoes nas noticias; JSON mantido com 106 noticias
