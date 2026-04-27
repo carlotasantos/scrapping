@@ -1,19 +1,1 @@
 
-2026-04-27 19:31:50,975 - INFO - SAPO: 106
-2026-04-27 19:31:51,128 - WARNING - VentureBeat: falhou ao obter categoria 'ai' via API
-2026-04-27 19:34:09,420 - INFO - Total: 106
-2026-04-27 19:40:37,501 - INFO - SAPO: 106
-2026-04-27 19:40:54,797 - INFO - TDS artigos carregados: 12
-2026-04-27 19:41:12,401 - INFO - TDS scroll finalizado: 5 scrolls, 12 artigos
-2026-04-27 19:41:12,546 - INFO - ✓ TDS: A Career in Data Is Not Always a Straight Line, and That’s O | https://towardsdatascience.com/a-career-in-data-is-not-always-a-straight-line-and-thats-okay/
-2026-04-27 19:41:12,547 - INFO - ✓ TDS: How Spreadsheets Quietly Cost Supply Chains Millions | https://towardsdatascience.com/how-spreadsheets-quietly-cost-supply-chains-millions/
-2026-04-27 19:41:12,547 - INFO - ✓ TDS: Comparing Explicit Measures to Calculation Groups in Tabular | https://towardsdatascience.com/comparing-explicit-measures-to-calculation-groups-in-tabular-models/
-2026-04-27 19:41:12,547 - INFO - ✓ TDS: Bytes Speak All Languages: Cross-Script Name Retrieval via C | https://towardsdatascience.com/bytes-speak-all-languages-cross-script-name-retrieval-via-contrastive-learning/
-2026-04-27 19:41:12,547 - INFO - ✓ TDS: I Reduced My Pandas Runtime by 95% — Here’s What I Was Doing | https://towardsdatascience.com/i-reduced-my-pandas-runtime-by-95-heres-what-i-was-doing-wrong/
-2026-04-27 19:41:12,547 - INFO - ✓ TDS: Causal Inference Is Different in Business | https://towardsdatascience.com/causal-inference-is-different-in-business/
-2026-04-27 19:41:12,547 - INFO - ✓ TDS: The Essential Guide to Effectively Summarizing Massive Docum | https://towardsdatascience.com/the-essential-guide-to-effectively-summarizing-massive-documents-part-2/
-2026-04-27 19:41:12,547 - INFO - ✓ TDS: Introduction to Approximate Solution Methods for Reinforceme | https://towardsdatascience.com/introduction-to-approximate-solution-methods-for-reinforcement-learning-2/
-2026-04-27 19:41:12,548 - INFO - ✓ TDS: I Built an AI Pipeline for Kindle Highlights | https://towardsdatascience.com/i-built-an-ai-pipeline-for-kindle-highlights/
-2026-04-27 19:41:12,548 - INFO - ✓ TDS: How to Improve Claude Code Performance with Automated Testin | https://towardsdatascience.com/how-to-vastly-improve-claude-code-performance-with-automated-testing/
-2026-04-27 19:41:12,548 - INFO - TDS: 10 artigos únicos
-2026-04-27 19:43:12,995 - INFO - Total: 116
