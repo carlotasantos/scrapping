@@ -136,3 +136,19 @@
 2026-04-26 23:30:46,733 - INFO - Fetched page 7: status=404 bytes=25367
 2026-04-26 23:30:46,734 - INFO - Page 7 returned 404; stopping
 2026-04-26 23:30:46,734 - INFO - Sem alteracoes nas noticias; JSON mantido com 106 noticias
+2026-04-27 01:53:47,494 - INFO - Start scraping SAPO AI news
+2026-04-27 01:53:48,727 - INFO - Fetched page 1: status=200 bytes=114313
+2026-04-27 01:53:48,748 - INFO - Page 1: 18 articles, 18 new
+2026-04-27 01:53:49,896 - INFO - Fetched page 2: status=200 bytes=106992
+2026-04-27 01:53:49,915 - INFO - Page 2: 18 articles, 18 new
+2026-04-27 01:53:51,014 - INFO - Fetched page 3: status=200 bytes=108780
+2026-04-27 01:53:51,034 - INFO - Page 3: 18 articles, 18 new
+2026-04-27 01:53:52,104 - INFO - Fetched page 4: status=200 bytes=109384
+2026-04-27 01:53:52,122 - INFO - Page 4: 18 articles, 18 new
+2026-04-27 01:53:53,002 - INFO - Fetched page 5: status=200 bytes=106480
+2026-04-27 01:53:53,022 - INFO - Page 5: 18 articles, 18 new
+2026-04-27 01:53:53,929 - INFO - Fetched page 6: status=200 bytes=103492
+2026-04-27 01:53:53,946 - INFO - Page 6: 16 articles, 16 new
+2026-04-27 01:53:54,572 - INFO - Fetched page 7: status=404 bytes=25367
+2026-04-27 01:53:54,573 - INFO - Page 7 returned 404; stopping
+2026-04-27 01:53:54,573 - INFO - Sem alteracoes nas noticias; JSON mantido com 106 noticias
