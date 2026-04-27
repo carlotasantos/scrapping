@@ -536,3 +536,24 @@ urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='localhost', port=4
 2026-04-27 14:49:04,291 - INFO - Fetched article: status=200 bytes=134545 url=https://venturebeat.com/orchestration/google-doesnt-pay-the-nvidia-tax-its-new-tpus-explain-why
 2026-04-27 14:49:04,441 - INFO - Fetched article: status=200 bytes=127335 url=https://venturebeat.com/orchestration/salesforces-agentforce-vibes-2-0-targets-a-hidden-failure-context-overload-in-ai-agents
 2026-04-27 14:49:04,467 - INFO - 118 noticias guardadas; 118 novas, 0 reutilizadas
+2026-04-27 14:58:07,223 - INFO - Start scraping AI news
+2026-04-27 14:58:08,526 - INFO - Fetched page 1: status=200 bytes=114313
+2026-04-27 14:58:08,552 - INFO - SAPO page 1: 18 articles, 18 new
+2026-04-27 14:58:09,495 - INFO - Fetched page 2: status=200 bytes=106992
+2026-04-27 14:58:09,519 - INFO - SAPO page 2: 18 articles, 18 new
+2026-04-27 14:58:10,441 - INFO - Fetched page 3: status=200 bytes=108780
+2026-04-27 14:58:10,466 - INFO - SAPO page 3: 18 articles, 18 new
+2026-04-27 14:58:11,242 - INFO - Fetched page 4: status=200 bytes=109384
+2026-04-27 14:58:11,266 - INFO - SAPO page 4: 18 articles, 18 new
+2026-04-27 14:58:12,077 - INFO - Fetched page 5: status=200 bytes=106480
+2026-04-27 14:58:12,104 - INFO - SAPO page 5: 18 articles, 18 new
+2026-04-27 14:58:12,987 - INFO - Fetched page 6: status=200 bytes=103492
+2026-04-27 14:58:13,013 - INFO - SAPO page 6: 16 articles, 16 new
+2026-04-27 14:58:13,920 - INFO - Fetched page 7: status=404 bytes=25367
+2026-04-27 14:58:13,921 - INFO - SAPO page 7 returned 404; stopping
+2026-04-27 14:58:14,134 - INFO - Fetched VentureBeat page 1: status=200 bytes=445532
+2026-04-27 14:58:14,151 - INFO - VentureBeat page 1: 12 articles, 12 new
+2026-04-27 14:58:14,458 - INFO - Fetched VentureBeat page 2: status=404 bytes=37492
+2026-04-27 14:58:14,458 - INFO - VentureBeat page 2 returned 404; stopping
+2026-04-27 14:58:14,627 - INFO - Fetched article: status=200 bytes=124899 url=https://venturebeat.com/orchestration/why-supply-chains-are-the-proving-ground-for-automation-led-ipaas
+2026-04-27 14:58:14,655 - INFO - 118 noticias guardadas; 1 novas, 117 reutilizadas
