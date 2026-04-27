@@ -120,21 +120,26 @@ def scrape_venturebeat():
 
     time.sleep(2)
 
-    # scroll agressivo com espera por elementos
-    last_height = 0
+    # scroll MUITO agressivo - carregar tudo
+    scrolls_done = 0
     no_change_count = 0
-    for scroll_num in range(100):
-        driver.execute_script("window.scrollBy(0, 1500)")
-        time.sleep(0.8)
+    last_height = 0
+    
+    while scrolls_done < 200:
+        driver.execute_script("window.scrollBy(0, 2000)")
+        time.sleep(0.5)
 
         new_height = driver.execute_script("return document.body.scrollHeight")
+        
         if new_height == last_height:
             no_change_count += 1
-            if no_change_count >= 5:
+            if no_change_count >= 10:  # 10 scrolls sem mudança = definitivamente fim
                 break
         else:
             no_change_count = 0
+        
         last_height = new_height
+        scrolls_done += 1
 
     time.sleep(2)
 
@@ -156,6 +161,9 @@ def scrape_venturebeat():
     all_links = soup.find_all("a", href=True)
     logging.info(f"VentureBeat total de links encontrados: {len(all_links)}")
 
+    # Padrões que indicam um artigo real
+    article_patterns = ["/ai/", "/orchestration/", "/infrastructure/", "/technology/", "/davos-2026/", "/news/", "/business/", "/research/", "/data-privacy/"]
+
     # Procurar todos os links relevantes
     for a in all_links:
         url = urljoin(VENTUREBEAT_URL, a.get("href", ""))
@@ -163,6 +171,10 @@ def scrape_venturebeat():
 
         # validação básica de URL
         if not url or "venturebeat.com" not in url:
+            continue
+
+        # deve ser um padrão de artigo
+        if not any(pattern in url for pattern in article_patterns):
             continue
 
         # descartar links especiais
