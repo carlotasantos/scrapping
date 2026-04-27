@@ -53,7 +53,7 @@ def get_html(url, params=None):
 
 
 # -------- SAPO --------
-def scrape_sapo():
+def scrape_sapo(known_urls):
     articles = []
     page = 1
 
@@ -68,34 +68,34 @@ def scrape_sapo():
         if not items:
             break
 
+        new_on_page = 0
         for a in items:
             link = a.select_one("h3 a")
             if not link:
                 continue
-
+            url = urljoin(SAPO_URL, link["href"])
+            if url in known_urls:
+                continue
+            new_on_page += 1
             articles.append({
                 "title": clean(link.get_text()),
-                "url": urljoin(SAPO_URL, link["href"]),
+                "url": url,
                 "source": "sapo"
             })
 
+        if new_on_page == 0:
+            logging.info(f"SAPO: sem artigos novos na página {page}, a parar")
+            break
+
         page += 1
 
-    logging.info(f"SAPO: {len(articles)}")
+    logging.info(f"SAPO: {len(articles)} artigos novos")
     return articles
 
 
 # -------- TOWARDS DATA SCIENCE (Selenium) --------
-def scrape_tds():
+def scrape_tds(known_urls):
     options = Options()
-
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument(
-        "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-    )
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option("useAutomationExtension", False)
 
     if os.getenv("CI"):
         options.add_argument("--headless=new")
@@ -113,8 +113,9 @@ def scrape_tds():
     articles = []
     seen = set()
     page = 1
+    max_pages = 250
 
-    while True:
+    while page <= max_pages:
         page_url = TDS_URL if page == 1 else f"https://towardsdatascience.com/latest/page/{page}/"
         driver.get(page_url)
         time.sleep(3)
@@ -126,6 +127,7 @@ def scrape_tds():
             logging.info(f"TDS: sem artigos na página {page}, a parar")
             break
 
+        new_on_page = 0
         for li in items:
             title_el = li.find(["h2", "h3", "h4"])
             title = clean(title_el.get_text()) if title_el else None
@@ -135,18 +137,24 @@ def scrape_tds():
 
             if not title or not url or len(title) < 3:
                 continue
-            if url in seen:
+            if url in seen or url in known_urls:
                 continue
 
+            new_on_page += 1
             seen.add(url)
             articles.append({"title": title, "url": url, "source": "towardsdatascience"})
             logging.info(f"✓ TDS p{page}: {title[:60]} | {url}")
 
-        logging.info(f"TDS página {page}: {len(items)} artigos")
+        logging.info(f"TDS página {page}: {new_on_page} artigos novos")
+
+        if new_on_page == 0:
+            logging.info("TDS: sem artigos novos, a parar")
+            break
+
         page += 1
 
     driver.quit()
-    logging.info(f"TDS: {len(articles)} artigos únicos")
+    logging.info(f"TDS: {len(articles)} artigos novos no total")
     return articles
 
 
@@ -165,15 +173,24 @@ def extract_content(url):
 def scrape():
     now = datetime.now(UTC).isoformat()
 
-    sapo = scrape_sapo()
-    tds = scrape_tds()
+    # Load existing articles and build known-URL index
+    if os.path.exists(OUTPUT_FILE):
+        with open(OUTPUT_FILE, encoding="utf-8") as f:
+            existing = json.load(f)
+    else:
+        existing = []
 
-    all_articles = sapo + tds
+    known_urls = {art["url"] for art in existing}
+    logging.info(f"Artigos existentes: {len(existing)}")
 
-    results = []
-    seen = set()
+    sapo = scrape_sapo(known_urls)
+    tds = scrape_tds(known_urls)
 
-    for art in all_articles:
+    new_articles = sapo + tds
+    new_results = []
+    seen = set(known_urls)
+
+    for art in new_articles:
         if art["url"] in seen:
             continue
 
@@ -181,7 +198,7 @@ def scrape():
 
         desc = extract_content(art["url"]) if art["source"] == "sapo" else None
 
-        results.append({
+        new_results.append({
             "id": make_id(art["url"]),
             "title": art["title"],
             "url": art["url"],
@@ -193,10 +210,16 @@ def scrape():
 
         time.sleep(0.5)
 
+    if not new_results:
+        logging.info("Sem artigos novos, ficheiro mantido sem alterações")
+        return
+
+    results = new_results + existing
+
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    logging.info(f"Total: {len(results)}")
+    logging.info(f"Novos: {len(new_results)} | Total: {len(results)}")
 
 
 if __name__ == "__main__":
