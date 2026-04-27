@@ -138,33 +138,42 @@ def scrape_venturebeat():
 
     time.sleep(2)
 
-    soup = BeautifulSoup(driver.page_source, "html.parser")
+    # Debug: salvar HTML para inspecção
+    html_debug = driver.page_source
+    with open(os.path.join(DATA_DIR, "venturebeat_debug.html"), "w", encoding="utf-8") as f:
+        f.write(html_debug)
+
+    soup = BeautifulSoup(html_debug, "html.parser")
     driver.quit()
 
     articles = []
     seen = set()
 
+    # Procurar artigos directamente
+    article_elements = soup.find_all("article")
+    logging.info(f"VentureBeat artigos encontrados: {len(article_elements)}")
+
+    all_links = soup.find_all("a", href=True)
+    logging.info(f"VentureBeat total de links encontrados: {len(all_links)}")
+
     # Procurar todos os links relevantes
-    for a in soup.find_all("a", href=True):
-        url = urljoin(VENTUREBEAT_URL, a["href"])
+    for a in all_links:
+        url = urljoin(VENTUREBEAT_URL, a.get("href", ""))
         title = clean(a.get_text())
 
-        # filtros: URL deve conter venturebeat e ser um artigo
-        if "venturebeat.com" not in url:
+        # validação básica de URL
+        if not url or "venturebeat.com" not in url:
             continue
 
-        # descartar categorias, tags, etc
-        if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/", "/author-page/", "?", "#"]):
+        # descartar links especiais
+        if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/", "/author-page/", "mailto:", "javascript:", "?", "#"]):
             continue
 
-        # deve ter título e URL válida
+        # deve ter título válido (mínimo 3 caracteres)
         if not title or len(title) < 3:
             continue
 
-        # URL deve parecer um artigo
-        if "/ai/" not in url and "/news/" not in url:
-            continue
-
+        # evitar duplicatas
         if url in seen:
             continue
 
@@ -176,7 +185,9 @@ def scrape_venturebeat():
             "source": "venturebeat"
         })
 
-    logging.info(f"VentureBeat: {len(articles)}")
+        logging.info(f"✓ Artigo: {title[:60]} | {url}")
+
+    logging.info(f"VentureBeat: {len(articles)} artigos únicos")
     return articles
 
 
