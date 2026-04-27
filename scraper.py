@@ -120,26 +120,44 @@ def scrape_venturebeat():
 
     time.sleep(2)
 
-    # scroll MUITO agressivo - carregar tudo
-    scrolls_done = 0
+    # Estratégia inteligente de scroll + load more
+    last_article_count = 0
     no_change_count = 0
-    last_height = 0
-    
-    while scrolls_done < 200:
-        driver.execute_script("window.scrollBy(0, 2000)")
-        time.sleep(0.5)
+    scrolls_done = 0
+    max_scrolls = 300
 
-        new_height = driver.execute_script("return document.body.scrollHeight")
+    while scrolls_done < max_scrolls:
+        # Scroll down
+        driver.execute_script("window.scrollBy(0, 1500)")
+        time.sleep(0.8)
+
+        # Tentar clicar em botões "Load More" se existirem
+        try:
+            load_buttons = driver.find_elements(By.XPATH, "//button[contains(text(), 'Load More') or contains(text(), 'Show More') or contains(text(), 'More Articles')]")
+            for button in load_buttons:
+                if button.is_displayed() and button.is_enabled():
+                    button.click()
+                    time.sleep(2)
+                    logging.info("Clicou em botão Load More")
+                    break
+        except:
+            pass
+
+        # Contar artigos atuais
+        current_article_count = len(driver.find_elements(By.TAG_NAME, "article"))
         
-        if new_height == last_height:
-            no_change_count += 1
-            if no_change_count >= 10:  # 10 scrolls sem mudança = definitivamente fim
-                break
-        else:
+        if current_article_count > last_article_count:
             no_change_count = 0
-        
-        last_height = new_height
+            last_article_count = current_article_count
+            logging.info(f"Artigos carregados: {current_article_count}")
+        else:
+            no_change_count += 1
+            if no_change_count >= 15:  # 15 scrolls sem novos artigos = fim
+                break
+
         scrolls_done += 1
+
+    logging.info(f"Scroll finalizado. Total de scrolls: {scrolls_done}, Artigos encontrados: {last_article_count}")
 
     time.sleep(2)
 
@@ -154,50 +172,86 @@ def scrape_venturebeat():
     articles = []
     seen = set()
 
-    # Procurar artigos directamente
+    # Procurar artigos directamente nos elementos <article>
     article_elements = soup.find_all("article")
-    logging.info(f"VentureBeat artigos encontrados: {len(article_elements)}")
+    logging.info(f"VentureBeat elementos <article> encontrados: {len(article_elements)}")
 
-    all_links = soup.find_all("a", href=True)
-    logging.info(f"VentureBeat total de links encontrados: {len(all_links)}")
+    for article in article_elements:
+        # Procurar links dentro do artigo
+        links = article.find_all("a", href=True)
+        
+        for link in links:
+            url = urljoin(VENTUREBEAT_URL, link.get("href", ""))
+            title = clean(link.get_text())
 
-    # Padrões que indicam um artigo real
-    article_patterns = ["/ai/", "/orchestration/", "/infrastructure/", "/technology/", "/davos-2026/", "/news/", "/business/", "/research/", "/data-privacy/"]
+            # validação básica
+            if not url or "venturebeat.com" not in url:
+                continue
 
-    # Procurar todos os links relevantes
-    for a in all_links:
-        url = urljoin(VENTUREBEAT_URL, a.get("href", ""))
-        title = clean(a.get_text())
+            # deve ser um padrão de artigo
+            if not any(pattern in url for pattern in article_patterns):
+                continue
 
-        # validação básica de URL
-        if not url or "venturebeat.com" not in url:
-            continue
+            # descartar links especiais
+            if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/", "/author-page/", "mailto:", "javascript:", "?", "#"]):
+                continue
 
-        # deve ser um padrão de artigo
-        if not any(pattern in url for pattern in article_patterns):
-            continue
+            # deve ter título válido (mínimo 3 caracteres)
+            if not title or len(title) < 3:
+                continue
 
-        # descartar links especiais
-        if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/", "/author-page/", "mailto:", "javascript:", "?", "#"]):
-            continue
+            # evitar duplicatas
+            if url in seen:
+                continue
 
-        # deve ter título válido (mínimo 3 caracteres)
-        if not title or len(title) < 3:
-            continue
+            seen.add(url)
 
-        # evitar duplicatas
-        if url in seen:
-            continue
+            articles.append({
+                "title": title,
+                "url": url,
+                "source": "venturebeat"
+            })
 
-        seen.add(url)
+            logging.info(f"✓ Artigo: {title[:60]} | {url}")
 
-        articles.append({
-            "title": title,
-            "url": url,
-            "source": "venturebeat"
-        })
+    # Fallback: procurar links em toda a página se poucos artigos foram encontrados
+    if len(articles) < 20:
+        logging.info("Poucos artigos encontrados nos elementos <article>, tentando fallback...")
+        
+        all_links = soup.find_all("a", href=True)
+        for a in all_links:
+            url = urljoin(VENTUREBEAT_URL, a.get("href", ""))
+            title = clean(a.get_text())
 
-        logging.info(f"✓ Artigo: {title[:60]} | {url}")
+            # validação básica
+            if not url or "venturebeat.com" not in url:
+                continue
+
+            # deve ser um padrão de artigo
+            if not any(pattern in url for pattern in article_patterns):
+                continue
+
+            # descartar links especiais
+            if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/", "/author-page/", "mailto:", "javascript:", "?", "#"]):
+                continue
+
+            # deve ter título válido (mínimo 3 caracteres)
+            if not title or len(title) < 3:
+                continue
+
+            # evitar duplicatas
+            if url in seen:
+                continue
+
+            seen.add(url)
+
+            articles.append({
+                "title": title,
+                "url": url,
+                "source": "venturebeat"
+            })
+
+            logging.info(f"✓ Artigo (fallback): {title[:60]} | {url}")
 
     logging.info(f"VentureBeat: {len(articles)} artigos únicos")
     return articles
