@@ -105,53 +105,38 @@ def scrape_venturebeat():
     wait = WebDriverWait(driver, 10)
 
     driver.get(VENTUREBEAT_URL)
-    time.sleep(5)
+    time.sleep(3)
 
-    # remover cookies à força
+    # remover overlays
     driver.execute_script("""
+        document.querySelectorAll('[class*="modal"], [class*="dialog"], [class*="popup"], [id*="modal"]').forEach(e => e.style.display = 'none');
         document.querySelectorAll('*').forEach(el => {
             const style = window.getComputedStyle(el);
-            if (
-                (style.position === 'fixed' || style.position === 'sticky') &&
-                el.offsetHeight > 100 &&
-                el.innerText.toLowerCase().includes('cookie')
-            ) {
+            if (style.position === 'fixed' && el.offsetHeight > 150) {
                 el.remove();
             }
         });
-        document.body.style.overflow = 'auto';
     """)
 
-    # fechar popup
-    try:
-        close_btn = wait.until(EC.element_to_be_clickable(
-            (By.CSS_SELECTOR, 'button[aria-label="Close dialog"]')
-        ))
-        close_btn.click()
-    except:
-        pass
+    time.sleep(2)
 
-    # fallback
-    driver.execute_script("""
-        document.querySelectorAll('#headlessui-portal-root, .headlessui-dialog, .overlay').forEach(e => e.remove());
-        document.body.style.overflow='auto';
-    """)
-
-    # scroll até ao fim
+    # scroll agressivo com espera por elementos
     last_height = 0
     no_change_count = 0
-    for _ in range(50):
-        driver.execute_script("window.scrollBy(0, 1200)")
-        time.sleep(1)
+    for scroll_num in range(100):
+        driver.execute_script("window.scrollBy(0, 1500)")
+        time.sleep(0.8)
 
         new_height = driver.execute_script("return document.body.scrollHeight")
         if new_height == last_height:
             no_change_count += 1
-            if no_change_count >= 3:  # 3 scrolls sem mudança = fim
+            if no_change_count >= 5:
                 break
         else:
             no_change_count = 0
         last_height = new_height
+
+    time.sleep(2)
 
     soup = BeautifulSoup(driver.page_source, "html.parser")
     driver.quit()
@@ -159,33 +144,37 @@ def scrape_venturebeat():
     articles = []
     seen = set()
 
-    # Procurar especificamente por cards de artigos
-    for article in soup.select("article, [class*='article'], [class*='card'], [class*='post']"):
-        links = article.select("a[href]")
-        
-        for a in links:
-            url = urljoin(VENTUREBEAT_URL, a.get("href"))
-            title = clean(a.get_text())
+    # Procurar todos os links relevantes
+    for a in soup.find_all("a", href=True):
+        url = urljoin(VENTUREBEAT_URL, a["href"])
+        title = clean(a.get_text())
 
-            if "venturebeat.com" not in url:
-                continue
+        # filtros: URL deve conter venturebeat e ser um artigo
+        if "venturebeat.com" not in url:
+            continue
 
-            if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/", "/author-page/"]):
-                continue
+        # descartar categorias, tags, etc
+        if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/", "/author-page/", "?", "#"]):
+            continue
 
-            if not title or len(title) < 5:  # Mínimo 5 caracteres
-                continue
+        # deve ter título e URL válida
+        if not title or len(title) < 3:
+            continue
 
-            if url in seen:
-                continue
+        # URL deve parecer um artigo
+        if "/ai/" not in url and "/news/" not in url:
+            continue
 
-            seen.add(url)
+        if url in seen:
+            continue
 
-            articles.append({
-                "title": title,
-                "url": url,
-                "source": "venturebeat"
-            })
+        seen.add(url)
+
+        articles.append({
+            "title": title,
+            "url": url,
+            "source": "venturebeat"
+        })
 
     logging.info(f"VentureBeat: {len(articles)}")
     return articles
