@@ -3,6 +3,7 @@ import json
 import logging
 import os
 import re
+import time
 from datetime import datetime, timezone
 from urllib.parse import urljoin
 
@@ -31,6 +32,7 @@ OUTPUT_FILE = os.path.join(DATA_DIR, "ai_news.json")
 MAX_PAGES = 10
 MIN_PARAGRAPH_LENGTH = 40
 DYNAMIC_FALLBACK_WORD_LIMIT = 80
+VENTUREBEAT_SCROLL_STEPS = 12
 
 HEADERS = {
     "User-Agent": (
@@ -137,32 +139,81 @@ def fetch_page(page):
 
 
 def fetch_venturebeat_page(page):
-    url = VENTUREBEAT_AI_URL if page == 1 else f"{VENTUREBEAT_AI_URL}/page/{page}/"
-    response = requests.get(url, headers=HEADERS, timeout=30)
-    logging.info(
-        "Fetched VentureBeat page %s: status=%s bytes=%s",
-        page,
-        response.status_code,
-        len(response.text),
-    )
-
-    if response.status_code == 404:
+    if page > 1:
         return None
 
-    response.raise_for_status()
-    return response.text
+    from selenium import webdriver
+    from selenium.webdriver.chrome.options import Options
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support.ui import WebDriverWait
+
+    options = Options()
+    options.add_argument("--headless=new")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument(f"user-agent={HEADERS['User-Agent']}")
+
+    driver = webdriver.Chrome(options=options)
+    try:
+        driver.get(VENTUREBEAT_AI_URL)
+        WebDriverWait(driver, 20).until(
+            lambda browser: browser.find_elements(By.CSS_SELECTOR, "article")
+        )
+
+        previous_count = 0
+        stable_scrolls = 0
+        for _ in range(VENTUREBEAT_SCROLL_STEPS):
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(1.5)
+
+            article_count = len(driver.find_elements(By.CSS_SELECTOR, "article"))
+            if article_count == previous_count:
+                stable_scrolls += 1
+            else:
+                stable_scrolls = 0
+
+            previous_count = article_count
+            if stable_scrolls >= 3:
+                break
+
+        html = driver.page_source
+        logging.info(
+            "Fetched VentureBeat rendered page: articles=%s bytes=%s",
+            previous_count,
+            len(html),
+        )
+        return html
+    finally:
+        driver.quit()
 
 
 def fetch_url(url):
-    response = requests.get(url, headers=HEADERS, timeout=30)
-    logging.info(
-        "Fetched article: status=%s bytes=%s url=%s",
-        response.status_code,
-        len(response.text),
-        url,
-    )
-    response.raise_for_status()
-    return response.text
+    max_retries = 3
+    backoff = 1
+    for attempt in range(max_retries + 1):
+        try:
+            response = requests.get(url, headers=HEADERS, timeout=30)
+            logging.info(
+                "Fetched article: status=%s bytes=%s url=%s",
+                response.status_code,
+                len(response.text),
+                url,
+            )
+            response.raise_for_status()
+            return response.text
+        except requests.exceptions.HTTPError as e:
+            if e.response.status_code == 429 and attempt < max_retries:
+                logging.warning("429 Too Many Requests for %s, retrying in %s seconds", url, backoff)
+                time.sleep(backoff)
+                backoff *= 2
+            else:
+                raise
+        except Exception:
+            if attempt < max_retries:
+                logging.warning("Error fetching %s, retrying in %s seconds", url, backoff)
+                time.sleep(backoff)
+                backoff *= 2
+            else:
+                raise
 
 
 def should_skip_paragraph(text):
@@ -454,27 +505,51 @@ def parse_venturebeat_page(html, page, scraped_at):
     articles = []
     seen_urls = set()
 
-    for link in soup.select("h2 a[href], h3 a[href]"):
-        title = clean_text(link.get_text(" ", strip=True))
-        url = absolute_url(link.get("href"), VENTUREBEAT_BASE_URL)
+    for article in soup.select("article"):
         source = "venturebeat"
+        title_element = article.select_one("h2 a[href], h3 a[href], h2, h3")
+        link = title_element if title_element and title_element.name == "a" else None
+
+        if not link and title_element:
+            link = title_element.select_one("a[href]")
+
+        if not link:
+            link = article.select_one('a[href*="venturebeat.com/"], a[href^="/"]')
+
+        title = clean_text(title_element.get_text(" ", strip=True) if title_element else None)
+        if not title and link:
+            title = clean_text(link.get_text(" ", strip=True))
+
+        url = absolute_url(link.get("href"), VENTUREBEAT_BASE_URL) if link else None
 
         if not title or not url or not url.startswith(VENTUREBEAT_BASE_URL):
             continue
 
-        if "/category/" in url or url in seen_urls:
+        if (
+            "/category/" in url
+            or "/author/" in url
+            or "/tag/" in url
+            or url.rstrip("/") == VENTUREBEAT_BASE_URL
+            or url in seen_urls
+        ):
             continue
 
         seen_urls.add(url)
-        container = link.find_parent(["article", "div", "li"])
-        image = container.select_one("img") if container else None
+        image = article.select_one("img")
+        description = clean_text(
+            article.select_one("p").get_text(" ", strip=True)
+            if article.select_one("p")
+            else None
+        )
+        if not description and image:
+            description = clean_text(image.get("alt"))
 
         articles.append({
             "id": make_article_id(source, url),
             "title": title,
             "url": url,
             "source": source,
-            "description": clean_text(image.get("alt")) if image else None,
+            "description": description,
             "published_at": None,
             "scraped_at": scraped_at,
         })
@@ -633,6 +708,7 @@ def scrape(max_pages=MAX_PAGES):
         else:
             articles.append(normalize_article(enrich_article_content(article)))
             new_count += 1
+            time.sleep(1)  # Delay to avoid rate limiting
 
     articles = [normalize_article(article) for article in articles]
     save_json(articles)
