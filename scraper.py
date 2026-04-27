@@ -37,19 +37,17 @@ def clean(text):
     return " ".join(text.split()) if text else None
 
 
-# -------- REQUEST COM RETRY --------
+# -------- REQUEST --------
 def get_html(url, params=None):
-    for attempt in range(3):
-        try:
-            r = requests.get(url, headers=HEADERS, params=params, timeout=20)
-            if r.status_code == 429:
-                time.sleep(2 * (attempt + 1))
-                continue
-            r.raise_for_status()
-            return r.text
-        except:
+    try:
+        r = requests.get(url, headers=HEADERS, params=params, timeout=20)
+        if r.status_code == 429:
             time.sleep(2)
-    return None
+            return None
+        r.raise_for_status()
+        return r.text
+    except:
+        return None
 
 
 # -------- SAPO --------
@@ -111,7 +109,7 @@ def scrape_venturebeat():
         """)
         time.sleep(1)
 
-    # scroll suficiente
+    # scroll
     for _ in range(12):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(2)
@@ -123,12 +121,14 @@ def scrape_venturebeat():
     seen = set()
 
     for article in soup.select("article"):
-        link = article.select_one("h2 a[href], h3 a[href]")
-        if not link:
+        link = article.select_one("a[href]")
+        title_el = article.select_one("header")
+
+        if not link or not title_el:
             continue
 
         url = link.get("href")
-        title = clean(link.get_text())
+        title = clean(title_el.get_text())
 
         if not url.startswith("https://venturebeat.com"):
             continue
@@ -155,7 +155,7 @@ def scrape_venturebeat():
     return articles
 
 
-# -------- EXTRAÇÃO (APENAS SAPO) --------
+# -------- EXTRAÇÃO SAPO --------
 def extract_content(url):
     html = get_html(url)
     if not html:
@@ -193,7 +193,6 @@ def scrape():
 
         seen.add(art["url"])
 
-        # só SAPO tem conteúdo completo
         if art["source"] == "sapo":
             details = extract_content(art["url"])
         else:
