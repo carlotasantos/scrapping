@@ -172,85 +172,64 @@ def scrape_venturebeat():
     articles = []
     seen = set()
 
+    SKIP_SEGMENTS = {"/category/", "/tag/", "/author/", "/events/", "/newsletter/", "/author-page/"}
+
+    def is_article_url(url):
+        if "venturebeat.com" not in url:
+            return False
+        if any(x in url for x in SKIP_SEGMENTS) or any(x in url for x in ["mailto:", "javascript:", "?", "#"]):
+            return False
+        path = url.replace("https://venturebeat.com", "").strip("/")
+        # article URLs have at least one slug segment with hyphens
+        return path.count("/") >= 1 and "-" in path
+
     # Procurar artigos directamente nos elementos <article>
     article_elements = soup.find_all("article")
     logging.info(f"VentureBeat elementos <article> encontrados: {len(article_elements)}")
 
     for article in article_elements:
-        # Procurar links dentro do artigo
-        links = article.find_all("a", href=True)
-        
-        for link in links:
-            url = urljoin(VENTUREBEAT_URL, link.get("href", ""))
-            title = clean(link.get_text())
+        # Título: preferir heading semântico dentro do artigo
+        title_el = article.find(["h2", "h3", "h4"]) or article.find("header")
+        title = clean(title_el.get_text()) if title_el else None
 
-            # validação básica
-            if not url or "venturebeat.com" not in url:
-                continue
+        # URL: primeiro link com href de artigo válido
+        url = None
+        for a in article.find_all("a", href=True):
+            candidate = urljoin(VENTUREBEAT_URL, a.get("href", ""))
+            if is_article_url(candidate):
+                url = candidate
+                break
 
-            # deve ser um padrão de artigo
-            if not any(pattern in url for pattern in article_patterns):
-                continue
+        if not url or not title or len(title) < 3:
+            continue
 
-            # descartar links especiais
-            if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/", "/author-page/", "mailto:", "javascript:", "?", "#"]):
-                continue
+        if url in seen:
+            continue
 
-            # deve ter título válido (mínimo 3 caracteres)
-            if not title or len(title) < 3:
-                continue
-
-            # evitar duplicatas
-            if url in seen:
-                continue
-
-            seen.add(url)
-
-            articles.append({
-                "title": title,
-                "url": url,
-                "source": "venturebeat"
-            })
-
-            logging.info(f"✓ Artigo: {title[:60]} | {url}")
+        seen.add(url)
+        articles.append({"title": title, "url": url, "source": "venturebeat"})
+        logging.info(f"✓ Artigo: {title[:60]} | {url}")
 
     # Fallback: procurar links em toda a página se poucos artigos foram encontrados
     if len(articles) < 20:
         logging.info("Poucos artigos encontrados nos elementos <article>, tentando fallback...")
-        
+
         all_links = soup.find_all("a", href=True)
         for a in all_links:
             url = urljoin(VENTUREBEAT_URL, a.get("href", ""))
             title = clean(a.get_text())
 
-            # validação básica
-            if not url or "venturebeat.com" not in url:
+            if not is_article_url(url):
                 continue
 
-            # deve ser um padrão de artigo
-            if not any(pattern in url for pattern in article_patterns):
-                continue
-
-            # descartar links especiais
-            if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/", "/author-page/", "mailto:", "javascript:", "?", "#"]):
-                continue
-
-            # deve ter título válido (mínimo 3 caracteres)
             if not title or len(title) < 3:
                 continue
 
-            # evitar duplicatas
             if url in seen:
                 continue
 
             seen.add(url)
-
-            articles.append({
-                "title": title,
-                "url": url,
-                "source": "venturebeat"
-            })
-
+            articles.append({"title": title, "url": url, "source": "venturebeat"})
             logging.info(f"✓ Artigo (fallback): {title[:60]} | {url}")
 
     logging.info(f"VentureBeat: {len(articles)} artigos únicos")
