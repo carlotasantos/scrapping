@@ -15,7 +15,7 @@ LOG_DIR = os.path.join(BASE_DIR, "logs")
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(LOG_DIR, exist_ok=True)
 
-OUTPUT_FILE = os.path.join(DATA_DIR, "scraper.json")
+OUTPUT_FILE = os.path.join(DATA_DIR, "ai_news.json")
 
 # -------- LOGGING --------
 logging.basicConfig(
@@ -37,19 +37,38 @@ def clean(text):
     return " ".join(text.split()) if text else None
 
 
+# -------- REQUEST COM RETRY (ANTI 429) --------
 def get_html(url, params=None):
-    r = requests.get(url, headers=HEADERS, params=params)
-    r.raise_for_status()
-    return r.text
+    for attempt in range(5):
+        try:
+            r = requests.get(url, headers=HEADERS, params=params, timeout=30)
+
+            if r.status_code == 429:
+                wait = 2 ** attempt
+                logging.warning(f"429 em {url}, esperar {wait}s")
+                time.sleep(wait)
+                continue
+
+            r.raise_for_status()
+            return r.text
+
+        except Exception as e:
+            if attempt == 4:
+                logging.error(f"Erro final em {url}: {e}")
+                return None
+            time.sleep(2 ** attempt)
 
 
-# -------- SAPO (ESTÁTICO) --------
+# -------- SAPO --------
 def scrape_sapo(pages=3):
     articles = []
 
     for page in range(1, pages + 1):
         logging.info(f"SAPO page {page}")
         html = get_html(SAPO_URL, params={"pagina": page})
+        if not html:
+            continue
+
         soup = BeautifulSoup(html, "html.parser")
 
         for a in soup.select("article.article-default"):
@@ -69,7 +88,7 @@ def scrape_sapo(pages=3):
     return articles
 
 
-# -------- VENTUREBEAT (DINÂMICO) --------
+# -------- VENTUREBEAT --------
 def scrape_venturebeat():
     from selenium import webdriver
     from selenium.webdriver.chrome.options import Options
@@ -83,7 +102,7 @@ def scrape_venturebeat():
 
     time.sleep(2)
 
-    # remover popups (com retry)
+    # remover popups
     for _ in range(6):
         driver.execute_script("""
             document.querySelectorAll(
@@ -99,7 +118,7 @@ def scrape_venturebeat():
         """)
         time.sleep(1)
 
-    # scroll forte (lazy loading)
+    # scroll forte
     for _ in range(15):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(2)
@@ -135,44 +154,37 @@ def scrape_venturebeat():
             "source": "venturebeat"
         })
 
-    logging.info(f"VentureBeat articles: {len(articles)}")
+    logging.info(f"VentureBeat encontrados: {len(articles)}")
 
     return articles
 
 
-# -------- CONTEÚDO --------
+# -------- EXTRAÇÃO DE CONTEÚDO --------
 def extract_content(url):
-    try:
-        html = get_html(url)
-        soup = BeautifulSoup(html, "html.parser")
+    html = get_html(url)
+    if not html:
+        return {"description": None}
 
-        paragraphs = [
-            clean(p.get_text())
-            for p in soup.select("p")
-            if len(p.get_text()) > 50
-        ]
+    soup = BeautifulSoup(html, "html.parser")
 
-        return {
-            "description": paragraphs[0] if paragraphs else None,
-            "word_count": sum(len(p.split()) for p in paragraphs)
-        }
+    paragraphs = [
+        clean(p.get_text())
+        for p in soup.select("p")
+        if len(p.get_text()) > 50
+    ]
 
-    except Exception as e:
-        logging.error(f"Erro content {url}: {e}")
-        return {
-            "description": None,
-            "word_count": 0
-        }
+    return {
+        "description": paragraphs[0] if paragraphs else None
+    }
 
 
 # -------- MAIN --------
 def scrape():
     now = datetime.now(UTC).isoformat()
-
     logging.info("Start scraping")
 
     sapo = scrape_sapo()
-    vb = scrape_venturebeat()
+    vb = scrape_venturebeat()[:40]  # LIMITAÇÃO CRÍTICA
 
     all_articles = sapo + vb
 
@@ -197,12 +209,12 @@ def scrape():
             "scraped_at": now
         })
 
-        time.sleep(1)
+        time.sleep(2)  # delay maior para evitar 429
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    logging.info(f"Saved {len(results)} articles")
+    logging.info(f"Guardados {len(results)} artigos")
 
     return results
 
