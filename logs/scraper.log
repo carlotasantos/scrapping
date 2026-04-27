@@ -1,0 +1,66 @@
+2026-04-27 16:44:11,089 - INFO - Start scraping
+2026-04-27 16:44:11,089 - INFO - SAPO page 1
+2026-04-27 16:44:12,339 - INFO - SAPO page 2
+2026-04-27 16:44:13,385 - INFO - SAPO page 3
+2026-04-27 16:44:58,853 - INFO - VentureBeat encontrados: 12
+2026-04-27 16:47:31,473 - WARNING - 429 em https://venturebeat.com/orchestration/new-ai-framework-autonomously-optimizes-training-data-architectures-and-algorithms-outperforming-human-baselines, esperar 1s
+2026-04-27 16:47:32,510 - WARNING - 429 em https://venturebeat.com/orchestration/new-ai-framework-autonomously-optimizes-training-data-architectures-and-algorithms-outperforming-human-baselines, esperar 2s
+2026-04-27 16:47:34,559 - WARNING - 429 em https://venturebeat.com/orchestration/new-ai-framework-autonomously-optimizes-training-data-architectures-and-algorithms-outperforming-human-baselines, esperar 4s
+2026-04-27 16:47:38,594 - WARNING - 429 em https://venturebeat.com/orchestration/new-ai-framework-autonomously-optimizes-training-data-architectures-and-algorithms-outperforming-human-baselines, esperar 8s
+2026-04-27 16:47:46,660 - WARNING - 429 em https://venturebeat.com/orchestration/new-ai-framework-autonomously-optimizes-training-data-architectures-and-algorithms-outperforming-human-baselines, esperar 16s
+2026-04-27 16:48:04,705 - WARNING - 429 em https://venturebeat.com/orchestration/why-supply-chains-are-the-proving-ground-for-automation-led-ipaas, esperar 1s
+2026-04-27 16:48:05,770 - WARNING - 429 em https://venturebeat.com/orchestration/why-supply-chains-are-the-proving-ground-for-automation-led-ipaas, esperar 2s
+2026-04-27 16:48:07,827 - WARNING - 429 em https://venturebeat.com/orchestration/why-supply-chains-are-the-proving-ground-for-automation-led-ipaas, esperar 4s
+2026-04-27 16:48:11,863 - WARNING - 429 em https://venturebeat.com/orchestration/why-supply-chains-are-the-proving-ground-for-automation-led-ipaas, esperar 8s
+2026-04-27 16:48:19,902 - WARNING - 429 em https://venturebeat.com/orchestration/why-supply-chains-are-the-proving-ground-for-automation-led-ipaas, esperar 16s
+2026-04-27 16:48:37,937 - WARNING - 429 em https://venturebeat.com/infrastructure/monitoring-llm-behavior-drift-retries-and-refusal-patterns, esperar 1s
+2026-04-27 16:48:38,974 - WARNING - 429 em https://venturebeat.com/infrastructure/monitoring-llm-behavior-drift-retries-and-refusal-patterns, esperar 2s
+2026-04-27 16:48:41,032 - WARNING - 429 em https://venturebeat.com/infrastructure/monitoring-llm-behavior-drift-retries-and-refusal-patterns, esperar 4s
+2026-04-27 16:48:45,105 - WARNING - 429 em https://venturebeat.com/infrastructure/monitoring-llm-behavior-drift-retries-and-refusal-patterns, esperar 8s
+2026-04-27 16:48:53,171 - WARNING - 429 em https://venturebeat.com/infrastructure/monitoring-llm-behavior-drift-retries-and-refusal-patterns, esperar 16s
+2026-04-27 16:49:11,207 - WARNING - 429 em https://venturebeat.com/technology/ai-synthetic-audiences-are-already-here-and-poised-to-upend-the-consulting-industry, esperar 1s
+2026-04-27 16:49:12,247 - WARNING - 429 em https://venturebeat.com/technology/ai-synthetic-audiences-are-already-here-and-poised-to-upend-the-consulting-industry, esperar 2s
+2026-04-27 16:49:14,282 - WARNING - 429 em https://venturebeat.com/technology/ai-synthetic-audiences-are-already-here-and-poised-to-upend-the-consulting-industry, esperar 4s
+2026-04-27 16:49:18,397 - WARNING - 429 em https://venturebeat.com/technology/ai-synthetic-audiences-are-already-here-and-poised-to-upend-the-consulting-industry, esperar 8s
+2026-04-27 16:49:26,446 - WARNING - 429 em https://venturebeat.com/technology/ai-synthetic-audiences-are-already-here-and-poised-to-upend-the-consulting-industry, esperar 16s
+2026-04-27 16:49:44,482 - WARNING - 429 em https://venturebeat.com/infrastructure/context-decay-orchestration-drift-and-the-rise-of-silent-failures-in-ai-systems, esperar 1s
+2026-04-27 16:49:45,516 - WARNING - 429 em https://venturebeat.com/infrastructure/context-decay-orchestration-drift-and-the-rise-of-silent-failures-in-ai-systems, esperar 2s
+2026-04-27 16:49:47,549 - WARNING - 429 em https://venturebeat.com/infrastructure/context-decay-orchestration-drift-and-the-rise-of-silent-failures-in-ai-systems, esperar 4s
+2026-04-27 16:49:51,589 - WARNING - 429 em https://venturebeat.com/infrastructure/context-decay-orchestration-drift-and-the-rise-of-silent-failures-in-ai-systems, esperar 8s
+2026-04-27 16:49:59,625 - WARNING - 429 em https://venturebeat.com/infrastructure/context-decay-orchestration-drift-and-the-rise-of-silent-failures-in-ai-systems, esperar 16s
+2026-04-27 16:50:17,672 - WARNING - 429 em https://venturebeat.com/technology/deepseek-v4-arrives-with-near-state-of-the-art-intelligence-at-1-6th-the-cost-of-opus-4-7-gpt-5-5, esperar 1s
+2026-04-27 16:50:18,707 - WARNING - 429 em https://venturebeat.com/technology/deepseek-v4-arrives-with-near-state-of-the-art-intelligence-at-1-6th-the-cost-of-opus-4-7-gpt-5-5, esperar 2s
+2026-04-27 16:50:20,746 - WARNING - 429 em https://venturebeat.com/technology/deepseek-v4-arrives-with-near-state-of-the-art-intelligence-at-1-6th-the-cost-of-opus-4-7-gpt-5-5, esperar 4s
+2026-04-27 16:50:24,783 - WARNING - 429 em https://venturebeat.com/technology/deepseek-v4-arrives-with-near-state-of-the-art-intelligence-at-1-6th-the-cost-of-opus-4-7-gpt-5-5, esperar 8s
+2026-04-27 16:50:32,849 - WARNING - 429 em https://venturebeat.com/technology/deepseek-v4-arrives-with-near-state-of-the-art-intelligence-at-1-6th-the-cost-of-opus-4-7-gpt-5-5, esperar 16s
+2026-04-27 16:50:50,910 - WARNING - 429 em https://venturebeat.com/technology/mystery-solved-anthropic-reveals-changes-to-claudes-harnesses-and-operating-instructions-likely-caused-degradation, esperar 1s
+2026-04-27 16:50:51,944 - WARNING - 429 em https://venturebeat.com/technology/mystery-solved-anthropic-reveals-changes-to-claudes-harnesses-and-operating-instructions-likely-caused-degradation, esperar 2s
+2026-04-27 16:50:53,993 - WARNING - 429 em https://venturebeat.com/technology/mystery-solved-anthropic-reveals-changes-to-claudes-harnesses-and-operating-instructions-likely-caused-degradation, esperar 4s
+2026-04-27 16:50:58,056 - WARNING - 429 em https://venturebeat.com/technology/mystery-solved-anthropic-reveals-changes-to-claudes-harnesses-and-operating-instructions-likely-caused-degradation, esperar 8s
+2026-04-27 16:51:06,126 - WARNING - 429 em https://venturebeat.com/technology/mystery-solved-anthropic-reveals-changes-to-claudes-harnesses-and-operating-instructions-likely-caused-degradation, esperar 16s
+2026-04-27 16:51:24,181 - WARNING - 429 em https://venturebeat.com/technology/openais-gpt-5-5-is-here-and-its-no-potato-narrowly-beats-anthropics-claude-mythos-preview-on-terminal-bench-2-0, esperar 1s
+2026-04-27 16:51:25,215 - WARNING - 429 em https://venturebeat.com/technology/openais-gpt-5-5-is-here-and-its-no-potato-narrowly-beats-anthropics-claude-mythos-preview-on-terminal-bench-2-0, esperar 2s
+2026-04-27 16:51:27,251 - WARNING - 429 em https://venturebeat.com/technology/openais-gpt-5-5-is-here-and-its-no-potato-narrowly-beats-anthropics-claude-mythos-preview-on-terminal-bench-2-0, esperar 4s
+2026-04-27 16:51:31,290 - WARNING - 429 em https://venturebeat.com/technology/openais-gpt-5-5-is-here-and-its-no-potato-narrowly-beats-anthropics-claude-mythos-preview-on-terminal-bench-2-0, esperar 8s
+2026-04-27 16:51:39,331 - WARNING - 429 em https://venturebeat.com/technology/openais-gpt-5-5-is-here-and-its-no-potato-narrowly-beats-anthropics-claude-mythos-preview-on-terminal-bench-2-0, esperar 16s
+2026-04-27 16:51:57,368 - WARNING - 429 em https://venturebeat.com/orchestration/talking-to-ai-agents-is-one-thing-what-about-when-they-talk-to-each-other-new-startup-band-debuts-universal-orchestrator, esperar 1s
+2026-04-27 16:51:58,430 - WARNING - 429 em https://venturebeat.com/orchestration/talking-to-ai-agents-is-one-thing-what-about-when-they-talk-to-each-other-new-startup-band-debuts-universal-orchestrator, esperar 2s
+2026-04-27 16:52:00,489 - WARNING - 429 em https://venturebeat.com/orchestration/talking-to-ai-agents-is-one-thing-what-about-when-they-talk-to-each-other-new-startup-band-debuts-universal-orchestrator, esperar 4s
+2026-04-27 16:52:04,536 - WARNING - 429 em https://venturebeat.com/orchestration/talking-to-ai-agents-is-one-thing-what-about-when-they-talk-to-each-other-new-startup-band-debuts-universal-orchestrator, esperar 8s
+2026-04-27 16:52:12,571 - WARNING - 429 em https://venturebeat.com/orchestration/talking-to-ai-agents-is-one-thing-what-about-when-they-talk-to-each-other-new-startup-band-debuts-universal-orchestrator, esperar 16s
+2026-04-27 16:52:30,617 - WARNING - 429 em https://venturebeat.com/orchestration/openai-unveils-workspace-agents-a-successor-to-custom-gpts-for-enterprises-that-can-plug-directly-into-slack-salesforce-and-more, esperar 1s
+2026-04-27 16:52:31,651 - WARNING - 429 em https://venturebeat.com/orchestration/openai-unveils-workspace-agents-a-successor-to-custom-gpts-for-enterprises-that-can-plug-directly-into-slack-salesforce-and-more, esperar 2s
+2026-04-27 16:52:33,724 - WARNING - 429 em https://venturebeat.com/orchestration/openai-unveils-workspace-agents-a-successor-to-custom-gpts-for-enterprises-that-can-plug-directly-into-slack-salesforce-and-more, esperar 4s
+2026-04-27 16:52:37,790 - WARNING - 429 em https://venturebeat.com/orchestration/openai-unveils-workspace-agents-a-successor-to-custom-gpts-for-enterprises-that-can-plug-directly-into-slack-salesforce-and-more, esperar 8s
+2026-04-27 16:52:45,829 - WARNING - 429 em https://venturebeat.com/orchestration/openai-unveils-workspace-agents-a-successor-to-custom-gpts-for-enterprises-that-can-plug-directly-into-slack-salesforce-and-more, esperar 16s
+2026-04-27 16:53:03,864 - WARNING - 429 em https://venturebeat.com/orchestration/google-and-aws-split-the-ai-agent-stack-between-control-and-execution, esperar 1s
+2026-04-27 16:53:04,900 - WARNING - 429 em https://venturebeat.com/orchestration/google-and-aws-split-the-ai-agent-stack-between-control-and-execution, esperar 2s
+2026-04-27 16:53:06,934 - WARNING - 429 em https://venturebeat.com/orchestration/google-and-aws-split-the-ai-agent-stack-between-control-and-execution, esperar 4s
+2026-04-27 16:53:10,971 - WARNING - 429 em https://venturebeat.com/orchestration/google-and-aws-split-the-ai-agent-stack-between-control-and-execution, esperar 8s
+2026-04-27 16:53:19,014 - WARNING - 429 em https://venturebeat.com/orchestration/google-and-aws-split-the-ai-agent-stack-between-control-and-execution, esperar 16s
+2026-04-27 16:53:37,082 - WARNING - 429 em https://venturebeat.com/orchestration/are-you-paying-an-ai-swarm-tax-why-single-agents-often-beat-complex-systems, esperar 1s
+2026-04-27 16:53:38,129 - WARNING - 429 em https://venturebeat.com/orchestration/are-you-paying-an-ai-swarm-tax-why-single-agents-often-beat-complex-systems, esperar 2s
+2026-04-27 16:53:40,165 - WARNING - 429 em https://venturebeat.com/orchestration/are-you-paying-an-ai-swarm-tax-why-single-agents-often-beat-complex-systems, esperar 4s
+2026-04-27 16:53:44,201 - WARNING - 429 em https://venturebeat.com/orchestration/are-you-paying-an-ai-swarm-tax-why-single-agents-often-beat-complex-systems, esperar 8s
+2026-04-27 16:53:52,237 - WARNING - 429 em https://venturebeat.com/orchestration/are-you-paying-an-ai-swarm-tax-why-single-agents-often-beat-complex-systems, esperar 16s
+2026-04-27 16:54:10,240 - INFO - Guardados 66 artigos
