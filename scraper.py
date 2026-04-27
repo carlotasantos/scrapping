@@ -8,6 +8,10 @@ import hashlib
 from datetime import datetime, UTC
 from urllib.parse import urljoin
 
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+
 # -------- PATHS --------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -26,7 +30,7 @@ logging.basicConfig(
 )
 
 SAPO_URL = "https://sapo.pt/tags/inteligencia-artificial"
-VB_API = "https://venturebeat.com/wp-json/wp/v2"
+TDS_URL = "https://towardsdatascience.com/latest/"
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
@@ -47,14 +51,6 @@ def get_html(url, params=None):
     except:
         return None
 
-
-def get_json(url, params=None):
-    try:
-        r = requests.get(url, headers=HEADERS, params=params, timeout=20)
-        r.raise_for_status()
-        return r.json()
-    except:
-        return None
 
 
 # -------- SAPO --------
@@ -90,49 +86,92 @@ def scrape_sapo():
     return articles
 
 
-# -------- VENTUREBEAT (WordPress REST API) --------
-def scrape_venturebeat():
-    # Resolve the numeric ID of the "ai" category
-    categories = get_json(f"{VB_API}/categories", params={"slug": "ai"})
-    if not categories:
-        logging.warning("VentureBeat: falhou ao obter categoria 'ai' via API")
-        return []
+# -------- TOWARDS DATA SCIENCE (Selenium) --------
+def scrape_tds():
+    options = Options()
 
-    ai_id = categories[0]["id"]
-    logging.info(f"VentureBeat categoria 'ai' id={ai_id}")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument(
+        "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    )
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option("useAutomationExtension", False)
+
+    if os.getenv("CI"):
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
+
+    options.add_argument("--window-size=1920,1080")
+
+    driver = webdriver.Chrome(options=options)
+    driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+        "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+    })
+
+    driver.get(TDS_URL)
+    time.sleep(4)
+
+    last_count = 0
+    no_change = 0
+    scrolls = 0
+    max_scrolls = 60
+
+    while scrolls < max_scrolls:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+        time.sleep(2)
+
+        try:
+            items = driver.find_elements(By.CSS_SELECTOR, "ul.wp-block-post-template li")
+            if items:
+                driver.execute_script(
+                    "arguments[0].scrollIntoView({block: 'end', behavior: 'smooth'})",
+                    items[-1]
+                )
+                time.sleep(1.5)
+        except:
+            pass
+
+        current_count = len(driver.find_elements(By.CSS_SELECTOR, "ul.wp-block-post-template li"))
+
+        if current_count > last_count:
+            no_change = 0
+            last_count = current_count
+            logging.info(f"TDS artigos carregados: {current_count}")
+        else:
+            no_change += 1
+            if no_change >= 5:
+                break
+
+        scrolls += 1
+
+    logging.info(f"TDS scroll finalizado: {scrolls} scrolls, {last_count} artigos")
+
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    driver.quit()
 
     articles = []
-    page = 1
+    seen = set()
 
-    while True:
-        posts = get_json(
-            f"{VB_API}/posts",
-            params={
-                "categories": ai_id,
-                "per_page": 100,
-                "page": page,
-                "_fields": "title,link",
-            },
-        )
+    for li in soup.select("ul.wp-block-post-template li"):
+        title_el = li.find(["h2", "h3", "h4"])
+        title = clean(title_el.get_text()) if title_el else None
 
-        if not posts:
-            break
+        a = li.find("a", href=True)
+        url = urljoin(TDS_URL, a["href"]) if a else None
 
-        for post in posts:
-            title = clean(BeautifulSoup(post["title"]["rendered"], "html.parser").get_text())
-            url = post["link"]
-            if title and url:
-                articles.append({"title": title, "url": url, "source": "venturebeat"})
+        if not title or not url or len(title) < 3:
+            continue
+        if url in seen:
+            continue
 
-        logging.info(f"VentureBeat página {page}: {len(posts)} artigos")
+        seen.add(url)
+        articles.append({"title": title, "url": url, "source": "towardsdatascience"})
+        logging.info(f"✓ TDS: {title[:60]} | {url}")
 
-        if len(posts) < 100:
-            break
-
-        page += 1
-        time.sleep(0.3)
-
-    logging.info(f"VentureBeat: {len(articles)} artigos no total")
+    logging.info(f"TDS: {len(articles)} artigos únicos")
     return articles
 
 
@@ -152,9 +191,9 @@ def scrape():
     now = datetime.now(UTC).isoformat()
 
     sapo = scrape_sapo()
-    vb = scrape_venturebeat()
+    tds = scrape_tds()
 
-    all_articles = sapo + vb
+    all_articles = sapo + tds
 
     results = []
     seen = set()
