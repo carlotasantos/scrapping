@@ -159,6 +159,17 @@ def fetch_venturebeat_page(page):
             lambda browser: browser.find_elements(By.CSS_SELECTOR, "article")
         )
 
+        driver.execute_script(
+            """
+            document.querySelectorAll(
+              '.newsletter, .modal, .popup, .overlay, .signup-modal, .subscribe-modal, .newsletter-modal, .modal-backdrop'
+            ).forEach(el => el.remove());
+            document.querySelectorAll(
+              '[aria-label="Close"], .close-button, .close, [data-modal-close], [data-dismiss="modal"]'
+            ).forEach(button => button.click && button.click());
+            """
+        )
+
         previous_count = 0
         stable_scrolls = 0
         for _ in range(VENTUREBEAT_SCROLL_STEPS):
