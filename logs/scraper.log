@@ -1,1 +1,20 @@
 
+2026-04-27 19:24:55,896 - INFO - SAPO: 106
+2026-04-27 19:25:06,835 - INFO - Artigos carregados: 12
+2026-04-27 19:25:24,438 - INFO - Scroll finalizado. Total de scrolls: 5, Artigos encontrados: 12
+2026-04-27 19:25:26,570 - INFO - VentureBeat elementos <article> encontrados: 12
+2026-04-27 19:25:26,570 - INFO - ✓ Artigo: New AI framework autonomously optimizes training data, archi | https://venturebeat.com/orchestration/new-ai-framework-autonomously-optimizes-training-data-architectures-and-algorithms-outperforming-human-baselines
+2026-04-27 19:25:26,570 - INFO - ✓ Artigo: Why supply chains are the proving ground for automation‑led  | https://venturebeat.com/orchestration/why-supply-chains-are-the-proving-ground-for-automation-led-ipaas
+2026-04-27 19:25:26,571 - INFO - ✓ Artigo: Monitoring LLM behavior: Drift, retries, and refusal pattern | https://venturebeat.com/infrastructure/monitoring-llm-behavior-drift-retries-and-refusal-patterns
+2026-04-27 19:25:26,571 - INFO - ✓ Artigo: AI synthetic audiences are already here and poised to upend  | https://venturebeat.com/technology/ai-synthetic-audiences-are-already-here-and-poised-to-upend-the-consulting-industry
+2026-04-27 19:25:26,571 - INFO - ✓ Artigo: Context decay, orchestration drift, and the rise of silent f | https://venturebeat.com/infrastructure/context-decay-orchestration-drift-and-the-rise-of-silent-failures-in-ai-systems
+2026-04-27 19:25:26,571 - INFO - ✓ Artigo: DeepSeek-V4 arrives with near state-of-the-art intelligence  | https://venturebeat.com/technology/deepseek-v4-arrives-with-near-state-of-the-art-intelligence-at-1-6th-the-cost-of-opus-4-7-gpt-5-5
+2026-04-27 19:25:26,571 - INFO - ✓ Artigo: Mystery solved: Anthropic reveals changes to Claude's harnes | https://venturebeat.com/technology/mystery-solved-anthropic-reveals-changes-to-claudes-harnesses-and-operating-instructions-likely-caused-degradation
+2026-04-27 19:25:26,571 - INFO - ✓ Artigo: OpenAI's GPT-5.5 is here, and it's no potato: narrowly beats | https://venturebeat.com/technology/openais-gpt-5-5-is-here-and-its-no-potato-narrowly-beats-anthropics-claude-mythos-preview-on-terminal-bench-2-0
+2026-04-27 19:25:26,572 - INFO - ✓ Artigo: Talking to AI agents is one thing — what about when they tal | https://venturebeat.com/orchestration/talking-to-ai-agents-is-one-thing-what-about-when-they-talk-to-each-other-new-startup-band-debuts-universal-orchestrator
+2026-04-27 19:25:26,572 - INFO - ✓ Artigo: OpenAI unveils Workspace Agents, a successor to custom GPTs  | https://venturebeat.com/orchestration/openai-unveils-workspace-agents-a-successor-to-custom-gpts-for-enterprises-that-can-plug-directly-into-slack-salesforce-and-more
+2026-04-27 19:25:26,572 - INFO - ✓ Artigo: Google and AWS split the AI agent stack between control and  | https://venturebeat.com/orchestration/google-and-aws-split-the-ai-agent-stack-between-control-and-execution
+2026-04-27 19:25:26,572 - INFO - ✓ Artigo: Are you paying an AI ‘swarm tax’? Why single agents often be | https://venturebeat.com/orchestration/are-you-paying-an-ai-swarm-tax-why-single-agents-often-beat-complex-systems
+2026-04-27 19:25:26,572 - INFO - Poucos artigos encontrados nos elementos <article>, tentando fallback...
+2026-04-27 19:25:26,573 - INFO - VentureBeat: 12 artigos únicos
+2026-04-27 19:27:31,476 - INFO - Total: 118
