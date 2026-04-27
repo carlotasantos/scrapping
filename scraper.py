@@ -10,7 +10,6 @@ from urllib.parse import urljoin
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
 
 # -------- PATHS --------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -111,66 +110,42 @@ def scrape_tds():
         "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
     })
 
-    driver.get(TDS_URL)
-    time.sleep(4)
-
-    last_count = 0
-    no_change = 0
-    scrolls = 0
-    max_scrolls = 60
-
-    while scrolls < max_scrolls:
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-        time.sleep(2)
-
-        try:
-            items = driver.find_elements(By.CSS_SELECTOR, "ul.wp-block-post-template li")
-            if items:
-                driver.execute_script(
-                    "arguments[0].scrollIntoView({block: 'end', behavior: 'smooth'})",
-                    items[-1]
-                )
-                time.sleep(1.5)
-        except:
-            pass
-
-        current_count = len(driver.find_elements(By.CSS_SELECTOR, "ul.wp-block-post-template li"))
-
-        if current_count > last_count:
-            no_change = 0
-            last_count = current_count
-            logging.info(f"TDS artigos carregados: {current_count}")
-        else:
-            no_change += 1
-            if no_change >= 5:
-                break
-
-        scrolls += 1
-
-    logging.info(f"TDS scroll finalizado: {scrolls} scrolls, {last_count} artigos")
-
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    driver.quit()
-
     articles = []
     seen = set()
+    page = 1
 
-    for li in soup.select("ul.wp-block-post-template li"):
-        title_el = li.find(["h2", "h3", "h4"])
-        title = clean(title_el.get_text()) if title_el else None
+    while True:
+        page_url = TDS_URL if page == 1 else f"https://towardsdatascience.com/latest/page/{page}/"
+        driver.get(page_url)
+        time.sleep(3)
 
-        a = li.find("a", href=True)
-        url = urljoin(TDS_URL, a["href"]) if a else None
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+        items = soup.select("ul.wp-block-post-template li")
 
-        if not title or not url or len(title) < 3:
-            continue
-        if url in seen:
-            continue
+        if not items:
+            logging.info(f"TDS: sem artigos na página {page}, a parar")
+            break
 
-        seen.add(url)
-        articles.append({"title": title, "url": url, "source": "towardsdatascience"})
-        logging.info(f"✓ TDS: {title[:60]} | {url}")
+        for li in items:
+            title_el = li.find(["h2", "h3", "h4"])
+            title = clean(title_el.get_text()) if title_el else None
 
+            a = li.find("a", href=True)
+            url = urljoin(TDS_URL, a["href"]) if a else None
+
+            if not title or not url or len(title) < 3:
+                continue
+            if url in seen:
+                continue
+
+            seen.add(url)
+            articles.append({"title": title, "url": url, "source": "towardsdatascience"})
+            logging.info(f"✓ TDS p{page}: {title[:60]} | {url}")
+
+        logging.info(f"TDS página {page}: {len(items)} artigos")
+        page += 1
+
+    driver.quit()
     logging.info(f"TDS: {len(articles)} artigos únicos")
     return articles
 
