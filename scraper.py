@@ -15,7 +15,7 @@ LOG_DIR = os.path.join(BASE_DIR, "logs")
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(LOG_DIR, exist_ok=True)
 
-OUTPUT_FILE = os.path.join(DATA_DIR, "ai_news.json")
+OUTPUT_FILE = os.path.join(DATA_DIR, "scraper.json")
 
 # -------- LOGGING --------
 logging.basicConfig(
@@ -37,26 +37,19 @@ def clean(text):
     return " ".join(text.split()) if text else None
 
 
-# -------- REQUEST COM RETRY (ANTI 429) --------
+# -------- REQUEST COM RETRY --------
 def get_html(url, params=None):
-    for attempt in range(5):
+    for attempt in range(3):
         try:
-            r = requests.get(url, headers=HEADERS, params=params, timeout=30)
-
+            r = requests.get(url, headers=HEADERS, params=params, timeout=20)
             if r.status_code == 429:
-                wait = 2 ** attempt
-                logging.warning(f"429 em {url}, esperar {wait}s")
-                time.sleep(wait)
+                time.sleep(2 * (attempt + 1))
                 continue
-
             r.raise_for_status()
             return r.text
-
-        except Exception as e:
-            if attempt == 4:
-                logging.error(f"Erro final em {url}: {e}")
-                return None
-            time.sleep(2 ** attempt)
+        except:
+            time.sleep(2)
+    return None
 
 
 # -------- SAPO --------
@@ -103,7 +96,7 @@ def scrape_venturebeat():
     time.sleep(2)
 
     # remover popups
-    for _ in range(6):
+    for _ in range(5):
         driver.execute_script("""
             document.querySelectorAll(
                 '.modal, .popup, .overlay, .newsletter, .cookie, .consent, .onetrust-banner-sdk'
@@ -118,8 +111,8 @@ def scrape_venturebeat():
         """)
         time.sleep(1)
 
-    # scroll forte
-    for _ in range(15):
+    # scroll suficiente
+    for _ in range(12):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(2)
 
@@ -129,18 +122,21 @@ def scrape_venturebeat():
     articles = []
     seen = set()
 
-    for article in soup.select("article.flex.flex-col"):
-        link = article.select_one("h2 a, h3 a")
+    for article in soup.select("article"):
+        link = article.select_one("h2 a[href], h3 a[href]")
         if not link:
             continue
 
-        url = urljoin(VENTUREBEAT_URL, link.get("href"))
+        url = link.get("href")
         title = clean(link.get_text())
 
-        if not url or not title:
+        if not url.startswith("https://venturebeat.com"):
             continue
 
         if any(x in url for x in ["/category/", "/tag/", "/author/"]):
+            continue
+
+        if not title or len(title) < 20:
             continue
 
         if url in seen:
@@ -159,7 +155,7 @@ def scrape_venturebeat():
     return articles
 
 
-# -------- EXTRAÇÃO DE CONTEÚDO --------
+# -------- EXTRAÇÃO (APENAS SAPO) --------
 def extract_content(url):
     html = get_html(url)
     if not html:
@@ -184,7 +180,7 @@ def scrape():
     logging.info("Start scraping")
 
     sapo = scrape_sapo()
-    vb = scrape_venturebeat()[:40]  # LIMITAÇÃO CRÍTICA
+    vb = scrape_venturebeat()
 
     all_articles = sapo + vb
 
@@ -197,7 +193,11 @@ def scrape():
 
         seen.add(art["url"])
 
-        details = extract_content(art["url"])
+        # só SAPO tem conteúdo completo
+        if art["source"] == "sapo":
+            details = extract_content(art["url"])
+        else:
+            details = {"description": None}
 
         results.append({
             "id": hash(art["url"]),
@@ -209,7 +209,7 @@ def scrape():
             "scraped_at": now
         })
 
-        time.sleep(2)  # delay maior para evitar 429
+        time.sleep(1)
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
