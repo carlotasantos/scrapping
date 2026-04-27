@@ -137,15 +137,20 @@ def scrape_venturebeat():
         document.body.style.overflow='auto';
     """)
 
-    # scroll
+    # scroll até ao fim
     last_height = 0
-    for _ in range(25):
-        driver.execute_script("window.scrollBy(0, 800)")
-        time.sleep(2)
+    no_change_count = 0
+    for _ in range(50):
+        driver.execute_script("window.scrollBy(0, 1200)")
+        time.sleep(1)
 
         new_height = driver.execute_script("return document.body.scrollHeight")
         if new_height == last_height:
-            break
+            no_change_count += 1
+            if no_change_count >= 3:  # 3 scrolls sem mudança = fim
+                break
+        else:
+            no_change_count = 0
         last_height = new_height
 
     soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -154,29 +159,33 @@ def scrape_venturebeat():
     articles = []
     seen = set()
 
-    for a in soup.select("a[href]"):
-        url = urljoin(VENTUREBEAT_URL, a.get("href"))
-        title = clean(a.get_text())
+    # Procurar especificamente por cards de artigos
+    for article in soup.select("article, [class*='article'], [class*='card'], [class*='post']"):
+        links = article.select("a[href]")
+        
+        for a in links:
+            url = urljoin(VENTUREBEAT_URL, a.get("href"))
+            title = clean(a.get_text())
 
-        if "venturebeat.com" not in url:
-            continue
+            if "venturebeat.com" not in url:
+                continue
 
-        if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/"]):
-            continue
+            if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/", "/author-page/"]):
+                continue
 
-        if not title or len(title) < 35:
-            continue
+            if not title or len(title) < 5:  # Mínimo 5 caracteres
+                continue
 
-        if url in seen:
-            continue
+            if url in seen:
+                continue
 
-        seen.add(url)
+            seen.add(url)
 
-        articles.append({
-            "title": title,
-            "url": url,
-            "source": "venturebeat"
-        })
+            articles.append({
+                "title": title,
+                "url": url,
+                "source": "venturebeat"
+            })
 
     logging.info(f"VentureBeat: {len(articles)}")
     return articles
