@@ -1,3 +1,4 @@
+import hashlib
 import json
 import logging
 import os
@@ -24,6 +25,8 @@ logging.basicConfig(
 
 BASE_URL = "https://sapo.pt"
 TAG_URL = f"{BASE_URL}/tags/inteligencia-artificial"
+VENTUREBEAT_BASE_URL = "https://venturebeat.com"
+VENTUREBEAT_AI_URL = f"{VENTUREBEAT_BASE_URL}/category/ai"
 OUTPUT_FILE = os.path.join(DATA_DIR, "ai_news.json")
 MAX_PAGES = 10
 MIN_PARAGRAPH_LENGTH = 40
@@ -54,28 +57,62 @@ def clean_text(value):
     return " ".join(value.split()) if value else None
 
 
-def absolute_url(value):
+def absolute_url(value, base_url=BASE_URL):
     if not value:
         return None
-    return urljoin(BASE_URL, value)
+    return urljoin(base_url, value)
 
 
-def format_published_datetime(value):
+def make_article_id(source, url, raw_id=None):
+    if raw_id:
+        return str(raw_id)
+
+    digest = hashlib.sha1(url.encode("utf-8")).hexdigest()[:12]
+    return f"{source}_{digest}"
+
+
+def parse_published_datetime(value):
     if not value:
-        return None, None
+        return None
 
     try:
         parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
-        return parsed.strftime("%d/%m/%Y"), parsed.strftime("%H:%M:%S")
+        return parsed.isoformat()
     except ValueError:
         pass
 
     match = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4}).*?(\d{1,2}):(\d{2})(?::(\d{2}))?", value)
     if match:
         day, month, year, hour, minute, second = match.groups()
-        return f"{int(day):02d}/{int(month):02d}/{year}", f"{int(hour):02d}:{minute}:{second or '00'}"
+        parsed = datetime(
+            int(year),
+            int(month),
+            int(day),
+            int(hour),
+            int(minute),
+            int(second or 0),
+        )
+        return parsed.isoformat()
 
-    return value, None
+    match = re.search(
+        r"(\d{1,2}):(\d{2})\s*(am|pm),\s*PT,\s*([A-Za-z]+ \d{1,2}, \d{4})",
+        value,
+        flags=re.IGNORECASE,
+    )
+    if match:
+        hour, minute, am_pm, date_text = match.groups()
+        parsed = datetime.strptime(
+            f"{date_text} {hour}:{minute} {am_pm.upper()}",
+            "%B %d, %Y %I:%M %p",
+        )
+        return parsed.isoformat()
+
+    match = re.search(r"([A-Za-z]+ \d{1,2}, \d{4})", value)
+    if match:
+        parsed = datetime.strptime(match.group(1), "%B %d, %Y")
+        return parsed.date().isoformat()
+
+    return value
 
 
 def fetch_page(page):
@@ -87,6 +124,23 @@ def fetch_page(page):
     )
     logging.info(
         "Fetched page %s: status=%s bytes=%s",
+        page,
+        response.status_code,
+        len(response.text),
+    )
+
+    if response.status_code == 404:
+        return None
+
+    response.raise_for_status()
+    return response.text
+
+
+def fetch_venturebeat_page(page):
+    url = VENTUREBEAT_AI_URL if page == 1 else f"{VENTUREBEAT_AI_URL}/page/{page}/"
+    response = requests.get(url, headers=HEADERS, timeout=30)
+    logging.info(
+        "Fetched VentureBeat page %s: status=%s bytes=%s",
         page,
         response.status_code,
         len(response.text),
@@ -227,16 +281,16 @@ def extract_article_details(html):
         paragraphs = [description]
         content_source = "meta_description"
 
-    dia, horas = format_published_datetime(published_at)
     content_text = " ".join(paragraphs)
+    if not description and paragraphs:
+        description = paragraphs[0]
 
     return {
-        "content": paragraphs or None,
-        "content_source": content_source,
-        "published_at_raw": published_at,
-        "dia": dia,
-        "horas": horas,
-        "word_count": len(re.findall(r"\w+", content_text, flags=re.UNICODE)),
+        "description": description,
+        "published_at": parse_published_datetime(published_at),
+        "_content": paragraphs or None,
+        "_content_source": content_source,
+        "_word_count": len(re.findall(r"\w+", content_text, flags=re.UNICODE)),
     }
 
 
@@ -309,15 +363,13 @@ def fetch_dynamic_article_details(url):
         if not paragraphs:
             return None
 
-        details = extract_article_details(driver.page_source)
-        dia, horas = format_published_datetime(details.get("published_at_raw"))
         content_text = " ".join(paragraphs)
+        details = extract_article_details(driver.page_source)
         details.update({
-            "content": paragraphs,
-            "content_source": "dynamic_rendered",
-            "dia": dia,
-            "horas": horas,
-            "word_count": len(re.findall(r"\w+", content_text, flags=re.UNICODE)),
+            "description": paragraphs[0],
+            "_content": paragraphs,
+            "_content_source": "dynamic_rendered",
+            "_word_count": len(re.findall(r"\w+", content_text, flags=re.UNICODE)),
         })
         return details
     finally:
@@ -328,22 +380,21 @@ def enrich_article_content(article):
     try:
         details = extract_article_details(fetch_url(article["url"]))
         if (
-            details["content_source"] == "meta_description"
-            or details["word_count"] < DYNAMIC_FALLBACK_WORD_LIMIT
+            details["_content_source"] == "meta_description"
+            or details["_word_count"] < DYNAMIC_FALLBACK_WORD_LIMIT
         ):
             dynamic_details = fetch_dynamic_article_details(article["url"])
-            if dynamic_details and dynamic_details["word_count"] > details["word_count"]:
+            if dynamic_details and dynamic_details["_word_count"] > details["_word_count"]:
                 details = dynamic_details
 
         article.update(details)
     except Exception:
         logging.exception("Erro ao extrair conteudo do artigo: %s", article["url"])
-        article["content"] = None
-        article["content_source"] = None
-        article["published_at_raw"] = None
-        article["dia"] = None
-        article["horas"] = None
-        article["word_count"] = 0
+        article["description"] = None
+        article["published_at"] = None
+        article["_content"] = None
+        article["_content_source"] = None
+        article["_word_count"] = 0
 
     return article
 
@@ -369,28 +420,17 @@ def parse_article(article, page, scraped_at):
     if not title or not link:
         return None
 
-    category = clean_text(
-        article.select_one(".button-tag").get_text(" ", strip=True)
-        if article.select_one(".button-tag")
-        else None
-    )
+    url = absolute_url(link)
+    source = "sapo"
 
     return {
-        "id": article.get("data-article-id"),
+        "id": make_article_id(source, url, article.get("data-article-id")),
         "title": title,
-        "source": partner,
-        "category": category,
-        "tag": "inteligencia-artificial",
-        "url": absolute_url(link),
-        "image_url": absolute_url(image.get("src")) if image else None,
-        "page": page,
+        "url": url,
+        "source": source,
+        "description": None,
+        "published_at": None,
         "scraped_at": scraped_at,
-        "dia": None,
-        "horas": None,
-        "published_at_raw": None,
-        "content_source": None,
-        "word_count": 0,
-        "content": None,
     }
 
 
@@ -409,27 +449,50 @@ def parse_page(html, page, scraped_at):
     return articles
 
 
-def scrape(max_pages=MAX_PAGES):
-    logging.info("Start scraping SAPO AI news")
+def parse_venturebeat_page(html, page, scraped_at):
+    soup = BeautifulSoup(html, "html.parser")
+    articles = []
+    seen_urls = set()
 
-    scraped_at = datetime.now(timezone.utc).isoformat()
-    existing_articles = load_json()
-    existing_by_url = {
-        article["url"]: article
-        for article in existing_articles
-        if article.get("url")
-    }
-    existing_urls = [article.get("url") for article in existing_articles]
+    for link in soup.select("h2 a[href], h3 a[href]"):
+        title = clean_text(link.get_text(" ", strip=True))
+        url = absolute_url(link.get("href"), VENTUREBEAT_BASE_URL)
+        source = "venturebeat"
+
+        if not title or not url or not url.startswith(VENTUREBEAT_BASE_URL):
+            continue
+
+        if "/category/" in url or url in seen_urls:
+            continue
+
+        seen_urls.add(url)
+        container = link.find_parent(["article", "div", "li"])
+        image = container.select_one("img") if container else None
+
+        articles.append({
+            "id": make_article_id(source, url),
+            "title": title,
+            "url": url,
+            "source": source,
+            "description": clean_text(image.get("alt")) if image else None,
+            "published_at": None,
+            "scraped_at": scraped_at,
+        })
+
+    return articles
+
+
+def collect_source_articles(source_name, fetch_page_func, parse_page_func, scraped_at, max_pages):
     listed_articles = []
     seen_urls = set()
 
     for page in range(1, max_pages + 1):
-        html = fetch_page(page)
+        html = fetch_page_func(page)
         if html is None:
-            logging.info("Page %s returned 404; stopping", page)
+            logging.info("%s page %s returned 404; stopping", source_name, page)
             break
 
-        page_articles = parse_page(html, page, scraped_at)
+        page_articles = parse_page_func(html, page, scraped_at)
         new_articles = [
             article for article in page_articles
             if article["url"] not in seen_urls
@@ -439,7 +502,8 @@ def scrape(max_pages=MAX_PAGES):
             seen_urls.add(article["url"])
 
         logging.info(
-            "Page %s: %s articles, %s new",
+            "%s page %s: %s articles, %s new",
+            source_name,
             page,
             len(page_articles),
             len(new_articles),
@@ -450,8 +514,100 @@ def scrape(max_pages=MAX_PAGES):
 
         listed_articles.extend(new_articles)
 
+    return listed_articles
+
+
+OUTPUT_FIELDS = [
+    "id",
+    "title",
+    "url",
+    "source",
+    "description",
+    "published_at",
+    "scraped_at",
+]
+
+
+def normalize_source(source):
+    source = clean_text(source or "")
+    if not source:
+        return None
+
+    return re.sub(r"[^a-z0-9]+", "_", source.lower()).strip("_")
+
+
+def source_from_url(url):
+    if not url:
+        return None
+    if url.startswith(VENTUREBEAT_BASE_URL):
+        return "venturebeat"
+    if url.startswith(BASE_URL):
+        return "sapo"
+    return None
+
+
+def normalize_article(article):
+    url = article.get("url")
+    source = source_from_url(url) or normalize_source(article.get("source"))
+    description = article.get("description")
+
+    if not description and isinstance(article.get("content"), list):
+        description = article["content"][0] if article["content"] else None
+
+    published_at = article.get("published_at")
+    if not published_at:
+        published_at = parse_published_datetime(article.get("published_at_raw"))
+
+    normalized = {
+        "id": article.get("id") or make_article_id(source or "news", url or ""),
+        "title": article.get("title"),
+        "url": url,
+        "source": source,
+        "description": description,
+        "published_at": published_at,
+        "scraped_at": article.get("scraped_at"),
+    }
+
+    return {field: normalized.get(field) for field in OUTPUT_FIELDS}
+
+
+def has_output_schema(article):
+    return list(article.keys()) == OUTPUT_FIELDS
+
+
+def scrape(max_pages=MAX_PAGES):
+    logging.info("Start scraping AI news")
+
+    scraped_at = datetime.now(timezone.utc).isoformat()
+    existing_articles = load_json()
+    existing_by_url = {
+        article["url"]: article
+        for article in existing_articles
+        if article.get("url")
+    }
+    existing_urls = [article.get("url") for article in existing_articles]
+    listed_articles = []
+    listed_articles.extend(
+        collect_source_articles("SAPO", fetch_page, parse_page, scraped_at, max_pages)
+    )
+    listed_articles.extend(
+        collect_source_articles(
+            "VentureBeat",
+            fetch_venturebeat_page,
+            parse_venturebeat_page,
+            scraped_at,
+            max_pages,
+        )
+    )
+
     listed_urls = [article["url"] for article in listed_articles]
     if listed_urls == existing_urls:
+        if not all(has_output_schema(article) for article in existing_articles):
+            normalized_articles = [normalize_article(article) for article in existing_articles]
+            save_json(normalized_articles)
+            logging.info("JSON convertido para a nova estrutura com %s noticias", len(normalized_articles))
+            return normalized_articles
+
         logging.info("Sem alteracoes nas noticias; JSON mantido com %s noticias", len(existing_articles))
         return existing_articles
 
@@ -462,23 +618,23 @@ def scrape(max_pages=MAX_PAGES):
     for article in listed_articles:
         existing_article = existing_by_url.get(article["url"])
         if existing_article:
-            merged_article = existing_article.copy()
+            merged_article = normalize_article(existing_article)
             merged_article.update({
                 "id": article["id"],
                 "title": article["title"],
                 "source": article["source"],
-                "category": article["category"],
-                "tag": article["tag"],
                 "url": article["url"],
-                "image_url": article["image_url"],
-                "page": article["page"],
+                "description": merged_article["description"] or article["description"],
+                "published_at": merged_article["published_at"] or article["published_at"],
+                "scraped_at": article["scraped_at"],
             })
             articles.append(merged_article)
             reused_count += 1
         else:
-            articles.append(enrich_article_content(article))
+            articles.append(normalize_article(enrich_article_content(article)))
             new_count += 1
 
+    articles = [normalize_article(article) for article in articles]
     save_json(articles)
     logging.info(
         "%s noticias guardadas; %s novas, %s reutilizadas",
