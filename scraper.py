@@ -106,6 +106,7 @@ def scrape_tds(known_urls):
     options.add_argument("--window-size=1920,1080")
 
     driver = webdriver.Chrome(options=options)
+    driver.set_page_load_timeout(120)
     driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
         "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
     })
@@ -117,7 +118,11 @@ def scrape_tds(known_urls):
 
     while page <= max_pages:
         page_url = TDS_URL if page == 1 else f"https://towardsdatascience.com/latest/page/{page}/"
-        driver.get(page_url)
+        try:
+            driver.get(page_url)
+        except Exception as e:
+            logging.error(f"TDS: erro ao carregar {page_url}: {e}")
+            break
         time.sleep(3)
 
         soup = BeautifulSoup(driver.page_source, "html.parser")
