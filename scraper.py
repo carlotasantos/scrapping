@@ -11,8 +11,7 @@ from urllib.parse import urljoin
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
 
 # -------- PATHS --------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -91,68 +90,74 @@ def scrape_sapo():
 def scrape_venturebeat():
     options = Options()
 
-    # modo CI (GitHub Actions)
+    # Anti-detecção (sempre activo)
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument(
+        "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    )
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option("useAutomationExtension", False)
+
     if os.getenv("CI"):
         options.add_argument("--headless=new")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--disable-gpu")
 
-    # tamanho janela (mantém sempre)
     options.add_argument("--window-size=1920,1080")
 
     driver = webdriver.Chrome(options=options)
-    wait = WebDriverWait(driver, 10)
+
+    # Remover flag navigator.webdriver para evitar detecção
+    driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+        "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+    })
 
     driver.get(VENTUREBEAT_URL)
-    time.sleep(3)
+    time.sleep(4)
 
-    # remover overlays
+    # Remover overlays/modais
     driver.execute_script("""
         document.querySelectorAll('[class*="modal"], [class*="dialog"], [class*="popup"], [id*="modal"]').forEach(e => e.style.display = 'none');
         document.querySelectorAll('*').forEach(el => {
             const style = window.getComputedStyle(el);
-            if (style.position === 'fixed' && el.offsetHeight > 150) {
-                el.remove();
-            }
+            if (style.position === 'fixed' && el.offsetHeight > 150) el.remove();
         });
     """)
 
     time.sleep(2)
 
-    # Estratégia inteligente de scroll + load more
+    # Scroll até ao fundo + scrollIntoView no último artigo para disparar IntersectionObserver
     last_article_count = 0
     no_change_count = 0
     scrolls_done = 0
-    max_scrolls = 300
+    max_scrolls = 60
 
     while scrolls_done < max_scrolls:
-        # Scroll down
-        driver.execute_script("window.scrollBy(0, 1500)")
-        time.sleep(0.8)
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+        time.sleep(2)
 
-        # Tentar clicar em botões "Load More" se existirem
         try:
-            load_buttons = driver.find_elements(By.XPATH, "//button[contains(text(), 'Load More') or contains(text(), 'Show More') or contains(text(), 'More Articles')]")
-            for button in load_buttons:
-                if button.is_displayed() and button.is_enabled():
-                    button.click()
-                    time.sleep(2)
-                    logging.info("Clicou em botão Load More")
-                    break
+            page_articles = driver.find_elements(By.TAG_NAME, "article")
+            if page_articles:
+                driver.execute_script(
+                    "arguments[0].scrollIntoView({block: 'end', behavior: 'smooth'})",
+                    page_articles[-1]
+                )
+                time.sleep(1.5)
         except:
             pass
 
-        # Contar artigos atuais
         current_article_count = len(driver.find_elements(By.TAG_NAME, "article"))
-        
+
         if current_article_count > last_article_count:
             no_change_count = 0
             last_article_count = current_article_count
             logging.info(f"Artigos carregados: {current_article_count}")
         else:
             no_change_count += 1
-            if no_change_count >= 15:  # 15 scrolls sem novos artigos = fim
+            if no_change_count >= 5:
                 break
 
         scrolls_done += 1
