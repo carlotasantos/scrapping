@@ -55,7 +55,7 @@ def get_html(url, params=None):
         return None
 
 
-# -------- SAPO (DINÂMICO POR PAGINAÇÃO) --------
+# -------- SAPO --------
 def scrape_sapo():
     articles = []
     page = 1
@@ -106,21 +106,47 @@ def scrape_venturebeat():
     driver = webdriver.Chrome(options=options)
     driver.get(VENTUREBEAT_URL)
 
-    time.sleep(2)
+    time.sleep(4)
 
-    # remover popups
-    for _ in range(5):
+    # -------- POPUPS DINÂMICOS --------
+    for _ in range(10):
         driver.execute_script("""
             document.querySelectorAll(
                 '.modal, .popup, .overlay, .newsletter, .cookie, .consent, .onetrust-banner-sdk'
             ).forEach(el => el.remove());
+
+            document.querySelectorAll('button, a').forEach(el => {
+                const t = (el.innerText || '').toLowerCase();
+                if (
+                    t.includes('accept') ||
+                    t.includes('agree') ||
+                    t.includes('consent') ||
+                    t.includes('close') ||
+                    t.includes('continue')
+                ) {
+                    try { el.click(); } catch(e){}
+                }
+            });
         """)
         time.sleep(1)
 
-    # scroll
-    for _ in range(12):
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(2)
+    # desbloquear scroll
+    driver.execute_script("document.body.style.overflow='auto';")
+    driver.execute_script("window.focus();")
+
+    # -------- SCROLL PROGRESSIVO --------
+    last_height = driver.execute_script("return document.body.scrollHeight")
+
+    for _ in range(20):
+        driver.execute_script("window.scrollBy(0, 800);")
+        time.sleep(1.5)
+
+        new_height = driver.execute_script("return document.body.scrollHeight")
+
+        if new_height == last_height:
+            break
+
+        last_height = new_height
 
     soup = BeautifulSoup(driver.page_source, "html.parser")
     driver.quit()
