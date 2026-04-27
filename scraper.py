@@ -4,6 +4,7 @@ import json
 import time
 import logging
 import os
+import hashlib
 from datetime import datetime, UTC
 from urllib.parse import urljoin
 
@@ -37,6 +38,10 @@ def clean(text):
     return " ".join(text.split()) if text else None
 
 
+def make_id(url):
+    return hashlib.md5(url.encode()).hexdigest()
+
+
 # -------- REQUEST --------
 def get_html(url, params=None):
     try:
@@ -50,17 +55,20 @@ def get_html(url, params=None):
         return None
 
 
-# -------- SAPO --------
-def scrape_sapo(pages=3):
+# -------- SAPO (DINÂMICO POR PAGINAÇÃO) --------
+def scrape_sapo():
     articles = []
+    page = 1
 
-    for page in range(1, pages + 1):
+    while True:
         logging.info(f"SAPO page {page}")
         html = get_html(SAPO_URL, params={"pagina": page})
+
         if not html:
-            continue
+            break
 
         soup = BeautifulSoup(html, "html.parser")
+        page_articles = []
 
         for a in soup.select("article.article-default"):
             link = a.select_one("h3 a")
@@ -70,12 +78,19 @@ def scrape_sapo(pages=3):
             url = urljoin(SAPO_URL, link["href"])
             title = clean(link.get_text())
 
-            articles.append({
+            page_articles.append({
                 "title": title,
                 "url": url,
                 "source": "sapo"
             })
 
+        if not page_articles:
+            break
+
+        articles.extend(page_articles)
+        page += 1
+
+    logging.info(f"SAPO total: {len(articles)}")
     return articles
 
 
@@ -99,13 +114,6 @@ def scrape_venturebeat():
             document.querySelectorAll(
                 '.modal, .popup, .overlay, .newsletter, .cookie, .consent, .onetrust-banner-sdk'
             ).forEach(el => el.remove());
-
-            document.querySelectorAll('button').forEach(btn => {
-                const t = (btn.innerText || '').toLowerCase();
-                if (t.includes('accept') || t.includes('agree') || t.includes('close')) {
-                    try { btn.click(); } catch(e){}
-                }
-            });
         """)
         time.sleep(1)
 
@@ -121,19 +129,27 @@ def scrape_venturebeat():
     seen = set()
 
     for article in soup.select("article"):
-        link = article.select_one("a[href]")
         title_el = article.select_one("header")
+        links = article.select("a[href]")
 
-        if not link or not title_el:
+        if not title_el or not links:
             continue
 
-        url = link.get("href")
         title = clean(title_el.get_text())
 
-        if not url.startswith("https://venturebeat.com"):
+        url = None
+        for l in links:
+            href = l.get("href")
+            full_url = urljoin(VENTUREBEAT_URL, href)
+
+            if "venturebeat.com" in full_url:
+                url = full_url
+                break
+
+        if not url:
             continue
 
-        if any(x in url for x in ["/category/", "/tag/", "/author/"]):
+        if any(x in url for x in ["/category/", "/tag/", "/author/", "/events/", "/newsletter/"]):
             continue
 
         if not title or len(title) < 20:
@@ -150,8 +166,7 @@ def scrape_venturebeat():
             "source": "venturebeat"
         })
 
-    logging.info(f"VentureBeat encontrados: {len(articles)}")
-
+    logging.info(f"VentureBeat total: {len(articles)}")
     return articles
 
 
@@ -195,11 +210,12 @@ def scrape():
 
         if art["source"] == "sapo":
             details = extract_content(art["url"])
+            time.sleep(0.5)
         else:
             details = {"description": None}
 
         results.append({
-            "id": hash(art["url"]),
+            "id": make_id(art["url"]),
             "title": art["title"],
             "url": art["url"],
             "source": art["source"],
@@ -207,8 +223,6 @@ def scrape():
             "published_at": None,
             "scraped_at": now
         })
-
-        time.sleep(1)
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
