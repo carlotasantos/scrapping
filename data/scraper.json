@@ -1,5 +1,32 @@
 [
   {
+    "id": "cb8227edb28665270345b42c571e2d20",
+    "title": "Disseminação de músicas criadas por IA Generativa e streaming fraudulento desviam receitas dos verdadeiros criadores, alerta a Audiogest",
+    "url": "https://sapo.pt/artigo/disseminacao-de-musicas-criadas-por-ia-generativa-e-streaming-fraudulento-desviam-receitas-dos-verdadeiros-criadores-alerta-a-audiogest-69f0abf94dab0b958113a439",
+    "source": "sapo",
+    "description": "Tiago David28 Abril 2026 13:45",
+    "published_at": null,
+    "scraped_at": "2026-04-28T15:18:48.962788+00:00"
+  },
+  {
+    "id": "c2871a86f0a2306c5ed77b7eb1b2fc4c",
+    "title": "Correlation Doesn’t Mean Causation! But What Does It Mean?",
+    "url": "https://towardsdatascience.com/correlation-doesnt-mean-causation-but-what-does-it-mean/",
+    "source": "towardsdatascience",
+    "description": null,
+    "published_at": null,
+    "scraped_at": "2026-04-28T15:18:48.962788+00:00"
+  },
+  {
+    "id": "434b0a92852e2482917994f94ed40c26",
+    "title": "The Next Frontier of AI in Production Is Chaos Engineering",
+    "url": "https://towardsdatascience.com/the-next-frontier-of-ai-in-production-is-chaos-engineering/",
+    "source": "towardsdatascience",
+    "description": null,
+    "published_at": null,
+    "scraped_at": "2026-04-28T15:18:48.962788+00:00"
+  },
+  {
     "id": "c6b6d95f8511df0f6b5694890269b990",
     "title": "PyTorch NaNs Are Silent Killers — So I Built a 3ms Hook to Catch Them at the Exact Layer",
     "url": "https://towardsdatascience.com/pytorch-nans-are-silent-killers-i-built-a-3ms-hook-to-catch-them-at-the-exact-layer/",

@@ -2803,3 +2803,13 @@ Stacktrace:
 2026-04-28 12:21:29,118 - INFO - TDS: sem artigos novos, a parar
 2026-04-28 12:21:29,183 - INFO - TDS: 1 artigos novos no total
 2026-04-28 12:21:29,702 - INFO - Novos: 1 | Total: 2587
+2026-04-28 15:18:48,972 - INFO - Artigos existentes: 2587
+2026-04-28 15:18:51,316 - INFO - SAPO: sem artigos novos na página 2, a parar
+2026-04-28 15:18:51,316 - INFO - SAPO: 1 artigos novos
+2026-04-28 15:19:08,473 - INFO - ✓ TDS p1: Correlation Doesn’t Mean Causation! But What Does It Mean? | https://towardsdatascience.com/correlation-doesnt-mean-causation-but-what-does-it-mean/
+2026-04-28 15:19:08,473 - INFO - ✓ TDS p1: The Next Frontier of AI in Production Is Chaos Engineering | https://towardsdatascience.com/the-next-frontier-of-ai-in-production-is-chaos-engineering/
+2026-04-28 15:19:08,474 - INFO - TDS página 1: 2 artigos novos
+2026-04-28 15:19:12,680 - INFO - TDS página 2: 0 artigos novos
+2026-04-28 15:19:12,680 - INFO - TDS: sem artigos novos, a parar
+2026-04-28 15:19:12,748 - INFO - TDS: 2 artigos novos no total
+2026-04-28 15:19:15,136 - INFO - Novos: 3 | Total: 2590
