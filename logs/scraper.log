@@ -2813,3 +2813,12 @@ Stacktrace:
 2026-04-28 15:19:12,680 - INFO - TDS: sem artigos novos, a parar
 2026-04-28 15:19:12,748 - INFO - TDS: 2 artigos novos no total
 2026-04-28 15:19:15,136 - INFO - Novos: 3 | Total: 2590
+2026-04-28 17:30:41,759 - INFO - Artigos existentes: 2590
+2026-04-28 17:30:42,886 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-28 17:30:42,886 - INFO - SAPO: 0 artigos novos
+2026-04-28 17:30:54,567 - INFO - ✓ TDS p1: Let the AI Do the Experimenting | https://towardsdatascience.com/let-the-ai-do-the-experimenting/
+2026-04-28 17:30:54,568 - INFO - TDS página 1: 1 artigos novos
+2026-04-28 17:30:58,470 - INFO - TDS página 2: 0 artigos novos
+2026-04-28 17:30:58,470 - INFO - TDS: sem artigos novos, a parar
+2026-04-28 17:30:58,532 - INFO - TDS: 1 artigos novos no total
+2026-04-28 17:30:59,047 - INFO - Novos: 1 | Total: 2591
