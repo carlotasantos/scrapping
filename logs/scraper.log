@@ -2780,3 +2780,10 @@ Stacktrace:
 2026-04-28 05:50:40,193 - INFO - TDS: sem artigos novos, a parar
 2026-04-28 05:50:40,256 - INFO - TDS: 0 artigos novos no total
 2026-04-28 05:50:40,256 - INFO - Sem artigos novos, ficheiro mantido sem alterações
+2026-04-28 08:07:57,889 - INFO - Artigos existentes: 2586
+2026-04-28 08:07:58,633 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-28 08:07:58,634 - INFO - SAPO: 0 artigos novos
+2026-04-28 08:08:10,695 - INFO - TDS página 1: 0 artigos novos
+2026-04-28 08:08:10,695 - INFO - TDS: sem artigos novos, a parar
+2026-04-28 08:08:10,758 - INFO - TDS: 0 artigos novos no total
+2026-04-28 08:08:10,759 - INFO - Sem artigos novos, ficheiro mantido sem alterações
