@@ -1,5 +1,14 @@
 [
   {
+    "id": "c6b6d95f8511df0f6b5694890269b990",
+    "title": "PyTorch NaNs Are Silent Killers — So I Built a 3ms Hook to Catch Them at the Exact Layer",
+    "url": "https://towardsdatascience.com/pytorch-nans-are-silent-killers-i-built-a-3ms-hook-to-catch-them-at-the-exact-layer/",
+    "source": "towardsdatascience",
+    "description": null,
+    "published_at": null,
+    "scraped_at": "2026-04-28T12:21:14.661419+00:00"
+  },
+  {
     "id": "a584e658c001b0398a0a3a78f080acf5",
     "title": "Entre o apocalipse e o exagero: afinal, a inteligência artificial pode mesmo sair do controlo?",
     "url": "https://executivedigest.sapo.pt/entre-o-apocalipse-e-o-exagero-afinal-a-inteligencia-artificial-pode-mesmo-sair-do-controlo/",

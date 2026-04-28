@@ -2794,3 +2794,12 @@ Stacktrace:
 2026-04-28 10:55:15,305 - INFO - TDS: sem artigos novos, a parar
 2026-04-28 10:55:15,368 - INFO - TDS: 0 artigos novos no total
 2026-04-28 10:55:15,368 - INFO - Sem artigos novos, ficheiro mantido sem alterações
+2026-04-28 12:21:14,669 - INFO - Artigos existentes: 2586
+2026-04-28 12:21:15,829 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-28 12:21:15,829 - INFO - SAPO: 0 artigos novos
+2026-04-28 12:21:25,358 - INFO - ✓ TDS p1: PyTorch NaNs Are Silent Killers — So I Built a 3ms Hook to C | https://towardsdatascience.com/pytorch-nans-are-silent-killers-i-built-a-3ms-hook-to-catch-them-at-the-exact-layer/
+2026-04-28 12:21:25,359 - INFO - TDS página 1: 1 artigos novos
+2026-04-28 12:21:29,118 - INFO - TDS página 2: 0 artigos novos
+2026-04-28 12:21:29,118 - INFO - TDS: sem artigos novos, a parar
+2026-04-28 12:21:29,183 - INFO - TDS: 1 artigos novos no total
+2026-04-28 12:21:29,702 - INFO - Novos: 1 | Total: 2587
