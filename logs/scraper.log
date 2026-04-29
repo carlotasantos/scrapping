@@ -11145,3 +11145,10 @@ Stacktrace:
 2026-04-30 00:04:07,810 - INFO - TDS p�gina 250: 10 artigos novos
 2026-04-30 00:04:10,331 - INFO - TDS: 2500 artigos novos no total
 2026-04-30 00:26:21,834 - INFO - Novos: 2610 | Total: 2610
+2026-04-29 23:44:26,653 - INFO - Artigos existentes: 2610
+2026-04-29 23:44:27,551 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-29 23:44:27,552 - INFO - SAPO: 0 artigos novos
+2026-04-29 23:44:37,224 - INFO - TDS página 1: 0 artigos novos
+2026-04-29 23:44:37,224 - INFO - TDS: sem artigos novos, a parar
+2026-04-29 23:44:37,287 - INFO - TDS: 0 artigos novos no total
+2026-04-29 23:44:37,287 - INFO - Sem artigos novos, ficheiro mantido sem alterações
