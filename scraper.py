@@ -5,6 +5,7 @@ import time
 import logging
 import os
 import hashlib
+import re
 from datetime import datetime, UTC
 from urllib.parse import urljoin
 
@@ -49,6 +50,118 @@ def get_html(url, params=None):
         return r.text
     except:
         return None
+
+
+def parse_date(text):
+    text = clean(text)
+    if not text:
+        return None
+
+    value = text.replace("Z", "+00:00")
+    try:
+        return datetime.fromisoformat(value).isoformat()
+    except ValueError:
+        pass
+
+    match = re.search(r"\d{4}-\d{2}-\d{2}", text)
+    if match:
+        return match.group(0)
+
+    months = {
+        "janeiro": "01",
+        "january": "01",
+        "fevereiro": "02",
+        "february": "02",
+        "marco": "03",
+        "março": "03",
+        "march": "03",
+        "abril": "04",
+        "april": "04",
+        "maio": "05",
+        "may": "05",
+        "junho": "06",
+        "june": "06",
+        "julho": "07",
+        "july": "07",
+        "agosto": "08",
+        "august": "08",
+        "setembro": "09",
+        "september": "09",
+        "outubro": "10",
+        "october": "10",
+        "novembro": "11",
+        "november": "11",
+        "dezembro": "12",
+        "december": "12",
+    }
+    pattern = r"(\d{1,2})\s+(?:de\s+)?([a-zç]+)\s+(?:de\s+)?(\d{4})(?:\s+(\d{1,2}):(\d{2}))?"
+    match = re.search(pattern, text.lower())
+    if not match:
+        pattern = r"([a-z]+)\s+(\d{1,2}),\s+(\d{4})(?:\s+(\d{1,2}):(\d{2}))?"
+        match = re.search(pattern, text.lower())
+        if match:
+            month_name, day, year, hour, minute = match.groups()
+        else:
+            return None
+    else:
+        day, month_name, year, hour, minute = match.groups()
+
+    month = months.get(month_name)
+    if not month:
+        return None
+
+    date = f"{year}-{month}-{int(day):02d}"
+    if hour and minute:
+        return f"{date}T{int(hour):02d}:{minute}:00"
+    return date
+
+
+def extract_published_at_from_soup(soup):
+    selectors = [
+        'meta[property="article:published_time"]',
+        'meta[name="article:published_time"]',
+        'meta[itemprop="datePublished"]',
+        'meta[name="date"]',
+        'meta[name="pubdate"]',
+        'time[datetime]'
+    ]
+
+    for selector in selectors:
+        element = soup.select_one(selector)
+        if not element:
+            continue
+
+        value = element.get("content") or element.get("datetime") or element.get_text()
+        parsed = parse_date(value)
+        if parsed:
+            return parsed
+
+    for element in soup.select("time, .metadata, .meta"):
+        parsed = parse_date(element.get_text())
+        if parsed:
+            return parsed
+
+    return None
+
+
+BOILERPLATE_PHRASES = [
+    "esta voz foi gerada com recurso a inteligência artificial",
+    "este resumo foi criado com recurso a inteligência artificial",
+    "a tua opinião é importante para ajudar a melhorar esta funcionalidade",
+    "se consideras que o áudio não está claro",
+]
+
+
+def is_useful_text(text):
+    text = clean(text)
+    if not text:
+        return False
+
+    lower = text.lower()
+    if "publicidade" in lower:
+        return False
+
+    return not any(phrase in lower for phrase in BOILERPLATE_PHRASES)
 
 
 
@@ -139,6 +252,12 @@ def scrape_tds(known_urls):
 
             a = li.find("a", href=True)
             url = urljoin(TDS_URL, a["href"]) if a else None
+            excerpt_el = li.select_one(".wp-block-post-excerpt__excerpt")
+            description = clean(excerpt_el.get_text()) if excerpt_el else None
+            date_el = li.select_one(".wp-block-post-date time[datetime], time[datetime], .wp-block-post-date time, time, .wp-block-post-date")
+            published_at = None
+            if date_el:
+                published_at = parse_date(date_el.get("datetime") or date_el.get_text())
 
             if not title or not url or len(title) < 3:
                 continue
@@ -147,7 +266,13 @@ def scrape_tds(known_urls):
 
             new_on_page += 1
             seen.add(url)
-            articles.append({"title": title, "url": url, "source": "towardsdatascience"})
+            articles.append({
+                "title": title,
+                "url": url,
+                "source": "towardsdatascience",
+                "description": description,
+                "published_at": published_at
+            })
             logging.info(f"✓ TDS p{page}: {title[:60]} | {url}")
 
         logging.info(f"TDS página {page}: {new_on_page} artigos novos")
@@ -164,14 +289,56 @@ def scrape_tds(known_urls):
 
 
 # -------- CONTENT --------
-def extract_content(url):
+def extract_article_data(url):
     html = get_html(url)
     if not html:
-        return None
+        return None, None
 
     soup = BeautifulSoup(html, "html.parser")
+    published_at = extract_published_at_from_soup(soup)
+
+    for tag in soup(["script", "style", "noscript"]):
+        tag.decompose()
+
+    selectors = [
+        "article p",
+        "main article p",
+        "main p",
+        ".article-content p",
+        ".entry-content p",
+        ".post-content p",
+        ".content p"
+    ]
+
+    paragraphs = []
+    for selector in selectors:
+        paragraphs = [
+            clean(p.get_text())
+            for p in soup.select(selector)
+            if clean(p.get_text())
+        ]
+        paragraphs = [
+            p for p in paragraphs
+            if len(p) >= 80 and is_useful_text(p)
+        ]
+        if paragraphs:
+            break
+
+    if paragraphs:
+        return clean(" ".join(paragraphs[:3])), published_at
+
+    meta = soup.select_one('meta[name="description"], meta[property="og:description"]')
+    if meta and meta.get("content") and is_useful_text(meta["content"]):
+        return clean(meta["content"]), published_at
+
     p = soup.select_one("p")
-    return clean(p.get_text()) if p else None
+    text = clean(p.get_text()) if p else None
+    return text if is_useful_text(text) else None, published_at
+
+
+def extract_content(url):
+    content, _ = extract_article_data(url)
+    return content
 
 
 # -------- MAIN --------
@@ -201,7 +368,10 @@ def scrape():
 
         seen.add(art["url"])
 
-        desc = extract_content(art["url"]) if art["source"] == "sapo" else None
+        desc = art.get("description")
+        published_at = art.get("published_at")
+        if not desc and art["source"] == "sapo":
+            desc, published_at = extract_article_data(art["url"])
 
         new_results.append({
             "id": make_id(art["url"]),
@@ -209,7 +379,7 @@ def scrape():
             "url": art["url"],
             "source": art["source"],
             "description": desc,
-            "published_at": None,
+            "published_at": published_at,
             "scraped_at": now
         })
 
