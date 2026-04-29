@@ -2878,3 +2878,12 @@ Stacktrace:
 2026-04-29 10:46:58,103 - INFO - TDS: sem artigos novos, a parar
 2026-04-29 10:46:58,171 - INFO - TDS: 0 artigos novos no total
 2026-04-29 10:46:58,171 - INFO - Sem artigos novos, ficheiro mantido sem alterações
+2026-04-29 12:11:13,931 - INFO - Artigos existentes: 2593
+2026-04-29 12:11:15,015 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-29 12:11:15,015 - INFO - SAPO: 0 artigos novos
+2026-04-29 12:11:20,717 - INFO - ✓ TDS p1: System Design Series: Apache Flink from 10,000 Feet, and Bui | https://towardsdatascience.com/system-design-series-apache-flink-from-10000-feet-and-building-a-flink-powered-recommendation-engine/
+2026-04-29 12:11:20,718 - INFO - TDS página 1: 1 artigos novos
+2026-04-29 12:11:24,536 - INFO - TDS página 2: 0 artigos novos
+2026-04-29 12:11:24,537 - INFO - TDS: sem artigos novos, a parar
+2026-04-29 12:11:24,603 - INFO - TDS: 1 artigos novos no total
+2026-04-29 12:11:25,122 - INFO - Novos: 1 | Total: 2594
