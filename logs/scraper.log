@@ -2897,3 +2897,12 @@ Stacktrace:
 2026-04-29 15:04:30,254 - INFO - TDS: sem artigos novos, a parar
 2026-04-29 15:04:30,313 - INFO - TDS: 2 artigos novos no total
 2026-04-29 15:04:32,640 - INFO - Novos: 3 | Total: 2597
+2026-04-29 17:18:02,680 - INFO - Artigos existentes: 2597
+2026-04-29 17:18:03,935 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-29 17:18:03,935 - INFO - SAPO: 0 artigos novos
+2026-04-29 17:18:12,970 - INFO - ✓ TDS p1: 4 YAML Files Instead of PySpark: How We Let Analysts Build D | https://towardsdatascience.com/4-yaml-files-instead-of-pyspark-how-we-let-analysts-build-data-pipelines-without-engineers/
+2026-04-29 17:18:12,971 - INFO - TDS página 1: 1 artigos novos
+2026-04-29 17:18:16,751 - INFO - TDS página 2: 0 artigos novos
+2026-04-29 17:18:16,751 - INFO - TDS: sem artigos novos, a parar
+2026-04-29 17:18:16,818 - INFO - TDS: 1 artigos novos no total
+2026-04-29 17:18:17,338 - INFO - Novos: 1 | Total: 2598

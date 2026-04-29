@@ -1,5 +1,14 @@
 [
   {
+    "id": "aeb7b38a03db56d52c1672bda2651121",
+    "title": "4 YAML Files Instead of PySpark: How We Let Analysts Build Data Pipelines Without Engineers",
+    "url": "https://towardsdatascience.com/4-yaml-files-instead-of-pyspark-how-we-let-analysts-build-data-pipelines-without-engineers/",
+    "source": "towardsdatascience",
+    "description": null,
+    "published_at": null,
+    "scraped_at": "2026-04-29T17:18:02.671905+00:00"
+  },
+  {
     "id": "e58568c642986e4d81872a60b27d3078",
     "title": "Os trabalhadores temem ser substituídos pela tecnologia: “A confiança não acompanha a adoção da IA”",
     "url": "https://sapo.pt/artigo/os-trabalhadores-temem-ser-substituidos-pela-tecnologia-a-confianca-nao-acompanha-a-adocao-da-ia-69ea9cdf6502b3e81cfa90c5",
