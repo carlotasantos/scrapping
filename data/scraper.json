@@ -1,5 +1,32 @@
 [
   {
+    "id": "e58568c642986e4d81872a60b27d3078",
+    "title": "Os trabalhadores temem ser substituídos pela tecnologia: “A confiança não acompanha a adoção da IA”",
+    "url": "https://sapo.pt/artigo/os-trabalhadores-temem-ser-substituidos-pela-tecnologia-a-confianca-nao-acompanha-a-adocao-da-ia-69ea9cdf6502b3e81cfa90c5",
+    "source": "sapo",
+    "description": "Carla Silva Costa29 Abril 2026 13:30",
+    "published_at": null,
+    "scraped_at": "2026-04-29T15:04:13.683819+00:00"
+  },
+  {
+    "id": "b0ecaafbfc44519d318ae2ea08f364bf",
+    "title": "Ensembles of Ensembles of Ensembles: A Guide to Stacking",
+    "url": "https://towardsdatascience.com/ensembles-of-ensembles-of-ensembles/",
+    "source": "towardsdatascience",
+    "description": null,
+    "published_at": null,
+    "scraped_at": "2026-04-29T15:04:13.683819+00:00"
+  },
+  {
+    "id": "d0edac58c5e89222e940cf86dd0bc194",
+    "title": "Agentic AI: How to Save on Tokens",
+    "url": "https://towardsdatascience.com/agentic-ai-how-to-save-on-tokens/",
+    "source": "towardsdatascience",
+    "description": null,
+    "published_at": null,
+    "scraped_at": "2026-04-29T15:04:13.683819+00:00"
+  },
+  {
     "id": "15f471ac281fe0027a77611d369a2503",
     "title": "System Design Series: Apache Flink from 10,000 Feet, and Building a Flink-powered Recommendation Engine",
     "url": "https://towardsdatascience.com/system-design-series-apache-flink-from-10000-feet-and-building-a-flink-powered-recommendation-engine/",

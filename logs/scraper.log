@@ -2887,3 +2887,13 @@ Stacktrace:
 2026-04-29 12:11:24,537 - INFO - TDS: sem artigos novos, a parar
 2026-04-29 12:11:24,603 - INFO - TDS: 1 artigos novos no total
 2026-04-29 12:11:25,122 - INFO - Novos: 1 | Total: 2594
+2026-04-29 15:04:13,692 - INFO - Artigos existentes: 2594
+2026-04-29 15:04:15,759 - INFO - SAPO: sem artigos novos na página 2, a parar
+2026-04-29 15:04:15,759 - INFO - SAPO: 1 artigos novos
+2026-04-29 15:04:26,600 - INFO - ✓ TDS p1: Ensembles of Ensembles of Ensembles: A Guide to Stacking | https://towardsdatascience.com/ensembles-of-ensembles-of-ensembles/
+2026-04-29 15:04:26,601 - INFO - ✓ TDS p1: Agentic AI: How to Save on Tokens | https://towardsdatascience.com/agentic-ai-how-to-save-on-tokens/
+2026-04-29 15:04:26,601 - INFO - TDS página 1: 2 artigos novos
+2026-04-29 15:04:30,254 - INFO - TDS página 2: 0 artigos novos
+2026-04-29 15:04:30,254 - INFO - TDS: sem artigos novos, a parar
+2026-04-29 15:04:30,313 - INFO - TDS: 2 artigos novos no total
+2026-04-29 15:04:32,640 - INFO - Novos: 3 | Total: 2597
