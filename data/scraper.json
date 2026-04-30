@@ -1,5 +1,14 @@
 [
   {
+    "id": "5b7b57bbb07f0cc9b7f74e2c8a9bb630",
+    "title": "How to Study the Monotonicity and Stability of Variables in a Scoring Model using Python",
+    "url": "https://towardsdatascience.com/how-to-study-the-monotonicity-and-stability-of-variables-in-a-scoring-model-using-python/",
+    "source": "towardsdatascience",
+    "description": "How can you validate that your variables tell a consistent risk?",
+    "published_at": "2026-04-30",
+    "scraped_at": "2026-04-30T15:00:16.716994+00:00"
+  },
+  {
     "id": "ca45596148f2bc94423028a0bd769e52",
     "title": "Why AI Engineers Are Moving Beyond LangChain to Native Agent Architectures",
     "url": "https://towardsdatascience.com/why-ai-engineers-are-moving-beyond-langchain-to-native-agent-architectures/",

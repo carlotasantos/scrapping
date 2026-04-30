@@ -11189,3 +11189,12 @@ Stacktrace:
 2026-04-30 12:09:02,956 - INFO - TDS: sem artigos novos, a parar
 2026-04-30 12:09:03,021 - INFO - TDS: 1 artigos novos no total
 2026-04-30 12:09:03,544 - INFO - Novos: 1 | Total: 2611
+2026-04-30 15:00:16,725 - INFO - Artigos existentes: 2611
+2026-04-30 15:00:17,866 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-30 15:00:17,867 - INFO - SAPO: 0 artigos novos
+2026-04-30 15:00:30,134 - INFO - ✓ TDS p1: How to Study the Monotonicity and Stability of Variables in  | https://towardsdatascience.com/how-to-study-the-monotonicity-and-stability-of-variables-in-a-scoring-model-using-python/
+2026-04-30 15:00:30,138 - INFO - TDS página 1: 1 artigos novos
+2026-04-30 15:00:33,701 - INFO - TDS página 2: 0 artigos novos
+2026-04-30 15:00:33,701 - INFO - TDS: sem artigos novos, a parar
+2026-04-30 15:00:33,761 - INFO - TDS: 1 artigos novos no total
+2026-04-30 15:00:34,281 - INFO - Novos: 1 | Total: 2612
