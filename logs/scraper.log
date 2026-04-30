@@ -11145,3 +11145,66 @@ Stacktrace:
 2026-04-30 00:04:07,810 - INFO - TDS p�gina 250: 10 artigos novos
 2026-04-30 00:04:10,331 - INFO - TDS: 2500 artigos novos no total
 2026-04-30 00:26:21,834 - INFO - Novos: 2610 | Total: 2610
+2026-04-29 23:44:26,653 - INFO - Artigos existentes: 2610
+2026-04-29 23:44:27,551 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-29 23:44:27,552 - INFO - SAPO: 0 artigos novos
+2026-04-29 23:44:37,224 - INFO - TDS página 1: 0 artigos novos
+2026-04-29 23:44:37,224 - INFO - TDS: sem artigos novos, a parar
+2026-04-29 23:44:37,287 - INFO - TDS: 0 artigos novos no total
+2026-04-29 23:44:37,287 - INFO - Sem artigos novos, ficheiro mantido sem alterações
+2026-04-30 02:02:31,373 - INFO - Artigos existentes: 2610
+2026-04-30 02:02:32,420 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-30 02:02:32,420 - INFO - SAPO: 0 artigos novos
+2026-04-30 02:02:41,316 - INFO - TDS página 1: 0 artigos novos
+2026-04-30 02:02:41,316 - INFO - TDS: sem artigos novos, a parar
+2026-04-30 02:02:41,379 - INFO - TDS: 0 artigos novos no total
+2026-04-30 02:02:41,379 - INFO - Sem artigos novos, ficheiro mantido sem alterações
+2026-04-30 05:49:47,883 - INFO - Artigos existentes: 2610
+2026-04-30 05:49:48,947 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-30 05:49:48,947 - INFO - SAPO: 0 artigos novos
+2026-04-30 05:50:01,899 - INFO - TDS página 1: 0 artigos novos
+2026-04-30 05:50:01,899 - INFO - TDS: sem artigos novos, a parar
+2026-04-30 05:50:01,962 - INFO - TDS: 0 artigos novos no total
+2026-04-30 05:50:01,962 - INFO - Sem artigos novos, ficheiro mantido sem alterações
+2026-04-30 08:04:57,718 - INFO - Artigos existentes: 2610
+2026-04-30 08:04:58,812 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-30 08:04:58,812 - INFO - SAPO: 0 artigos novos
+2026-04-30 08:05:09,294 - INFO - TDS página 1: 0 artigos novos
+2026-04-30 08:05:09,294 - INFO - TDS: sem artigos novos, a parar
+2026-04-30 08:05:09,357 - INFO - TDS: 0 artigos novos no total
+2026-04-30 08:05:09,357 - INFO - Sem artigos novos, ficheiro mantido sem alterações
+2026-04-30 10:46:25,109 - INFO - Artigos existentes: 2610
+2026-04-30 10:46:26,175 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-30 10:46:26,175 - INFO - SAPO: 0 artigos novos
+2026-04-30 10:46:36,275 - INFO - TDS página 1: 0 artigos novos
+2026-04-30 10:46:36,275 - INFO - TDS: sem artigos novos, a parar
+2026-04-30 10:46:36,338 - INFO - TDS: 0 artigos novos no total
+2026-04-30 10:46:36,338 - INFO - Sem artigos novos, ficheiro mantido sem alterações
+2026-04-30 12:08:48,885 - INFO - Artigos existentes: 2610
+2026-04-30 12:08:49,920 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-30 12:08:49,920 - INFO - SAPO: 0 artigos novos
+2026-04-30 12:08:59,182 - INFO - ✓ TDS p1: Why AI Engineers Are Moving Beyond LangChain to Native Agent | https://towardsdatascience.com/why-ai-engineers-are-moving-beyond-langchain-to-native-agent-architectures/
+2026-04-30 12:08:59,186 - INFO - TDS página 1: 1 artigos novos
+2026-04-30 12:09:02,956 - INFO - TDS página 2: 0 artigos novos
+2026-04-30 12:09:02,956 - INFO - TDS: sem artigos novos, a parar
+2026-04-30 12:09:03,021 - INFO - TDS: 1 artigos novos no total
+2026-04-30 12:09:03,544 - INFO - Novos: 1 | Total: 2611
+2026-04-30 15:00:16,725 - INFO - Artigos existentes: 2611
+2026-04-30 15:00:17,866 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-30 15:00:17,867 - INFO - SAPO: 0 artigos novos
+2026-04-30 15:00:30,134 - INFO - ✓ TDS p1: How to Study the Monotonicity and Stability of Variables in  | https://towardsdatascience.com/how-to-study-the-monotonicity-and-stability-of-variables-in-a-scoring-model-using-python/
+2026-04-30 15:00:30,138 - INFO - TDS página 1: 1 artigos novos
+2026-04-30 15:00:33,701 - INFO - TDS página 2: 0 artigos novos
+2026-04-30 15:00:33,701 - INFO - TDS: sem artigos novos, a parar
+2026-04-30 15:00:33,761 - INFO - TDS: 1 artigos novos no total
+2026-04-30 15:00:34,281 - INFO - Novos: 1 | Total: 2612
+2026-04-30 17:09:33,538 - INFO - Artigos existentes: 2612
+2026-04-30 17:09:34,712 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-30 17:09:34,713 - INFO - SAPO: 0 artigos novos
+2026-04-30 17:09:44,913 - INFO - ✓ TDS p1: A Gentle Introduction to Stochastic Programming | https://towardsdatascience.com/a-gentle-introduction-to-stochastic-programming/
+2026-04-30 17:09:44,913 - INFO - ✓ TDS p1: Proxy-Pointer RAG: Multimodal Answers Without Multimodal Emb | https://towardsdatascience.com/proxy-pointer-rag-multimodal-answers-without-multimodal-embeddings/
+2026-04-30 17:09:44,916 - INFO - TDS página 1: 2 artigos novos
+2026-04-30 17:09:48,519 - INFO - TDS página 2: 0 artigos novos
+2026-04-30 17:09:48,520 - INFO - TDS: sem artigos novos, a parar
+2026-04-30 17:09:48,586 - INFO - TDS: 2 artigos novos no total
+2026-04-30 17:09:49,609 - INFO - Novos: 2 | Total: 2614
