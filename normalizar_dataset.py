@@ -3,26 +3,20 @@ from pathlib import Path
 from datetime import datetime
 
 
-BASE_DIR = Path(__file__).resolve().parent
-RAW_DIR = BASE_DIR / "data" / "raw"
-PROCESSED_DIR = BASE_DIR / "data" / "processed"
-OUTPUT_FILE = PROCESSED_DIR / "dataset_final.json"
+base_dir = Path(__file__).resolve().parent
+raw_dir =  base_dir / "data" / "raw"
+processed_dir = base_dir/ "data" / "processed"
+output_file = processed_dir / "dataset_final.json"
 
-INPUT_FILES = {
-    "carlota": RAW_DIR / "carlota.json",
-    "rodrigo": RAW_DIR / "rodrigo.json",
-    "tiago": RAW_DIR / "tiago.json",
+input_files = {
+    "carlota": raw_dir / "carlota.json",
+    "rodrigo": raw_dir / "rodrigo.json",
+    "tiago": raw_dir / "tiago.json",
 }
 
-SOURCE_DOMAINS = {
-    "sapo": "sapo.pt",
-    "towardsdatascience": "towardsdatascience.com",
-}
+source_domains = {"sapo": "sapo.pt","towardsdatascience": "towardsdatascience.com"}
 
-DATE_FORMATS = [
-    "%B %d, %Y",
-    "%b %d, %Y",
-]
+date_formats = ["%B %d, %Y","%b %d, %Y"]
 
 
 def load_json(path):
@@ -38,15 +32,9 @@ def normalize_source(source):
         if domain == "artificialintelligence-news.com":
             name = "AI News"
 
-        return {
-            "name": name,
-            "domain": domain,
-        }
+        return {"name": name,"domain": domain}
 
-    return {
-        "name": source,
-        "domain": SOURCE_DOMAINS.get(source),
-    }
+    return {"name": source,"domain": source_domains.get(source)}
 
 
 def normalize_published_at(value):
@@ -58,7 +46,7 @@ def normalize_published_at(value):
     if len(value) >= 10 and value[4] == "-" and value[7] == "-":
         return value[:10]
 
-    for date_format in DATE_FORMATS:
+    for date_format in date_formats:
         try:
             return datetime.strptime(value, date_format).date().isoformat()
         except ValueError:
@@ -104,7 +92,7 @@ def build_dataset():
     dataset = []
     seen_urls = set()
 
-    for owner, path in INPUT_FILES.items():
+    for owner, path in input_files.items():
         articles = load_json(path)
 
         for article in articles:
@@ -121,14 +109,14 @@ def build_dataset():
 
 
 def main():
-    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+    processed_dir.mkdir(parents=True, exist_ok=True)
 
     dataset = build_dataset()
 
-    with OUTPUT_FILE.open("w", encoding="utf-8") as file:
+    with output_file.open("w", encoding="utf-8") as file:
         json.dump(dataset, file, indent=2, ensure_ascii=False)
 
-    print(f"Dataset final criado em: {OUTPUT_FILE}")
+    print(f"Dataset final criado em: {output_file}")
     print(f"Total de artigos: {len(dataset)}")
 
 
