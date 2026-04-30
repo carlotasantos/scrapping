@@ -1,5 +1,14 @@
 [
   {
+    "id": "ca45596148f2bc94423028a0bd769e52",
+    "title": "Why AI Engineers Are Moving Beyond LangChain to Native Agent Architectures",
+    "url": "https://towardsdatascience.com/why-ai-engineers-are-moving-beyond-langchain-to-native-agent-architectures/",
+    "source": "towardsdatascience",
+    "description": "Frameworks accelerated the first wave of LLM apps, but production demands a different architecture.",
+    "published_at": "2026-04-30",
+    "scraped_at": "2026-04-30T12:08:48.875900+00:00"
+  },
+  {
     "id": "e58568c642986e4d81872a60b27d3078",
     "title": "Os trabalhadores temem ser substituídos pela tecnologia: “A confiança não acompanha a adoção da IA”",
     "url": "https://sapo.pt/artigo/os-trabalhadores-temem-ser-substituidos-pela-tecnologia-a-confianca-nao-acompanha-a-adocao-da-ia-69ea9cdf6502b3e81cfa90c5",
