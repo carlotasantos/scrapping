@@ -11198,3 +11198,13 @@ Stacktrace:
 2026-04-30 15:00:33,701 - INFO - TDS: sem artigos novos, a parar
 2026-04-30 15:00:33,761 - INFO - TDS: 1 artigos novos no total
 2026-04-30 15:00:34,281 - INFO - Novos: 1 | Total: 2612
+2026-04-30 17:09:33,538 - INFO - Artigos existentes: 2612
+2026-04-30 17:09:34,712 - INFO - SAPO: sem artigos novos na página 1, a parar
+2026-04-30 17:09:34,713 - INFO - SAPO: 0 artigos novos
+2026-04-30 17:09:44,913 - INFO - ✓ TDS p1: A Gentle Introduction to Stochastic Programming | https://towardsdatascience.com/a-gentle-introduction-to-stochastic-programming/
+2026-04-30 17:09:44,913 - INFO - ✓ TDS p1: Proxy-Pointer RAG: Multimodal Answers Without Multimodal Emb | https://towardsdatascience.com/proxy-pointer-rag-multimodal-answers-without-multimodal-embeddings/
+2026-04-30 17:09:44,916 - INFO - TDS página 1: 2 artigos novos
+2026-04-30 17:09:48,519 - INFO - TDS página 2: 0 artigos novos
+2026-04-30 17:09:48,520 - INFO - TDS: sem artigos novos, a parar
+2026-04-30 17:09:48,586 - INFO - TDS: 2 artigos novos no total
+2026-04-30 17:09:49,609 - INFO - Novos: 2 | Total: 2614

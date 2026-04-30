@@ -1,5 +1,23 @@
 [
   {
+    "id": "b02ec7f478886f495a9ced811e23b18e",
+    "title": "A Gentle Introduction to Stochastic Programming",
+    "url": "https://towardsdatascience.com/a-gentle-introduction-to-stochastic-programming/",
+    "source": "towardsdatascience",
+    "description": "How to make decisions when your spreadsheet is lying about the future",
+    "published_at": "2026-04-30",
+    "scraped_at": "2026-04-30T17:09:33.528747+00:00"
+  },
+  {
+    "id": "df95086c7e42787276d989bd7d7f2a71",
+    "title": "Proxy-Pointer RAG: Multimodal Answers Without Multimodal Embeddings",
+    "url": "https://towardsdatascience.com/proxy-pointer-rag-multimodal-answers-without-multimodal-embeddings/",
+    "source": "towardsdatascience",
+    "description": "Structure is all you need",
+    "published_at": "2026-04-30",
+    "scraped_at": "2026-04-30T17:09:33.528747+00:00"
+  },
+  {
     "id": "5b7b57bbb07f0cc9b7f74e2c8a9bb630",
     "title": "How to Study the Monotonicity and Stability of Variables in a Scoring Model using Python",
     "url": "https://towardsdatascience.com/how-to-study-the-monotonicity-and-stability-of-variables-in-a-scoring-model-using-python/",
