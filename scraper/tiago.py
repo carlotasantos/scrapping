@@ -12,9 +12,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException
 
-# ─────────────────────────────
-# CONFIG
-# ─────────────────────────────
+
+# Config
 OUTPUT_FILE = "ai_news.json"
 LOG_FILE = "logs_ai_news.log"
 
@@ -48,9 +47,8 @@ SOURCES = [
     }
 ]
 
-# ─────────────────────────────
-# LOGGING
-# ─────────────────────────────
+
+# Logging
 open(LOG_FILE, "a").close()
 
 logging.basicConfig(
@@ -64,9 +62,8 @@ logging.basicConfig(
 
 log = logging.getLogger("ai")
 
-# ─────────────────────────────
-# DRIVER
-# ─────────────────────────────
+
+# Drives
 def create_driver():
     options = Options()
     options.add_argument("--headless=new")
@@ -75,12 +72,11 @@ def create_driver():
     options.add_argument("--window-size=1920,1080")
 
     driver = webdriver.Chrome(options=options)
-    driver.set_page_load_timeout(20)  # importante
+    driver.set_page_load_timeout(20)  # 20 segundos de timeout para carregamento de página para evitar travamentos
     return driver
 
-# ─────────────────────────────
-# UTILS
-# ─────────────────────────────
+
+# Auxiliares
 def make_id(url):
     return hashlib.md5(url.encode()).hexdigest()
 
@@ -99,9 +95,8 @@ def scroll(driver, n):
             break
         last = new
 
-# ─────────────────────────────
-# JSON-LD
-# ─────────────────────────────
+
+# JSON
 def get_json_ld(soup):
     scripts = soup.find_all("script", type="application/ld+json")
 
@@ -119,9 +114,8 @@ def get_json_ld(soup):
 
     return {}
 
-# ─────────────────────────────
-# AUTHOR
-# ─────────────────────────────
+
+# Autor
 def get_author(soup):
     selectors = [
         ".author",
@@ -152,9 +146,8 @@ def get_author(soup):
 
     return None
 
-# ─────────────────────────────
-# DATE
-# ─────────────────────────────
+
+# Data
 def get_date(soup):
     t = soup.find("time")
     if t:
@@ -171,9 +164,8 @@ def get_date(soup):
     data = get_json_ld(soup)
     return data.get("datePublished") or data.get("dateCreated")
 
-# ─────────────────────────────
-# CONTENT
-# ─────────────────────────────
+
+# Conteudo
 def fetch_content(driver):
     soup = BeautifulSoup(driver.page_source, "lxml")
 
@@ -187,9 +179,8 @@ def fetch_content(driver):
 
     return "\n".join(text[:10])
 
-# ─────────────────────────────
-# LINK
-# ─────────────────────────────
+
+# Link 
 def extract_link(a, base):
     href = a.get("href")
     title = clean(a.get_text())
@@ -208,9 +199,8 @@ def extract_link(a, base):
         "url": href
     }
 
-# ─────────────────────────────
-# PARSERS
-# ─────────────────────────────
+
+# Parsers
 def parse_generic(soup, selectors, base, source):
     links = []
 
@@ -264,9 +254,8 @@ PARSERS = {
     "techcrunch_ai": parse_tc
 }
 
-# ─────────────────────────────
-# LOAD / SAVE
-# ─────────────────────────────
+
+# Guardar e carregar dados
 def load():
     if not os.path.exists(OUTPUT_FILE):
         return []
@@ -280,9 +269,8 @@ def save(data):
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-# ─────────────────────────────
-# RUN
-# ─────────────────────────────
+
+# MAIN
 def run():
     log.info("FULL DETAIL scraper started")
 
@@ -317,7 +305,6 @@ def run():
                     if item_id in existing_ids:
                         continue
 
-                    # 🔥 FULL DETAIL SEM LIMITES
                     try:
                         driver.get(raw["url"])
                         time.sleep(2)

@@ -1,0 +1,38 @@
+name: Noticias IA
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Executar scraper
+        run: python scraper.py
+
+      - name: Guardar ficheiros atualizados
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/news.json logs/scraper.log
+          git commit -m "Atualizar notícias recolhidas" || echo "Sem alterações para guardar"
+          git pull --rebase origin main
+          git push origin main

@@ -1,0 +1,426 @@
+2026-04-27 10:46:12,214 [INFO] AI scraper started
+2026-04-27 10:46:13,107 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-27 10:46:23,234 [INFO] Scroll 1
+2026-04-27 10:46:24,743 [INFO] Scroll 2
+2026-04-27 10:48:02,586 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-27 10:48:17,138 [INFO] Scroll 1
+2026-04-27 10:48:18,669 [INFO] Scroll 2
+2026-04-27 10:48:19,806 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-27 10:48:27,103 [INFO] Scroll 1
+2026-04-27 10:48:28,285 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-27 10:48:37,988 [INFO] Scroll 1
+2026-04-27 10:48:39,528 [INFO] Scroll 2
+2026-04-27 10:48:40,638 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-27 10:48:51,355 [INFO] Scroll 1
+2026-04-27 10:48:52,454 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-27 10:48:59,108 [INFO] Scroll 1
+2026-04-27 10:49:00,564 [INFO] Seen: 142
+2026-04-27 10:49:00,564 [INFO] New: 142
+2026-04-27 10:49:00,564 [INFO] Detail scraped: 25
+2026-04-27 10:55:26,122 [INFO] AI scraper started
+2026-04-27 10:55:27,224 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-27 10:57:16,710 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-27 10:57:34,104 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-27 10:57:47,569 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-27 10:57:59,969 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-27 10:58:13,946 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-27 10:58:23,742 [INFO] Seen: 142
+2026-04-27 10:58:23,742 [INFO] New: 142
+2026-04-27 10:58:23,742 [INFO] Detail scraped: 25
+2026-04-27 11:02:08,449 [INFO] AI scraper started
+2026-04-27 11:02:11,433 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-27 11:04:11,946 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-27 11:04:26,949 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-27 11:04:38,708 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-27 11:04:51,103 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-27 11:05:03,508 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-27 11:05:13,741 [INFO] Seen: 142
+2026-04-27 11:05:13,741 [INFO] New: 142
+2026-04-27 11:05:13,741 [INFO] Detail scraped: 25
+2026-04-27 11:12:16,005 [INFO] FULL DETAIL scraper started
+2026-04-27 11:12:16,866 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-27 11:14:40,251 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-27 11:17:37,144 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-27 11:20:51,144 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-27 11:24:00,891 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-27 11:24:16,225 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-27 11:24:26,539 [INFO] Seen: 142
+2026-04-27 11:24:26,539 [INFO] New: 140
+2026-04-27 12:25:14,981 [INFO] FULL DETAIL scraper started
+2026-04-27 12:25:16,010 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-27 12:25:30,420 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-27 12:25:42,708 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-27 12:25:57,095 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-27 12:26:13,003 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-27 12:26:22,933 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-27 12:26:30,445 [INFO] Seen: 142
+2026-04-27 12:26:30,445 [INFO] New: 3
+2026-04-27 14:38:16,790 [INFO] FULL DETAIL scraper started
+2026-04-27 14:38:19,608 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-27 14:38:34,761 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-27 14:38:47,492 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-27 14:38:59,542 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-27 14:39:09,120 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-27 14:39:21,759 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-27 14:39:31,095 [INFO] Seen: 142
+2026-04-27 14:39:31,095 [INFO] New: 1
+2026-04-27 16:29:38,239 [INFO] FULL DETAIL scraper started
+2026-04-27 16:29:39,369 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-27 16:29:49,292 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-27 16:30:00,332 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-27 16:30:12,086 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-27 16:30:24,336 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-27 16:30:38,935 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-27 16:30:49,119 [INFO] Seen: 142
+2026-04-27 16:30:49,119 [INFO] New: 0
+2026-04-27 18:22:13,560 [INFO] FULL DETAIL scraper started
+2026-04-27 18:22:17,826 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-27 18:22:34,591 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-27 18:22:54,580 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-27 18:23:02,909 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-27 18:23:13,196 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-27 18:23:25,618 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-27 18:23:34,502 [INFO] Seen: 142
+2026-04-27 18:23:34,502 [INFO] New: 2
+2026-04-27 20:20:35,198 [INFO] FULL DETAIL scraper started
+2026-04-27 20:20:36,109 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-27 20:20:48,896 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-27 20:21:13,166 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-27 20:21:24,481 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-27 20:21:37,055 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-27 20:21:51,161 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-27 20:21:59,695 [INFO] Seen: 142
+2026-04-27 20:21:59,695 [INFO] New: 2
+2026-04-27 22:14:37,716 [INFO] FULL DETAIL scraper started
+2026-04-27 22:14:48,431 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-27 22:15:02,694 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-27 22:15:22,818 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-27 22:15:33,310 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-27 22:15:44,101 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-27 22:15:55,574 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-27 22:16:04,030 [INFO] Seen: 142
+2026-04-27 22:16:04,030 [INFO] New: 1
+2026-04-28 00:14:56,996 [INFO] FULL DETAIL scraper started
+2026-04-28 00:14:58,026 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-28 00:15:16,558 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-28 00:15:28,887 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-28 00:15:37,655 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-28 00:15:47,253 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-28 00:15:57,480 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-28 00:16:05,274 [INFO] Seen: 142
+2026-04-28 00:16:05,274 [INFO] New: 1
+2026-04-28 02:59:29,483 [INFO] FULL DETAIL scraper started
+2026-04-28 02:59:31,428 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-28 02:59:43,197 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-28 03:00:01,191 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-28 03:00:12,224 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-28 03:00:20,921 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-28 03:00:32,995 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-28 03:00:40,781 [INFO] Seen: 142
+2026-04-28 03:00:40,781 [INFO] New: 0
+2026-04-28 05:04:28,521 [INFO] FULL DETAIL scraper started
+2026-04-28 05:04:29,720 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-28 05:04:46,175 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-28 05:05:00,605 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-28 05:05:11,032 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-28 05:05:22,014 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-28 05:05:36,780 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-28 05:05:47,355 [INFO] Seen: 142
+2026-04-28 05:05:47,355 [INFO] New: 1
+2026-04-28 06:48:40,404 [INFO] FULL DETAIL scraper started
+2026-04-28 06:48:43,395 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-28 06:49:06,561 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-28 06:49:21,716 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-28 06:49:33,786 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-28 06:49:44,703 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-28 06:50:02,307 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-28 06:50:10,545 [INFO] Seen: 142
+2026-04-28 06:50:10,545 [INFO] New: 2
+2026-04-28 08:44:56,237 [INFO] FULL DETAIL scraper started
+2026-04-28 08:44:57,521 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-28 08:45:11,944 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-28 08:45:27,988 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-28 08:45:39,545 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-28 08:45:51,707 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-28 08:46:04,252 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-28 08:46:12,376 [INFO] Seen: 142
+2026-04-28 08:46:12,376 [INFO] New: 0
+2026-04-28 10:37:12,665 [INFO] FULL DETAIL scraper started
+2026-04-28 10:37:14,451 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-28 10:37:37,194 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-28 10:37:52,538 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-28 10:38:01,939 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-28 10:38:12,959 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-28 10:38:26,582 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-28 10:38:34,260 [INFO] Seen: 142
+2026-04-28 10:38:34,260 [INFO] New: 2
+2026-04-28 12:28:03,047 [INFO] FULL DETAIL scraper started
+2026-04-28 12:28:04,128 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-28 12:28:15,363 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-28 12:28:32,651 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-28 12:28:44,779 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-28 12:28:56,575 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-28 12:29:09,351 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-28 12:29:17,125 [INFO] Seen: 142
+2026-04-28 12:29:17,125 [INFO] New: 0
+2026-04-28 18:26:52,148 [INFO] FULL DETAIL scraper started
+2026-04-28 18:27:02,267 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-28 18:27:19,320 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-28 18:27:50,703 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-28 18:28:00,804 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-28 18:28:10,960 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-28 18:28:22,664 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-28 18:28:32,924 [INFO] Seen: 142
+2026-04-28 18:28:32,925 [INFO] New: 4
+2026-04-28 22:17:20,976 [INFO] FULL DETAIL scraper started
+2026-04-28 22:17:23,114 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-28 22:17:38,988 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-28 22:17:56,885 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-28 22:18:07,025 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-28 22:18:18,147 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-28 22:18:30,826 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-28 22:18:38,802 [INFO] Seen: 142
+2026-04-28 22:18:38,802 [INFO] New: 1
+2026-04-29 02:59:41,373 [INFO] FULL DETAIL scraper started
+2026-04-29 02:59:44,336 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-29 03:00:00,878 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-29 03:00:16,589 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-29 03:00:27,083 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-29 03:00:37,339 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-29 03:00:49,331 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-29 03:00:57,990 [INFO] Seen: 142
+2026-04-29 03:00:57,990 [INFO] New: 1
+2026-04-29 05:02:17,848 [INFO] FULL DETAIL scraper started
+2026-04-29 05:02:20,124 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-29 05:02:30,856 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-29 05:02:47,186 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-29 05:02:58,206 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-29 05:03:09,513 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-29 05:03:21,892 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-29 05:03:32,253 [INFO] Seen: 142
+2026-04-29 05:03:32,253 [INFO] New: 0
+2026-04-29 08:41:23,061 [INFO] FULL DETAIL scraper started
+2026-04-29 08:41:24,377 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-29 08:41:35,810 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-29 08:41:53,064 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-29 08:42:05,107 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-29 08:42:15,735 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-29 08:42:26,844 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-29 08:42:35,453 [INFO] Seen: 142
+2026-04-29 08:42:35,453 [INFO] New: 0
+2026-04-29 12:24:42,783 [INFO] FULL DETAIL scraper started
+2026-04-29 12:24:46,243 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-29 12:25:09,264 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-29 12:25:29,481 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-29 12:25:41,849 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-29 12:25:50,839 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-29 12:26:04,403 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-29 12:26:13,559 [INFO] Seen: 142
+2026-04-29 12:26:13,559 [INFO] New: 3
+2026-04-29 14:42:25,679 [INFO] FULL DETAIL scraper started
+2026-04-29 14:42:26,695 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-29 14:42:36,452 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-29 14:42:51,180 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-29 14:43:04,931 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-29 14:43:17,139 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-29 14:43:30,426 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-29 14:43:38,285 [INFO] Seen: 142
+2026-04-29 14:43:38,285 [INFO] New: 0
+2026-04-29 16:29:42,416 [INFO] FULL DETAIL scraper started
+2026-04-29 16:29:43,855 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-29 16:29:59,528 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-29 16:30:13,878 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-29 16:30:24,823 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-29 16:30:36,453 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-29 16:30:48,314 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-29 16:30:57,252 [INFO] Seen: 142
+2026-04-29 16:30:57,253 [INFO] New: 1
+2026-04-29 18:25:31,226 [INFO] FULL DETAIL scraper started
+2026-04-29 18:25:32,184 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-29 18:25:41,570 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-29 18:25:59,326 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-29 18:26:08,382 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-29 18:26:18,241 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-29 18:26:27,510 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-29 18:26:35,840 [INFO] Seen: 142
+2026-04-29 18:26:35,840 [INFO] New: 1
+2026-04-29 20:21:51,378 [INFO] FULL DETAIL scraper started
+2026-04-29 20:21:52,454 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-29 20:22:06,987 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-29 20:22:25,239 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-29 20:22:36,738 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-29 20:22:47,547 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-29 20:22:58,813 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-29 20:23:06,396 [INFO] Seen: 142
+2026-04-29 20:23:06,397 [INFO] New: 1
+2026-04-29 22:16:45,943 [INFO] FULL DETAIL scraper started
+2026-04-29 22:16:47,812 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-29 22:17:03,785 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-29 22:17:17,528 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-29 22:17:27,064 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-29 22:17:35,277 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-29 22:17:45,778 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-29 22:17:54,357 [INFO] Seen: 142
+2026-04-29 22:17:54,358 [INFO] New: 1
+2026-04-30 00:16:16,599 [INFO] FULL DETAIL scraper started
+2026-04-30 00:16:17,834 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-30 00:16:34,042 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-30 00:16:48,204 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-30 00:16:58,591 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-30 00:17:08,951 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-30 00:17:19,077 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-30 00:17:29,440 [INFO] Seen: 142
+2026-04-30 00:17:29,441 [INFO] New: 1
+2026-04-30 02:59:56,700 [INFO] FULL DETAIL scraper started
+2026-04-30 02:59:57,723 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-30 03:00:15,400 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-30 03:00:28,402 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-30 03:00:39,404 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-30 03:00:50,196 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-30 03:01:00,770 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-30 03:01:10,016 [INFO] Seen: 142
+2026-04-30 03:01:10,016 [INFO] New: 1
+2026-04-30 05:04:19,999 [INFO] FULL DETAIL scraper started
+2026-04-30 05:04:20,947 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-30 05:04:31,804 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-30 05:04:50,489 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-30 05:05:02,098 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-30 05:05:14,240 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-30 05:05:26,629 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-30 05:05:35,017 [INFO] Seen: 142
+2026-04-30 05:05:35,017 [INFO] New: 0
+2026-04-30 08:42:00,277 [INFO] FULL DETAIL scraper started
+2026-04-30 08:42:01,299 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-30 08:42:19,326 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-30 08:42:31,698 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-30 08:42:42,794 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-30 08:42:53,376 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-30 08:43:04,624 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-30 08:43:12,516 [INFO] Seen: 142
+2026-04-30 08:43:12,516 [INFO] New: 1
+2026-04-30 10:32:10,083 [INFO] FULL DETAIL scraper started
+2026-04-30 10:32:12,688 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-30 10:32:37,899 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-30 10:32:52,617 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-30 10:33:04,313 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-30 10:33:16,108 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-30 10:33:27,048 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-30 10:33:36,129 [INFO] Seen: 142
+2026-04-30 10:33:36,129 [INFO] New: 2
+2026-04-30 12:25:07,336 [INFO] FULL DETAIL scraper started
+2026-04-30 12:25:08,173 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-30 12:25:19,743 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-30 12:25:41,301 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-30 12:25:52,866 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-30 12:26:04,597 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-30 12:26:16,064 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-30 12:26:24,042 [INFO] Seen: 142
+2026-04-30 12:26:24,042 [INFO] New: 1
+2026-04-30 14:38:27,791 [INFO] FULL DETAIL scraper started
+2026-04-30 14:38:29,180 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-30 14:38:48,684 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-30 14:39:03,962 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-30 14:39:17,056 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-30 14:39:25,905 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-30 14:39:37,315 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-30 14:39:46,087 [INFO] Seen: 142
+2026-04-30 14:39:46,087 [INFO] New: 1
+2026-04-30 16:28:07,895 [INFO] FULL DETAIL scraper started
+2026-04-30 16:28:08,677 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-30 16:28:27,410 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-30 16:28:40,982 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-30 16:28:52,510 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-30 16:29:04,405 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-30 16:29:16,612 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-30 16:29:25,288 [INFO] Seen: 142
+2026-04-30 16:29:25,288 [INFO] New: 1
+2026-04-30 18:24:19,750 [INFO] FULL DETAIL scraper started
+2026-04-30 18:24:20,896 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-30 18:24:32,456 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-30 18:24:47,554 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-30 18:24:58,080 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-30 18:25:09,614 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-30 18:25:20,647 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-30 18:25:28,698 [INFO] Seen: 142
+2026-04-30 18:25:28,698 [INFO] New: 0
+2026-04-30 20:21:15,439 [INFO] FULL DETAIL scraper started
+2026-04-30 20:21:16,469 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-30 20:21:28,159 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-30 20:21:51,961 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-30 20:22:01,653 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-30 20:22:10,353 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-30 20:22:21,962 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-30 20:22:30,598 [INFO] Seen: 142
+2026-04-30 20:22:30,598 [INFO] New: 2
+2026-04-30 22:16:01,593 [INFO] FULL DETAIL scraper started
+2026-04-30 22:16:02,796 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-04-30 22:16:19,363 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-04-30 22:16:35,639 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-04-30 22:16:44,003 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-04-30 22:16:51,700 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-04-30 22:17:03,263 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-04-30 22:17:11,789 [INFO] Seen: 142
+2026-04-30 22:17:11,789 [INFO] New: 2
+2026-05-01 00:15:37,278 [INFO] FULL DETAIL scraper started
+2026-05-01 00:15:38,424 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-05-01 00:15:54,596 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-05-01 00:16:10,887 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-05-01 00:16:18,792 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-05-01 00:16:29,013 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-05-01 00:16:39,184 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-05-01 00:16:46,795 [INFO] Seen: 142
+2026-05-01 00:16:46,795 [INFO] New: 1
+2026-05-01 02:59:45,089 [INFO] FULL DETAIL scraper started
+2026-05-01 02:59:46,084 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-05-01 03:00:00,178 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-05-01 03:00:13,537 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-05-01 03:00:24,387 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-05-01 03:00:35,898 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-05-01 03:00:46,997 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-05-01 03:00:55,376 [INFO] Seen: 142
+2026-05-01 03:00:55,376 [INFO] New: 0
+2026-05-01 05:13:25,117 [INFO] FULL DETAIL scraper started
+2026-05-01 05:13:27,783 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-05-01 05:13:44,371 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-05-01 05:13:59,235 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-05-01 05:14:10,768 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-05-01 05:14:21,415 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-05-01 05:14:34,238 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-05-01 05:14:44,772 [INFO] Seen: 142
+2026-05-01 05:14:44,773 [INFO] New: 1
+2026-05-01 06:48:53,520 [INFO] FULL DETAIL scraper started
+2026-05-01 06:48:54,355 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-05-01 06:49:07,449 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-05-01 06:49:24,502 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-05-01 06:49:35,561 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-05-01 06:49:44,787 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-05-01 06:49:56,772 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-05-01 06:50:06,428 [INFO] Seen: 142
+2026-05-01 06:50:06,428 [INFO] New: 0
+2026-05-01 08:34:51,098 [INFO] FULL DETAIL scraper started
+2026-05-01 08:34:52,226 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-05-01 08:35:02,586 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-05-01 08:35:18,552 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-05-01 08:35:30,731 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-05-01 08:35:42,028 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-05-01 08:35:53,079 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-05-01 08:36:03,482 [INFO] Seen: 142
+2026-05-01 08:36:03,482 [INFO] New: 0
+2026-05-01 12:14:12,317 [INFO] FULL DETAIL scraper started
+2026-05-01 12:14:13,031 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-05-01 12:14:34,901 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-05-01 12:14:48,781 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-05-01 12:14:58,474 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-05-01 12:15:10,530 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-05-01 12:15:23,980 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-05-01 12:15:32,154 [INFO] Seen: 142
+2026-05-01 12:15:32,154 [INFO] New: 2
+2026-05-01 14:22:20,012 [INFO] FULL DETAIL scraper started
+2026-05-01 14:22:21,110 [INFO] bbc_tech -> https://www.bbc.com/innovation/technology
+2026-05-01 14:22:32,420 [INFO] ars_technica -> https://arstechnica.com/ai/
+2026-05-01 14:22:44,626 [INFO] ars_technica -> https://arstechnica.com/ai/page/2/
+2026-05-01 14:22:55,992 [INFO] ars_technica -> https://arstechnica.com/ai/page/3/
+2026-05-01 14:23:06,424 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/
+2026-05-01 14:23:19,133 [INFO] techcrunch_ai -> https://techcrunch.com/category/artificial-intelligence/page/2/
+2026-05-01 14:23:28,057 [INFO] Seen: 142
+2026-05-01 14:23:28,057 [INFO] New: 0

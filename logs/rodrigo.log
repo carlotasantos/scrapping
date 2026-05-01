@@ -1,0 +1,148 @@
+2026-04-26 16:17:07,274 - INFO - In�cio do scraping
+2026-04-26 16:17:10,662 - INFO - Scraping terminado
+2026-04-26 15:44:15,554 - INFO - Início do scraping
+2026-04-26 15:44:17,081 - INFO - Scraping terminado
+2026-04-26 17:43:43,983 - INFO - In�cio do scraping de filmes
+2026-04-26 17:46:31,316 - INFO - In�cio do scraping de filmes - The Numbers
+2026-04-26 18:02:31,970 - INFO - In�cio do scraping Rotten Tomatoes
+2026-04-26 18:02:32,821 - INFO - Foram recolhidos 28 filmes
+2026-04-26 18:08:42,777 - INFO - In�cio do scraping Rotten Tomatoes
+2026-04-26 18:08:44,186 - INFO - Foram recolhidos 28 filmes
+2026-04-26 18:12:14,395 - INFO - In�cio do scraping Rotten Tomatoes
+2026-04-26 18:12:33,746 - INFO - Foram recolhidos 10 filmes
+2026-04-26 18:24:43,671 - INFO - In�cio do scraping IMDb
+2026-04-26 18:24:44,491 - INFO - Foram recolhidos 0 filmes
+2026-04-26 18:25:55,017 - INFO - In�cio do scraping IMDb
+2026-04-26 18:25:56,080 - INFO - Foram recolhidos 0 filmes
+2026-04-26 18:29:49,465 - INFO - In�cio do scraping IMDb
+2026-04-26 18:32:02,326 - INFO - In�cio do scraping IMDb
+2026-04-26 18:50:06,994 - INFO - In�cio do scraping Rotten Tomatoes
+2026-04-26 18:50:08,320 - INFO - Foram recolhidos 10 filmes
+2026-04-26 17:50:51,380 - INFO - Início do scraping Rotten Tomatoes
+2026-04-26 17:50:51,554 - INFO - Foram recolhidos 10 filmes
+2026-04-26 18:41:50,254 - INFO - Início do scraping Rotten Tomatoes
+2026-04-26 18:41:50,645 - INFO - Foram recolhidos 10 filmes
+2026-04-27 10:12:37,793 - INFO - In�cio do scraping TechCrunch AI
+2026-04-27 10:19:56,183 - INFO - In�cio da recolha de not�cias sobre IA - WIRED
+2026-04-27 10:19:57,110 - INFO - Foram recolhidas 0 not�cias
+2026-04-27 10:22:58,722 - INFO - In�cio da recolha de not�cias IA (Reddit)
+2026-04-27 10:26:45,497 - INFO - In�cio do scraping AI News
+2026-04-27 10:26:57,729 - INFO - Foram recolhidas 10 not�cias
+2026-04-27 10:31:18,862 - INFO - In�cio do scraping AI News
+2026-04-27 10:32:30,504 - INFO - In�cio do scraping AI News
+2026-04-27 10:32:40,406 - INFO - Foram recolhidas 10 not�cias
+2026-04-27 10:36:36,392 - INFO - In�cio do scraping AI News
+2026-04-27 10:36:47,522 - INFO - Foram recolhidas 10 not�cias
+2026-04-27 10:41:28,448 - INFO - In�cio do scraping AI News
+2026-04-27 10:41:38,910 - INFO - Foram recolhidas 10 not�cias
+2026-04-27 10:52:17,963 - INFO - In�cio do scraping AI News
+2026-04-27 10:52:29,055 - INFO - Foram recolhidas 10 not�cias
+2026-04-27 10:01:13,228 - INFO - Início do scraping AI News
+2026-04-27 10:01:26,094 - INFO - Foram recolhidas 10 notícias
+2026-04-27 10:32:59,494 - INFO - Início do scraping AI News
+2026-04-27 10:33:00,404 - INFO - Foram recolhidas 0 notícias
+2026-04-27 10:56:45,272 - INFO - Início do scraping AI News
+2026-04-27 10:56:58,734 - INFO - Foram recolhidas 10 notícias
+2026-04-27 11:36:06,884 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-27 11:36:09,753 - INFO - Foram recolhidas 551 notícias
+2026-04-27 12:19:33,284 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-27 12:19:36,811 - INFO - Foram recolhidas 551 notícias
+2026-04-27 14:04:39,195 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-27 14:04:43,479 - INFO - Foram recolhidas 551 notícias
+2026-04-27 15:01:48,135 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-27 15:01:51,368 - INFO - Foram recolhidas 551 notícias
+2026-04-27 17:17:02,053 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-27 17:17:17,968 - INFO - Foram recolhidas 551 notícias
+2026-04-27 19:08:49,773 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-27 19:08:51,585 - INFO - Foram recolhidas 551 notícias
+2026-04-27 20:56:00,556 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-27 20:56:02,855 - INFO - Foram recolhidas 551 notícias
+2026-04-27 21:55:08,355 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-27 21:55:08,573 - INFO - Foram recolhidas 550 notícias
+2026-04-27 22:44:02,094 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-27 22:44:04,033 - INFO - Foram recolhidas 551 notícias
+2026-04-27 23:46:02,846 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-27 23:46:07,445 - INFO - Foram recolhidas 551 notícias
+2026-04-28 02:15:10,332 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-28 02:15:12,134 - INFO - Foram recolhidas 551 notícias
+2026-04-28 05:53:31,473 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-28 05:53:33,741 - INFO - Foram recolhidas 551 notícias
+2026-04-28 08:13:16,060 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-28 08:13:19,816 - INFO - Foram recolhidas 551 notícias
+2026-04-28 10:59:13,166 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-28 10:59:15,455 - INFO - Foram recolhidas 551 notícias
+2026-04-28 12:25:41,463 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-28 12:25:45,367 - INFO - Foram recolhidas 551 notícias
+2026-04-28 15:24:02,877 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-28 15:24:05,965 - INFO - Foram recolhidas 551 notícias
+2026-04-28 17:42:41,693 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-28 17:42:45,236 - INFO - Foram recolhidas 551 notícias
+2026-04-28 19:24:58,762 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-28 19:25:00,584 - INFO - Foram recolhidas 551 notícias
+2026-04-28 21:02:26,721 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-28 21:02:32,095 - INFO - Foram recolhidas 551 notícias
+2026-04-28 22:50:57,065 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-28 22:50:59,182 - INFO - Foram recolhidas 551 notícias
+2026-04-28 23:49:39,966 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-28 23:49:40,374 - INFO - Foram recolhidas 550 notícias
+2026-04-29 02:24:56,083 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 02:24:58,028 - INFO - Foram recolhidas 551 notícias
+2026-04-29 05:48:47,058 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 05:48:49,533 - INFO - Foram recolhidas 551 notícias
+2026-04-29 08:06:20,189 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 08:06:20,491 - INFO - Foram recolhidas 550 notícias
+2026-04-29 10:49:51,537 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 10:49:51,673 - INFO - Foram recolhidas 550 notícias
+2026-04-29 12:13:29,602 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 12:13:34,710 - INFO - Foram recolhidas 551 notícias
+2026-04-29 15:07:16,225 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 15:07:21,117 - INFO - Foram recolhidas 551 notícias
+2026-04-29 15:43:49,098 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 16:15:42,975 - INFO - Foram recolhidas 987 notícias
+2026-04-29 17:43:03,846 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 18:15:30,107 - WARNING - Erro ao processar notícia https://www.artificialintelligence-news.com/news/visitdenmark-brings-iconic-tourist-attractions-to-life-in-ai-produced-campaign/: HTTPSConnectionPool(host='www.artificialintelligence-news.com', port=443): Max retries exceeded with url: /news/visitdenmark-brings-iconic-tourist-attractions-to-life-in-ai-produced-campaign/ (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))
+2026-04-29 18:25:39,135 - INFO - Foram recolhidas 1066 notícias
+2026-04-29 18:49:44,732 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 18:49:45,524 - INFO - Foram recolhidas 550 notícias
+2026-04-29 20:04:45,705 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 20:24:45,443 - INFO - Foram recolhidas 1069 notícias
+2026-04-29 21:05:15,145 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 21:24:47,628 - INFO - Foram recolhidas 1069 notícias
+2026-04-29 22:04:45,981 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-29 22:24:06,677 - INFO - Foram recolhidas 1069 notícias
+2026-04-30 00:00:37,682 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-30 00:21:43,627 - INFO - Foram recolhidas 1069 notícias
+2026-04-30 04:35:38,603 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-30 04:54:26,775 - INFO - Foram recolhidas 1069 notícias
+2026-04-30 07:31:05,597 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-30 07:49:35,269 - INFO - Foram recolhidas 1069 notícias
+2026-04-30 10:11:47,912 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-30 10:37:59,176 - INFO - Foram recolhidas 1170 notícias
+2026-04-30 10:43:21,961 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-30 11:08:17,042 - INFO - Foram recolhidas 1170 notícias
+2026-04-30 12:17:49,134 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-30 12:45:37,822 - INFO - Foram recolhidas 1171 notícias
+2026-04-30 15:14:49,039 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-30 15:43:54,082 - INFO - Foram recolhidas 1171 notícias
+2026-04-30 17:26:41,763 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-30 17:52:50,427 - INFO - Foram recolhidas 1171 notícias
+2026-04-30 19:42:11,554 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-30 20:06:50,331 - INFO - Foram recolhidas 1171 notícias
+2026-04-30 21:07:15,409 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-30 21:31:30,092 - INFO - Foram recolhidas 1171 notícias
+2026-04-30 22:57:55,541 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-04-30 23:21:50,194 - INFO - Foram recolhidas 1171 notícias
+2026-04-30 23:59:31,007 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-05-01 00:26:11,455 - INFO - Foram recolhidas 1171 notícias
+2026-05-01 04:11:22,368 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-05-01 04:37:03,709 - INFO - Foram recolhidas 1171 notícias
+2026-05-01 07:28:29,937 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-05-01 07:51:13,296 - INFO - Foram recolhidas 1171 notícias
+2026-05-01 09:52:28,088 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-05-01 10:18:29,809 - INFO - Foram recolhidas 1171 notícias
+2026-05-01 11:12:44,712 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-05-01 11:38:58,357 - INFO - Foram recolhidas 1172 notícias
+2026-05-01 13:41:18,241 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-05-01 14:07:28,633 - INFO - Foram recolhidas 1173 notícias
+2026-05-01 15:02:24,882 - INFO - Início do scraping com múltiplas fontes e paginação
+2026-05-01 15:02:28,867 - INFO - Foram recolhidas 1173 notícias
