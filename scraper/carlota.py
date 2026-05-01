@@ -1,3 +1,4 @@
+# Imports
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -8,11 +9,10 @@ import hashlib
 import re
 from datetime import datetime, UTC
 from urllib.parse import urljoin
-
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-# -------- PATHS --------
+# Configurações de diretorias e ficheiros
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 LOG_DIR = os.path.join(BASE_DIR, "logs")
@@ -22,81 +22,85 @@ os.makedirs(LOG_DIR, exist_ok=True)
 
 OUTPUT_FILE = os.path.join(DATA_DIR, "scraper.json")
 
-# -------- LOGGING --------
+# Logs
+# Configuração básica de logging para registrar informações e erros durante 
+# a execução do scraper.
 logging.basicConfig(
     filename=os.path.join(LOG_DIR, "scraper.log"),
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
+# Links de onde os dados serão extraidos
 SAPO_URL = "https://sapo.pt/tags/inteligencia-artificial"
 TDS_URL = "https://towardsdatascience.com/latest/"
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
+# Funções auxiliares
 
+# Função para limpar e normalizar texto, removendo espaços extras.
 def clean(text):
     return " ".join(text.split()) if text else None
 
-
+# Função para gerar um ID único a partir de uma URL usando MD5.
 def make_id(url):
     return hashlib.md5(url.encode()).hexdigest()
 
-
+# Função para fazer uma requisição HTTP GET.
+# Retorna HTML ou None em caso de erro.
 def get_html(url, params=None):
     try:
         r = requests.get(url, headers=HEADERS, params=params, timeout=20)
         r.raise_for_status()
         return r.text
-    except:
+    except requests.RequestException as e:
+        logging.error(f"Erro HTTP em {url}: {e}")
         return None
 
-
+# Função para analisar datas em múltiplos formatos e normalizar para ISO 8601.
+# Devido a diversidade de formatos encontrados, esta função tenta várias 
+# abordagens para extrair a data.Tanto em Português(Sapo) quanto em Inglês(TDS).
 def parse_date(text):
     text = clean(text)
     if not text:
         return None
 
+    # Normaliza UTC (Z → +00:00)
     value = text.replace("Z", "+00:00")
+
     try:
         return datetime.fromisoformat(value).isoformat()
     except ValueError:
         pass
 
+    # Caso simples: YYYY-MM-DD
     match = re.search(r"\d{4}-\d{2}-\d{2}", text)
     if match:
         return match.group(0)
 
+    # Mapeamento manual de meses (PT + EN)
     months = {
-        "janeiro": "01",
-        "january": "01",
-        "fevereiro": "02",
-        "february": "02",
-        "marco": "03",
-        "março": "03",
-        "march": "03",
-        "abril": "04",
-        "april": "04",
-        "maio": "05",
-        "may": "05",
-        "junho": "06",
-        "june": "06",
-        "julho": "07",
-        "july": "07",
-        "agosto": "08",
-        "august": "08",
-        "setembro": "09",
-        "september": "09",
-        "outubro": "10",
-        "october": "10",
-        "novembro": "11",
-        "november": "11",
-        "dezembro": "12",
-        "december": "12",
+        "janeiro": "01", "january": "01",
+        "fevereiro": "02", "february": "02",
+        "marco": "03", "março": "03", "march": "03",
+        "abril": "04", "april": "04",
+        "maio": "05", "may": "05",
+        "junho": "06", "june": "06",
+        "julho": "07", "july": "07",
+        "agosto": "08", "august": "08",
+        "setembro": "09", "september": "09",
+        "outubro": "10", "october": "10",
+        "novembro": "11", "november": "11",
+        "dezembro": "12", "december": "12",
     }
+
+    # Formato Expl: 10 maio 2024
     pattern = r"(\d{1,2})\s+(?:de\s+)?([a-zç]+)\s+(?:de\s+)?(\d{4})(?:\s+(\d{1,2}):(\d{2}))?"
     match = re.search(pattern, text.lower())
+
     if not match:
+        # Formato Expl: May 10, 2024
         pattern = r"([a-z]+)\s+(\d{1,2}),\s+(\d{4})(?:\s+(\d{1,2}):(\d{2}))?"
         match = re.search(pattern, text.lower())
         if match:
@@ -111,11 +115,13 @@ def parse_date(text):
         return None
 
     date = f"{year}-{month}-{int(day):02d}"
+
     if hour and minute:
         return f"{date}T{int(hour):02d}:{minute}:00"
+
     return date
 
-
+# Extrai data de publicação a partir do HTML
 def extract_published_at_from_soup(soup):
     selectors = [
         'meta[property="article:published_time"]',
@@ -136,6 +142,7 @@ def extract_published_at_from_soup(soup):
         if parsed:
             return parsed
 
+    # Fallback genérico
     for element in soup.select("time, .metadata, .meta"):
         parsed = parse_date(element.get_text())
         if parsed:
@@ -143,7 +150,10 @@ def extract_published_at_from_soup(soup):
 
     return None
 
-
+# Frases irrelevantes  que aparecem frequentemente em artigos do sapo devido a 
+# utilização de IA para gerar voz ou resumos,
+#  ou para solicitar feedback dos utilizadores
+# Removemos para evitar falsos positivos de texto útil.
 BOILERPLATE_PHRASES = [
     "esta voz foi gerada com recurso a inteligência artificial",
     "este resumo foi criado com recurso a inteligência artificial",
@@ -151,21 +161,20 @@ BOILERPLATE_PHRASES = [
     "se consideras que o áudio não está claro",
 ]
 
-
+# Filtra conteúdo útil
 def is_useful_text(text):
     text = clean(text)
     if not text:
         return False
 
     lower = text.lower()
+
     if "publicidade" in lower:
         return False
 
     return not any(phrase in lower for phrase in BOILERPLATE_PHRASES)
 
-
-
-# -------- SAPO --------
+# SAPO (estático)
 def scrape_sapo(known_urls):
     articles = []
     page = 1
@@ -182,14 +191,19 @@ def scrape_sapo(known_urls):
             break
 
         new_on_page = 0
+
         for a in items:
             link = a.select_one("h3 a")
             if not link:
                 continue
+
             url = urljoin(SAPO_URL, link["href"])
+
             if url in known_urls:
                 continue
+
             new_on_page += 1
+
             articles.append({
                 "title": clean(link.get_text()),
                 "url": url,
@@ -205,8 +219,7 @@ def scrape_sapo(known_urls):
     logging.info(f"SAPO: {len(articles)} artigos novos")
     return articles
 
-
-# -------- TOWARDS DATA SCIENCE (Selenium) --------
+# Towards Data Science (dinâmico)
 def scrape_tds(known_urls):
     options = Options()
 
@@ -220,6 +233,8 @@ def scrape_tds(known_urls):
 
     driver = webdriver.Chrome(options=options)
     driver.set_page_load_timeout(120)
+
+    # Evitar deteção como bot
     driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
         "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
     })
@@ -227,15 +242,19 @@ def scrape_tds(known_urls):
     articles = []
     seen = set()
     page = 1
+    # Definimos um limite máximo de páginas porque continha 2569 e o scraper
+    # demorava muito tempo a correr.
     max_pages = 250
 
     while page <= max_pages:
         page_url = TDS_URL if page == 1 else f"https://towardsdatascience.com/latest/page/{page}/"
+
         try:
             driver.get(page_url)
         except Exception as e:
             logging.error(f"TDS: erro ao carregar {page_url}: {e}")
             break
+
         time.sleep(3)
 
         soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -246,26 +265,32 @@ def scrape_tds(known_urls):
             break
 
         new_on_page = 0
+
         for li in items:
             title_el = li.find(["h2", "h3", "h4"])
             title = clean(title_el.get_text()) if title_el else None
 
             a = li.find("a", href=True)
             url = urljoin(TDS_URL, a["href"]) if a else None
+
             excerpt_el = li.select_one(".wp-block-post-excerpt__excerpt")
             description = clean(excerpt_el.get_text()) if excerpt_el else None
+
             date_el = li.select_one(".wp-block-post-date time[datetime], time[datetime], .wp-block-post-date time, time, .wp-block-post-date")
             published_at = None
+
             if date_el:
                 published_at = parse_date(date_el.get("datetime") or date_el.get_text())
 
             if not title or not url or len(title) < 3:
                 continue
+
             if url in seen or url in known_urls:
                 continue
 
             new_on_page += 1
             seen.add(url)
+
             articles.append({
                 "title": title,
                 "url": url,
@@ -273,7 +298,6 @@ def scrape_tds(known_urls):
                 "description": description,
                 "published_at": published_at
             })
-            logging.info(f"✓ TDS p{page}: {title[:60]} | {url}")
 
         logging.info(f"TDS página {page}: {new_on_page} artigos novos")
 
@@ -287,8 +311,7 @@ def scrape_tds(known_urls):
     logging.info(f"TDS: {len(articles)} artigos novos no total")
     return articles
 
-
-# -------- CONTENT --------
+# Extração de conteúdo de artigo
 def extract_article_data(url):
     html = get_html(url)
     if not html:
@@ -297,6 +320,7 @@ def extract_article_data(url):
     soup = BeautifulSoup(html, "html.parser")
     published_at = extract_published_at_from_soup(soup)
 
+    # Remove elementos irrelevantes
     for tag in soup(["script", "style", "noscript"]):
         tag.decompose()
 
@@ -311,41 +335,44 @@ def extract_article_data(url):
     ]
 
     paragraphs = []
+
     for selector in selectors:
         paragraphs = [
             clean(p.get_text())
             for p in soup.select(selector)
             if clean(p.get_text())
         ]
+
         paragraphs = [
             p for p in paragraphs
             if len(p) >= 80 and is_useful_text(p)
         ]
+
         if paragraphs:
             break
 
     if paragraphs:
         return clean(" ".join(paragraphs[:3])), published_at
 
+    # Fallback meta description
     meta = soup.select_one('meta[name="description"], meta[property="og:description"]')
     if meta and meta.get("content") and is_useful_text(meta["content"]):
         return clean(meta["content"]), published_at
 
+    # Último fallback
     p = soup.select_one("p")
     text = clean(p.get_text()) if p else None
+
     return text if is_useful_text(text) else None, published_at
 
-
-def extract_content(url):
-    content, _ = extract_article_data(url)
-    return content
-
-
-# -------- MAIN --------
+# Função principal
+#Verifica artigos novos, extrai dados adicionais se necessário, 
+#e atualiza o ficheiro JSON.Caso não haja artigos novos,
+#mantém o ficheiro sem alterações para evitar mudanças desnecessárias.
 def scrape():
     now = datetime.now(UTC).isoformat()
 
-    # Load existing articles and build known-URL index
+    # Carrega dados existentes
     if os.path.exists(OUTPUT_FILE):
         with open(OUTPUT_FILE, encoding="utf-8") as f:
             existing = json.load(f)
@@ -370,6 +397,7 @@ def scrape():
 
         desc = art.get("description")
         published_at = art.get("published_at")
+
         if not desc and art["source"] == "sapo":
             desc, published_at = extract_article_data(art["url"])
 
@@ -395,7 +423,6 @@ def scrape():
         json.dump(results, f, indent=2, ensure_ascii=False)
 
     logging.info(f"Novos: {len(new_results)} | Total: {len(results)}")
-
 
 if __name__ == "__main__":
     scrape()

@@ -1,3 +1,4 @@
+#Imports
 import os
 import re
 import json
@@ -6,11 +7,10 @@ import logging
 import hashlib
 from datetime import datetime, timezone
 from urllib.parse import urljoin, urlparse
-
 import requests
 from bs4 import BeautifulSoup
 
-
+# Configurações de fontes, limites e arquivos
 FONTES = [
     {
         "name": "AI News - Latest",
@@ -38,15 +38,18 @@ FONTES = [
     }
 ]
 
+#Pastas e ficheiros de armazenamento e logs
 DATA_FILE = "data/news.json"
 LOG_FILE = "logs/scraper.log"
 
+# Limites para evitar excesso de scraping e garantir diversidade
 MAX_NOTICIAS = 2000
 MAX_PAGINAS_POR_FONTE = 100
 
 os.makedirs("data", exist_ok=True)
 os.makedirs("logs", exist_ok=True)
 
+# Configuração de logging para erros e progresso
 logging.basicConfig(
     filename=LOG_FILE,
     level=logging.INFO,
@@ -57,15 +60,19 @@ headers = {
     "User-Agent": "Mozilla/5.0"
 }
 
-
+# Esta função limpa o texto removendo espaços extras, quebras de linha e 
+# outros caracteres desnecessários, garantindo que o conteúdo armazenado seja ~
+# mais consistente e fácil de processar
 def limpar_texto(texto):
     return re.sub(r"\s+", " ", texto).strip()
 
-
+# Esta função gera um ID único para cada notícia com base na URL, 
+# usando MD5 para garantir consistência e evitar duplicados.
 def gerar_id(url):
     return hashlib.md5(url.encode()).hexdigest()
 
-
+# Esta função carrega as notícias já recolhidas para evitar duplicados e 
+# permitir continuidade entre execuções do scraper.
 def carregar_existentes():
     if not os.path.exists(DATA_FILE):
         return []
@@ -76,7 +83,8 @@ def carregar_existentes():
     except Exception:
         return []
 
-
+ # Esta função extrai o conteúdo, data de publicação e autor de uma notícia a 
+ # partir da seu URL.
 def extrair_detalhes(url):
     response = requests.get(url, headers=headers, timeout=20)
     response.raise_for_status()
@@ -134,7 +142,8 @@ def extrair_detalhes(url):
 
     return content, published_at, author
 
-
+# Esta função extrai os links de notícias de uma página,~
+# garantindo que são relevantes e evitando duplicados ou links de paginação.
 def extrair_links_da_pagina(url_pagina, domain):
     try:
         response = requests.get(url_pagina, headers=headers, timeout=20)
