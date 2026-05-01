@@ -1,4 +1,4 @@
-name: Scraper AI News — Execução Horária
+name: Scraper AI News 
 
 on:
   schedule:
